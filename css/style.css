@@ -1,0 +1,50 @@
+
+.contenedor_principal{
+    display: flex;
+    flex-wrap: wrap;
+    align-content: space-between;
+    height: 100px;
+}
+.contenedor_logo{
+    border: 2px solid;
+    width: 29%;
+    height: 100px;
+}
+.contenedor_frase{
+    border: 2px solid;
+    text-shadow: 0 0 15px #275F42;
+    margin-left: 20px;
+    width: 50%;
+    height: 100px;
+    line-height: 100px;
+    text-align: center;
+    font-family: 'Kanit', sans-serif;
+    font-weight: bold;
+    font-size: 30px;
+    color: #fff
+}
+span{
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 30px;
+}
+.contenedor_botones{
+    width: 15%;
+    height: 100px;
+}
+
+.contenedor_botton_inicio{
+    margin-top:20px;
+    text-align: center;
+}
+.contenedor_botton_registro{
+    margin-top: 10px;
+    text-align: center;
+}
+
+#imagen_logo{
+    width: 100%;
+    height: 100px;
+}
+
+
