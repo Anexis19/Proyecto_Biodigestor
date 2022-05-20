@@ -8,10 +8,17 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,400;1,400;1,500;1,900&family=Lobster&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/b50f20f4b1.js" crossorigin="anonymous"></script>
+    <!-- Estilos del carousel -->
+    <link rel="stylesheet" href="css/glide.core.min.css">
+    <link rel="stylesheet" href="css/glide.theme.min.css">
     <title>Automatic Life Gas</title>
 </head>
 <body>
+
+    <!-- CABECERA DE TRABAJO -->
     <header>
 
         <div class="contenedor_principal">
@@ -34,6 +41,48 @@
 
     </header>
 
+    <!-- CARRUSEL GLIDE -->
+    <div class="contenedor_carousel">
+        <!-- Inicio carousel imagenes -->
+        <div class="glide">
+
+            <div class="glide__track" data-glide-el="track">
+                <ul class="glide__slides">
+                    <li class="glide__slide"><img src="images/img_slide1.jpg" alt="Error al cargar la imagen"></li>
+                    <li class="glide__slide"><img src="images/img_slide2.jpg" alt="Error al cargar la imagen"></li>
+                    <li class="glide__slide"><img src="images/img_slide3.jpg" alt="Error al cargar la imagen"></li>
+                    <li class="glide__slide"><img src="images/img_slide4.jpg" alt="Error al cargar la imagen"></li>
+                    <li class="glide__slide"><img src="images/img_slide5.jpg" alt="Error al cargar la imagen"></li>
+                    <li class="glide__slide"><img src="images/img_slide6.jpg" alt="Error al cargar la imagen"></li>
+                    <li class="glide__slide"><img src="images/img_slide7.jpg" alt="Error al cargar la imagen"></li>
+                    <li class="glide__slide"><img src="images/img_slide8.jpg" alt="Error al cargar la imagen"></li>
+                </ul>
+            </div>
+            <div class="glide__arrows" data-glide-el="controls">
+                <button class="carousel_anterior" data-glide-dir="<"><i class="fas fa-chevron-circle-left fa-2x"></i></button>
+                <button class="carousel_siguiente" data-glide-dir=">"><i class="fas fa-chevron-circle-right fa-2x"></i></button>
+            </div>
+        </div>
+    </div>
+    <!-- CDN GLIDE JS -->
+    <script src="https://cdn.jsdelivr.net/npm/@glidejs/glide"></script>
+    <!-- INICIACION GLIDE -->
+    <script>
+        new Glide('.glide',{
+            type: 'carousel',
+            perView: 4,
+            focusAt: 'center',
+            gap:40,
+            breakpoint:{
+                1200:{
+                    perView:3
+                },
+                800:{
+                    perView:2
+                }
+            }
+        }).mount()
+    </script>
 
 
 </body>

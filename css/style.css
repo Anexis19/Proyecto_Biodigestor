@@ -85,4 +85,65 @@ button{
     height: 149px;
 }
 
+/* =================================
+CAROUSEL DE IMAGENES
+ =================================  */
 
+ .contenedor_carousel{
+    margin-top: 50px;
+    padding: 0;
+    height: 280px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+ }
+ .glide__slide img{
+    height: 280px;
+    width: 312px;
+    border-radius: 5px;
+ }
+
+ .carousel_siguiente,
+ .carousel_anterior{
+    margin-top: 16px;
+    background: rgba(0, 128, 128, 0.8);
+    position: absolute;
+    display: block;
+    width: 50px;
+    height: 280px;
+    border: none;
+    top: 0%;
+    cursor: pointer;
+    line-height: 30px;
+    text-align: center;
+    color: white;
+    opacity: 40%;
+    z-index: 500;
+
+ }
+
+ .carousel_anterior:hover,
+ .carousel_siguiente:hover{
+     opacity: 100%;
+ }
+
+ .carousel_anterior{
+     left: 0px;
+ }
+ .carousel_siguiente{
+     right: 0px;
+ }
+
+ .glide__slide{
+    filter: blur(6px);
+    opacity: .7;
+    transition: .3s linear;
+ }
+ .glide__slide--active{
+    opacity: 1;
+    filter: none;
+    transform: scale(1,1);
+ }
+ .glide__slide{
+     overflow: visible;
+ }
