@@ -33,14 +33,96 @@
     <!-- INICIO DEL FORMULARIO -->
 
     <div class="contenedor_form">
+        <div class="contenedor_img">
+            <img src="../images/icon.png" class="avatar" alt="Error al cargar la imagen">
+        </div>
         <h2>FORMULARIO DE REGISTRO</h2>
-        <form action="">
-
-            <label for="">Nombres y Apellidos</label>
-            <input type="text" placeholder="nombres y apellidos">
-
-
-
+        <form action="" method="POST" class="form">
+            <div class="form_container">
+                <div class="form_group">
+                    <label for="nombre_suaurio">Nombres y apellidos </label>
+                    <input type="text" name="nombre_usuario" class="input_decor" placeholder="nombres y apellidos" required>
+                    <span class="form_line"></span>
+                </div>
+            </div>
+            <div class="form_container">
+                <div class="form_group">
+                    <label for="fecha_nac">Fecha de nacimiento </label>
+                    <input type="date" name="fecha_nac" id="" required class="input_decor">
+                    <span class="form_line"></span>
+                </div>
+            </div>
+            <div class="form_container">
+                <div class="form_group">
+                    <label for="tipo_doc"> Tipo de documento </label>
+                    <select class="input_decor" name="tipo_doc">
+                        <option value="">Seleccione</option>
+                        <option value="CC">Cedula de ciudadania</option>
+                        <option value="PST">Pasaporte</option>
+                    </select>
+                    <span class="form_line"></span>
+                </div>
+            <div class="form_container">
+                <div class="form_group">
+                    <label for="numero_id"> Numero de identificacion </label>
+                    <input type="text" name="numero_id" class="input_decor" placeholder="Número de identificación">
+                    <span class="form_line"></span>
+                </div>
+            </div>
+            <div class="form_container">
+                <div class="form_group">
+                    <label for="numero_id"> Numero de identificacion </label>
+                    <input type="text" name="numero_id" class="input_decor" placeholder="Número de identificación">
+                    <span class="form_line"></span>
+                </div>
+            </div>
+            <div class="form_container">
+                <div class="form_group">
+                    <label for="numero_dirc"> Dirección </label>
+                    <input type="text" name="numero_dirc" class="input_decor" placeholder="Número de dirección">
+                    <span class="form_line"></span>
+                </div>
+            </div>
+            <div class="form_container">
+                <div class="form_group">
+                    <label for="depart"> Departamento </label>
+                    <select class="input_decor">
+                        <option value="">Seleccione el Departamento</option>
+                    </select>
+                    <span class="form_line"></span>
+                </div>
+            </div>
+            <div class="form_container">
+                <div class="form_group">
+                    <label for="muni"> Municipio </label>
+                    <select class="input_decor">
+                        <option value="">Seleccione el Municipio</option>
+                    </select>
+                    <span class="form_line"></span>
+                </div>
+            </div>
+            <div class="form_container">
+                <div class="form_group">
+                    <label for="tel"> Telefono / Celular </label>
+                    <input type="tel" name="tel" id="" placeholder="Número de telefono">
+                    <span class="form_line"></span>
+                </div>
+            </div>
+            <div class="form_container">
+                <div class="form_group">
+                    <label for="pasw"> Contraseña </label>
+                    <input type="password" name="pasw" id="" placeholder="Número de telefono">
+                    <span class="form_line"></span>
+                </div>
+            </div>
+            <div class="form_container">
+                <div class="form_group">
+                    <label for="re_pasw">Repita la contraseña </label>
+                    <input type="password" name="re_pasw" id="" placeholder="Número de telefono">
+                    <span class="form_line"></span>
+                </div>
+            </div>
+            <button type="submit" class="btn_registrar">REGISTRAR</button>
         </form>
     </div>
 </body>
