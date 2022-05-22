@@ -1,3 +1,9 @@
+<?php
+
+    include "../conexion.php";
+    $mysqli = new mysqli($host, $user, $pw. $db);
+?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -37,10 +43,11 @@
             <img src="../images/icon.png" class="avatar" alt="Error al cargar la imagen">
         </div>
         <h2>FORMULARIO DE REGISTRO</h2>
-        <form action="" method="POST" class="form">
+        <form action="../logic/form_register.php" method="POST" class="form">
+
             <div class="form_container">
                 <div class="form_group">
-                    <label for="nombre_suaurio">Nombres y apellidos </label>
+                    <label for="nombre_usuario">Nombres y apellidos </label>
                     <input type="text" name="nombre_usuario" class="input_decor" placeholder="nombres y apellidos" required>
                     <span class="form_line"></span>
                 </div>
@@ -71,23 +78,17 @@
             </div>
             <div class="form_container">
                 <div class="form_group">
-                    <label for="numero_id"> Numero de identificacion </label>
-                    <input type="text" name="numero_id" class="input_decor" placeholder="Número de identificación">
-                    <span class="form_line"></span>
-                </div>
-            </div>
-            <div class="form_container">
-                <div class="form_group">
-                    <label for="numero_dirc"> Dirección </label>
-                    <input type="text" name="numero_dirc" class="input_decor" placeholder="Número de dirección">
+                    <label for="direccion"> Dirección </label>
+                    <input type="text" name="direccion" class="input_decor" placeholder="Número de dirección">
                     <span class="form_line"></span>
                 </div>
             </div>
             <div class="form_container">
                 <div class="form_group">
                     <label for="depart"> Departamento </label>
-                    <select class="input_decor">
+                    <select class="input_decor" name="depart">
                         <option value="">Departamento</option>
+                        <option value="CAUCA">CAUCA</option>
                     </select>
                     <span class="form_line"></span>
                 </div>
@@ -95,8 +96,51 @@
             <div class="form_container">
                 <div class="form_group">
                     <label for="muni"> Municipio </label>
-                    <select class="input_decor">
+                    <select class="input_decor" name="munic">
                         <option value="">Seleccione el Municipio</option>
+                        <option value="POPAYÁN">POPAYÁN</option>
+                        <option value="ALMAGUER">ALMAGUER </option>
+                        <option value="ARGELIA">ARGELIA</option>
+                        <option value="BALBOA">BALBOA</option>
+                        <option value="BOLIVAR">BOLIVAR</option>
+                        <option value="BUENOS AIRES">BUENOS AIRES</option>
+                        <option value="CAJIBIO">CAJIBÍO</option>
+                        <option value="CALDONO">CALDONO</option>
+                        <option value="CALOTO">CALOTO</option>
+                        <option value="CORINTO">CORINTO</option>
+                        <option value="EL TAMBO">EL TAMBO</option>
+                        <option value="FLORENCIA">FLORENCIA</option>
+                        <option value="GUACHENE">GUACHENÉ</option>
+                        <option value="GUAPI">GUAPÍ</option>
+                        <option value="INZA">INZÁ</option>
+                        <option value="JAMBALO">JAMBALÓ</option>
+                        <option value="LA SIERRA">LA SIERRA</option>
+                        <option value="LA VEGA">LA VEGA</option>
+                        <option value="LOPEZ DE MICAY">LOPEZ DE MICAY</option>
+                        <option value="MERCADERES">MERCADERES</option>
+                        <option value="MIRANDA">MIRANDA</option>
+                        <option value="MORALES">MORALES</option>
+                        <option value="PADILLA">PADILLA</option>
+                        <option value="PAEZ">PÁEZ</option>
+                        <option value="PATIA">PATIA</option>
+                        <option value="PIAMONTE">PIAMONTE</option>
+                        <option value="PIENDAMO">PIENDAMÓ</option>
+                        <option value="PUERTO TEJADA">PUERTO TEJADA</option>
+                        <option value="PURACE">PURACÉ</option>
+                        <option value="ROSAS">ROSAS</option>
+                        <option value="SAN SEBASTIAN">SAN SEBASTIÁN</option>
+                        <option value="SANTANDER DE QUILICHAO">SANTANDER DE QUILICHAO</option>
+                        <option value="SANTA ROSA">SANTA ROSA</option>
+                        <option value="SILVIA">SILVIA</option>
+                        <option value="SOTARA">SOTARÁ</option>
+                        <option value="SUAREZ">SUÁREZ</option>
+                        <option value="SUCRE">SUCRE</option>
+                        <option value="TIMBIO">TIMBIO</option>
+                        <option value="TIMBIQUI">TIMBIQUÍ</option>
+                        <option value="TORIBIO">TORIBÍO</option>
+                        <option value="TOTORO">TOTORÓ</option>
+                        <option value="VILLA RICA">VILLA RICA</option>
+                            
                     </select>
                     <span class="form_line"></span>
                 </div>
@@ -104,21 +148,21 @@
             <div class="form_container">
                 <div class="form_group">
                     <label for="tel"> Telefono / Celular </label>
-                    <input type="tel" name="tel" id="" placeholder="Número de telefono">
+                    <input type="tel" name="tel" class="input_decor" placeholder="Número de telefono">
                     <span class="form_line"></span>
                 </div>
             </div>
             <div class="form_container">
                 <div class="form_group">
                     <label for="pasw"> Contraseña </label>
-                    <input type="password" name="pasw" id="" placeholder="Número de telefono">
+                    <input type="password" name="pasw" class="input_decor" placeholder="Digite una contraseña">
                     <span class="form_line"></span>
                 </div>
             </div>
             <div class="form_container">
                 <div class="form_group">
                     <label for="re_pasw">Repita la contraseña </label>
-                    <input type="password" name="re_pasw" id="" placeholder="Número de telefono">
+                    <input type="password" name="re_pasw" class="input_decor" placeholder="Repita la contraseña">
                     <span class="form_line"></span>
                 </div>
             </div>
