@@ -1,7 +1,7 @@
 <?php
 
     include "../conexion.php";
-    $mysqli = new mysqli($host, $user, $pw. $db);
+    $mysqli = new mysqli($host, $user, $pw, $db);
 ?>
 
 
@@ -94,20 +94,21 @@
                 <div class="form_group">
                     <label for="depart"> Departamento </label>
                     <select class="input_decor" name="depart">
-                        <option value="">Departamento</option>
+                        <option >Departamento</option>
                         <!-- SENTENCIA PHP / SQL PARA LA LECTURA DE DEPARTAMENTOS -->
-                            <?php 
-                                $sql1 = "SELECT * FROM departamentos";
-                                $result_sql1 = $mysqli ->query ($sql1);
-                                while($row1 = $result_sql1 -> fetch_array(MYSQLI_NUM)){
-                                    $nombreDepar    =   $row1[1];
-                                    $idDepar        =   $row1[0];
-                            ?>
-                        <option value="<?php echo $idDepar ?>"><?php echo $nombreDepar ?></option>
+                        <?php
+                        $sql1 = "SELECT * FROM departamentos;";
+                        $result1 = $mysqli->query($sql1);
+                        while ($row1 = $result1->fetch_array(MYSQLI_NUM)){
+                        $nombreDepart=$row1[1];
+                        $idDepart=$row1[0];
+                        ?> 
+                        <option value="<?php echo $idDepart ?>"> <?php echo $nombreDepart?> </option>
 
-                            <?php
-                                }
-                            ?>
+                        <?php
+                            }
+                        ?>
+                        
                     </select>
                     <span class="form_line"></span>
                 </div>
