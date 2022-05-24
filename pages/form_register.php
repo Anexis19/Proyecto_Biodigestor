@@ -45,20 +45,23 @@
         <h2>FORMULARIO DE REGISTRO</h2>
         <form action="../logic/form_register.php" method="POST" class="form">
 
+            <!-- INPUT DE NOMBRE Y APELLIDOS -->
             <div class="form_container">
                 <div class="form_group">
                     <label for="nombre_usuario">Nombres y apellidos </label>
-                    <input type="text" name="nombre_usuario" class="input_decor" placeholder="nombres y apellidos" required>
+                    <input type="text" name="nombre_usuario" class="input_decor" min="4" max="40" placeholder="nombres y apellidos" required>
                     <span class="form_line"></span>
                 </div>
             </div>
+            <!-- INPUT DE FECHA DE NACIMIENTO -->
             <div class="form_container">
                 <div class="form_group">
                     <label for="fecha_nac">Fecha de nacimiento </label>
-                    <input type="date" name="fecha_nac" id="" required class="input_decor">
+                    <input type="date" name="fecha_nac" class="input_decor" min="1950-01-01" max="2004-12-31"  required>
                     <span class="form_line"></span>
                 </div>
             </div>
+            <!-- INPUT DE TIPO DE DOCUMENTO -->
             <div class="form_container">
                 <div class="form_group">
                     <label for="tipo_doc"> Tipo de documento </label>
@@ -69,13 +72,16 @@
                     </select>
                     <span class="form_line"></span>
                 </div>
+            </div>
+            <!-- INPUT DEL NUMERO DE IDENTIFICACION -->
             <div class="form_container">
                 <div class="form_group">
                     <label for="numero_id"> Numero de identificacion </label>
-                    <input type="text" name="numero_id" class="input_decor" placeholder="Número de identificación">
+                    <input type="text" name="numero_id" class="input_decor" placeholder="Número de identificación" pattern="[0-9]{8,10}" title="La identifiacion solo debe contener caracteres numéricos">
                     <span class="form_line"></span>
                 </div>
             </div>
+            <!-- INPUT DE LA DIRECCION  -->
             <div class="form_container">
                 <div class="form_group">
                     <label for="direccion"> Dirección </label>
@@ -83,16 +89,30 @@
                     <span class="form_line"></span>
                 </div>
             </div>
+            <!-- SELECT DE DEPARTAMENTO -->
             <div class="form_container">
                 <div class="form_group">
                     <label for="depart"> Departamento </label>
                     <select class="input_decor" name="depart">
                         <option value="">Departamento</option>
-                        <option value="CAUCA">CAUCA</option>
+                        <!-- SENTENCIA PHP / SQL PARA LA LECTURA DE DEPARTAMENTOS -->
+                            <?php 
+                                $sql1 = "SELECT * FROM departamentos";
+                                $result_sql1 = $mysqli ->query ($sql1);
+                                while($row1 = $result_sql1 -> fetch_array(MYSQLI_NUM)){
+                                    $nombreDepar    =   $row1[1];
+                                    $idDepar        =   $row1[0];
+                            ?>
+                        <option value="<?php echo $idDepar ?>"><?php echo $nombreDepar ?></option>
+
+                            <?php
+                                }
+                            ?>
                     </select>
                     <span class="form_line"></span>
                 </div>
             </div>
+            <!-- SELECT DE MUNICIPIO -->
             <div class="form_container">
                 <div class="form_group">
                     <label for="muni"> Municipio </label>
@@ -145,6 +165,7 @@
                     <span class="form_line"></span>
                 </div>
             </div>
+            <!-- INPUT NUMERO DE CELULAR -->
             <div class="form_container">
                 <div class="form_group">
                     <label for="tel"> Telefono / Celular </label>
@@ -152,6 +173,7 @@
                     <span class="form_line"></span>
                 </div>
             </div>
+            <!-- INPUT DE LA CONTRASEÑA -->
             <div class="form_container">
                 <div class="form_group">
                     <label for="pasw"> Contraseña </label>
@@ -159,6 +181,7 @@
                     <span class="form_line"></span>
                 </div>
             </div>
+            <!-- INPUT DE REP CONTRASEÑA -->
             <div class="form_container">
                 <div class="form_group">
                     <label for="re_pasw">Repita la contraseña </label>
@@ -169,6 +192,5 @@
             <button type="submit" class="btn_registrar">REGISTRAR</button>
         </form>
     </div>
-    <h1>HOLA SOFIA</h1>
 </body>
 </html>
