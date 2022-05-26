@@ -1,7 +1,7 @@
 <?php
 
-    include "../conexion.php";
-    $mysqli = new mysqli($host, $user, $pw, $db);
+    // include "../conexion.php";
+    // $mysqli = new mysqli($host, $user, $pw, $db);
 ?>
 
 
@@ -20,6 +20,36 @@
     <link rel="stylesheet" href="../css/style_form.css">
     <title>Formulario de registro</title>
     <link rel="icon" href="../images/icon.png">
+
+    <!-- CONEXION CON AJAX -->
+    <script type="text/javascript">
+
+        function mostrarSelect(str){
+            var conexion;
+
+            if(str==""){
+
+                document.getElementById("txtHint").innerHTML="";
+                return;
+            }
+
+            if(window.XMLHttpRequest){
+                conexion = new XMLHttpRequest();
+
+            }
+            
+            conexion.onreadystatechange = function(){
+                if(conexion.readyState == 4 && conexion.status == 200){
+                    document.getElementById("div").innerHTML = conexion.responseText;
+                }
+            }
+
+            conexion.open("GET", "../logic/municipiosLogic.php?c="+str,true);
+            conexion.send();
+        }
+
+    </script>
+
 </head>
 <body>
     <!-- CABECERA DE TRABAJO -->
@@ -35,7 +65,6 @@
         </div>
 
     </header>
-
     <!-- INICIO DEL FORMULARIO -->
 
     <div class="contenedor_form">
@@ -43,7 +72,7 @@
             <img src="../images/icon.png" class="avatar" alt="Error al cargar la imagen">
         </div>
         <h2>FORMULARIO DE REGISTRO</h2>
-        <form action="../logic/form_register.php" method="POST" class="form">
+        <form action="../logic/form_registerLogic.php" method="POST" class="form">
 
             <!-- INPUT DE NOMBRE Y APELLIDOS -->
             <div class="form_container">
@@ -93,75 +122,23 @@
             <div class="form_container">
                 <div class="form_group">
                     <label for="depart"> Departamento </label>
-                    <select class="input_decor" name="depart">
-                        <option >Departamento</option>
-                        <!-- SENTENCIA PHP / SQL PARA LA LECTURA DE DEPARTAMENTOS -->
-                        <?php
-                        $sql1 = "SELECT * FROM departamentos;";
-                        $result1 = $mysqli->query($sql1);
-                        while ($row1 = $result1->fetch_array(MYSQLI_NUM)){
-                        $nombreDepart=$row1[1];
-                        $idDepart=$row1[0];
-                        ?> 
-                        <option value="<?php echo $idDepart ?>"> <?php echo $nombreDepart?> </option>
+                    <select class="input_decor" name="depart" onclick="mostrarSelect(this.value)">
+                        <!-- <option >Departamento</option> -->
 
-                        <?php
-                            }
+                        <?php 
+                            include "../logic/departamentosLogic.php";
                         ?>
-                        
+
                     </select>
                     <span class="form_line"></span>
                 </div>
             </div>
             <!-- SELECT DE MUNICIPIO -->
             <div class="form_container">
-                <div class="form_group">
-                    <label for="muni"> Municipio </label>
+                <div class="form_group" id="div">
+                    <label for="munic"> Municipio </label>
                     <select class="input_decor" name="munic">
-                        <option value="">Seleccione el Municipio</option>
-                        <option value="POPAYÁN">POPAYÁN</option>
-                        <option value="ALMAGUER">ALMAGUER </option>
-                        <option value="ARGELIA">ARGELIA</option>
-                        <option value="BALBOA">BALBOA</option>
-                        <option value="BOLIVAR">BOLIVAR</option>
-                        <option value="BUENOS AIRES">BUENOS AIRES</option>
-                        <option value="CAJIBIO">CAJIBÍO</option>
-                        <option value="CALDONO">CALDONO</option>
-                        <option value="CALOTO">CALOTO</option>
-                        <option value="CORINTO">CORINTO</option>
-                        <option value="EL TAMBO">EL TAMBO</option>
-                        <option value="FLORENCIA">FLORENCIA</option>
-                        <option value="GUACHENE">GUACHENÉ</option>
-                        <option value="GUAPI">GUAPÍ</option>
-                        <option value="INZA">INZÁ</option>
-                        <option value="JAMBALO">JAMBALÓ</option>
-                        <option value="LA SIERRA">LA SIERRA</option>
-                        <option value="LA VEGA">LA VEGA</option>
-                        <option value="LOPEZ DE MICAY">LOPEZ DE MICAY</option>
-                        <option value="MERCADERES">MERCADERES</option>
-                        <option value="MIRANDA">MIRANDA</option>
-                        <option value="MORALES">MORALES</option>
-                        <option value="PADILLA">PADILLA</option>
-                        <option value="PAEZ">PÁEZ</option>
-                        <option value="PATIA">PATIA</option>
-                        <option value="PIAMONTE">PIAMONTE</option>
-                        <option value="PIENDAMO">PIENDAMÓ</option>
-                        <option value="PUERTO TEJADA">PUERTO TEJADA</option>
-                        <option value="PURACE">PURACÉ</option>
-                        <option value="ROSAS">ROSAS</option>
-                        <option value="SAN SEBASTIAN">SAN SEBASTIÁN</option>
-                        <option value="SANTANDER DE QUILICHAO">SANTANDER DE QUILICHAO</option>
-                        <option value="SANTA ROSA">SANTA ROSA</option>
-                        <option value="SILVIA">SILVIA</option>
-                        <option value="SOTARA">SOTARÁ</option>
-                        <option value="SUAREZ">SUÁREZ</option>
-                        <option value="SUCRE">SUCRE</option>
-                        <option value="TIMBIO">TIMBIO</option>
-                        <option value="TIMBIQUI">TIMBIQUÍ</option>
-                        <option value="TORIBIO">TORIBÍO</option>
-                        <option value="TOTORO">TOTORÓ</option>
-                        <option value="VILLA RICA">VILLA RICA</option>
-                            
+                        <option>Municipio</option>
                     </select>
                     <span class="form_line"></span>
                 </div>

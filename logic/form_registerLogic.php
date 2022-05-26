@@ -1,4 +1,6 @@
 <?php
+
+    // Registro de usuario en la base de datos. Especificamente en la tabla users
     require '../conexion.php';
     
     // Se reciben los datos del formulario
