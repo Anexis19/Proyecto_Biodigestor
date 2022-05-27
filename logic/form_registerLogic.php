@@ -14,17 +14,47 @@
    $tel             =   $_POST['tel'];
    $pasw            =   $_POST['pasw'];
 
-   $registrar = "INSERT INTO users VALUES ('$numero_id','$nombre_usuario', '$fecha_nac', '$tipo_doc', '$direccion', '$depart', '$munic', '$tel', '$pasw')";
-   $query = mysqli_query($conectar, $registrar);
+   
+    // Verificacion de ID NO repetido
+    $consulta_id = "SELECT * FROM users WHERE ID='$numero_id'";
+    $verificar_id = mysqli_query($conectar, $consulta_id);
+    if(mysqli_num_rows($verificar_id)>0){
 
-   if($query){
-       echo "<script> alert('Registro existoso'); 
-       location.href = '../index.html';
-       </script>";
-   }
-   else{
-       echo "<script> alert('Registro incorrecto'); 
-       location.href = '../index.html';
-       </script>";
-   }
+        echo "<script>
+            alert('Registro Incorrecto. El ID ya se encuentra registrado');
+            location.href = '../pages/form_register.php';
+        </script>";
+
+        // Cierre de conexion
+        exit();
+    }
+
+    // Verificacion de telefono
+    $consulta_tel = "SELECT * FROM users WHERE CELLPHONE='$tel'";
+    $verificar_tel = mysqli_query($conectar, $consulta_tel);
+    if(mysqli_num_rows($verificar_tel)>0){
+
+        echo "<script>
+            alert('Registro Incorrecto. El numero de telefono ya se encuentra registrado');
+            location.href = '../pages/form_register.php';
+        </script>";
+
+        // Cierre de conexion
+        exit();
+    }
+
+
+    // Registro Exitoso / Incorrecto
+    $registrar = "INSERT INTO users VALUES ('$numero_id','$nombre_usuario', '$fecha_nac', '$tipo_doc', '$direccion', '$depart', '$munic', '$tel', '$pasw')";
+    $query = mysqli_query($conectar, $registrar);
+    if($query){
+        echo "<script> alert('Registro existoso'); 
+        location.href = '../index.html';
+        </script>";
+    }
+    else{
+        echo "<script> alert('Registro incorrecto'); 
+        location.href = '../index.html';
+        </script>";
+    }
 ?>

@@ -17,20 +17,21 @@
     <title>Automatic Life Gas</title>
 </head>
 <body>
+    <div id="particles-js"></div>
 
     <!-- CABECERA DE TRABAJO -->
     <header>
 
         <div class="contenedor_principal">
             <div class="contenedor_logo">
-                <img id="imagen_logo" src="images/logo.jpg" alt="Error al cargar la imagen">
+                <img id="imagen_logo" src="images/logo.png" alt="Error al cargar la imagen">
             </div>
             <div class="contenedor_frase">
                 <span>Controla y monitoriza tu biodigestor al alcance de unos pocos clicks </span>
             </div>
             <div class="contenedor_botones">
                 <div class="contenedor_botton_inicio">
-                    <button type="" class="btn-inicio-sesion">Inicio de Sesion</button>
+                    <button type="" class="btn-inicio-sesion"> <a href="pages/inicio_sesion.html">Inicio de Sesion</a></button>
                 </div>
                 <div class="contenedor_botton_registro">
                     <button type="" class="btn-inicio-sesion"> <a href="pages/form_register.php">Registrarse</a> </button>
@@ -84,6 +85,8 @@
         }).mount()
     </script>
 
-
+<!-- Insercion de particulas -->
+<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+<script src="js/app.js"></script>
 </body>
 </html>

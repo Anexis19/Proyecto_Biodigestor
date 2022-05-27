@@ -1,7 +1,7 @@
 <?php
 
-    // include "../conexion.php";
-    // $mysqli = new mysqli($host, $user, $pw, $db);
+    include "../conexion.php";
+    $mysqli = new mysqli($host, $user, $pw, $db);
 ?>
 
 
@@ -52,19 +52,31 @@
 
 </head>
 <body>
-    <!-- CABECERA DE TRABAJO -->
-    <header>
 
-        <div class="contenedor_principal">
-            <div class="contenedor_logo">
-                <img id="imagen_logo" src="../images/logo.jpg" alt="Error al cargar la imagen">
-            </div>
-            <div class="contenedor_frase">
-                <span>Controla y monitoriza tu biodigestor al alcance de unos pocos clicks </span>
-            </div>
+<div id="particles-js"></div>
+
+<!-- CABECERA DE TRABAJO -->
+<header>
+
+    <div class="contenedor_principal">
+        <div class="contenedor_logo">
+            <img id="imagen_logo" src="../images/logo.png" alt="Error al cargar la imagen">
         </div>
+        <div class="contenedor_frase">
+            <span>Controla y monitoriza tu biodigestor al alcance de unos pocos clicks </span>
+        </div>
+        <div class="contenedor_botones">
+            <div class="contenedor_botton_inicio">
+                <button type="" class="btn-inicio-sesion"><a href="../index.html">Menú principal</a></button>
+            </div>
+            <div class="contenedor_botton_registro">
+                <button type="" class="btn-inicio-sesion"> <a href="inicio_sesion.html">Inicio de sesión</a> </button>
+            </div>
 
-    </header>
+        </div>
+    </div>
+
+</header>
     <!-- INICIO DEL FORMULARIO -->
 
     <div class="contenedor_form">
@@ -106,7 +118,7 @@
             <div class="form_container">
                 <div class="form_group">
                     <label for="numero_id"> Numero de identificacion </label>
-                    <input type="text" name="numero_id" class="input_decor" placeholder="Número de identificación" pattern="[0-9]{8,10}" title="La identifiacion solo debe contener caracteres numéricos">
+                    <input type="text" name="numero_id" class="input_decor" placeholder="Número de identificación" pattern="[0-9]{8,10}" title="La identifiacion solo debe contener caracteres numéricos y debe cumplir con el formato nacional">
                     <span class="form_line"></span>
                 </div>
             </div>
@@ -170,5 +182,8 @@
             <button type="submit" class="btn_registrar">REGISTRAR</button>
         </form>
     </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script src="../js/app.js"></script>
 </body>
 </html>

@@ -1,6 +1,8 @@
 h2{
     text-align: center;
 }
+
+
 .input_decor{
     text-decoration: none;
     font-family: 'kanit', sans-serif;
@@ -20,6 +22,8 @@ h2{
     font-family: 'kanit', sans-serif;
     text-align: center;
 }
+
+
 label{
     text-align: left;
     display: inline-block;
