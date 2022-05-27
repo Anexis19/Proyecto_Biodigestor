@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 27-05-2022 a las 14:28:05
+-- Tiempo de generación: 27-05-2022 a las 14:38:46
 -- Versión del servidor: 10.4.22-MariaDB
 -- Versión de PHP: 7.4.27
 
@@ -20,6 +20,55 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `db_biodigester`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `departamentos`
+--
+
+CREATE TABLE `departamentos` (
+  `ID_Depart` int(11) NOT NULL,
+  `Departamento` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `departamentos`
+--
+
+INSERT INTO `departamentos` (`ID_Depart`, `Departamento`) VALUES
+(1, 'AMAZONAS'),
+(2, 'ANTIOQUIA'),
+(3, 'ARAUCA'),
+(4, 'SAN ANDRES'),
+(5, 'ATLANTICO'),
+(6, 'BOLIVAR'),
+(7, 'BOYACA'),
+(8, 'CALDAS'),
+(9, 'CAQUETA'),
+(10, 'CASABARE'),
+(11, 'CAUCA'),
+(12, 'CESAR'),
+(13, 'CHOCO'),
+(14, 'CORDOBA'),
+(15, 'CUNDINAMARCA'),
+(16, 'GUANIA'),
+(17, 'GUAVIARE'),
+(18, 'HUILA'),
+(19, 'LA GUAJIRA'),
+(20, 'MAGDALENA'),
+(21, 'META'),
+(22, 'NARIÑO'),
+(23, 'NRT SANTANDER'),
+(24, 'PUTUMAYO'),
+(25, 'QUINDIO'),
+(26, 'RISARALDA'),
+(27, 'SANTANDER'),
+(28, 'SUCRE'),
+(29, 'TOLIMA'),
+(30, 'VLLE DEL CAUCA'),
+(31, 'VAUPES'),
+(32, 'VICHADA');
 
 -- --------------------------------------------------------
 
@@ -1161,9 +1210,40 @@ INSERT INTO `municipios` (`ID_Municipio`, `ID_Departamento`, `Municipio`) VALUES
 (1121, 32, 'LA PRIMAVERA'),
 (1122, 32, 'SANTA ROSALÍA');
 
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `users`
+--
+
+CREATE TABLE `users` (
+  `ID` int(10) NOT NULL,
+  `NAME_LASTNAME` varchar(30) NOT NULL,
+  `DATE` date NOT NULL,
+  `TYPE_ID` varchar(10) NOT NULL,
+  `ADDRESS` varchar(30) NOT NULL,
+  `DEPARTAMENTO` varchar(30) NOT NULL,
+  `MUNICIPIO` varchar(30) NOT NULL,
+  `CELLPHONE` varchar(20) NOT NULL,
+  `PASSWORD` varchar(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `users`
+--
+
+INSERT INTO `users` (`ID`, `NAME_LASTNAME`, `DATE`, `TYPE_ID`, `ADDRESS`, `DEPARTAMENTO`, `MUNICIPIO`, `CELLPHONE`, `PASSWORD`) VALUES
+(1061818559, 'andres', '2004-12-17', 'CC', 'asd', '19', 'EL MOLINO', '123', 'asd');
+
 --
 -- Índices para tablas volcadas
 --
+
+--
+-- Indices de la tabla `departamentos`
+--
+ALTER TABLE `departamentos`
+  ADD PRIMARY KEY (`ID_Depart`);
 
 --
 -- Indices de la tabla `municipios`
@@ -1175,6 +1255,12 @@ ALTER TABLE `municipios`
 --
 -- AUTO_INCREMENT de las tablas volcadas
 --
+
+--
+-- AUTO_INCREMENT de la tabla `departamentos`
+--
+ALTER TABLE `departamentos`
+  MODIFY `ID_Depart` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT de la tabla `municipios`
