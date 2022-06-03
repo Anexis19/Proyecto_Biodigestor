@@ -20,7 +20,6 @@
     <link rel="stylesheet" href="../css/style_form.css">
     <title>Formulario de registro</title>
     <link rel="icon" href="../images/icon.png">
-
     <!-- CONEXION CON AJAX -->
     <script type="text/javascript">
 
@@ -53,6 +52,8 @@
 </head>
 <body>
 
+
+
 <div id="particles-js"></div>
 
 <!-- CABECERA DE TRABAJO -->
@@ -60,7 +61,7 @@
 
     <div class="contenedor_principal">
         <div class="contenedor_logo">
-            <img id="imagen_logo" src="../images/logo.png" alt="Error al cargar la imagen">
+            <a href="../index.html"><img id="imagen_logo" src="../images/logo.png" alt="Error al cargar la imagen"></a>    
         </div>
         <div class="contenedor_frase">
             <span>Controla y monitoriza tu biodigestor al alcance de unos pocos clicks </span>
@@ -77,14 +78,33 @@
     </div>
 
 </header>
-    <!-- INICIO DEL FORMULARIO -->
+    
+<!-- SCRIPT PARA LA VERFICACION DE CONTRASEÑAS -->
+<script>
+    function comprobarPSW(){
+        var passw1 = document.formulario.pasw.value;
+        var passw2 = document.formulario.re_pasw.value;
 
+        if(passw1 != passw2){
+            alert('Las contraseñas NO coinciden');
+            document.getElementById("passw").value="";
+            document.getElementById("passw_conf").value="";
+            return false;
+           
+        }
+        
+        
+
+    }
+
+</script>
+<!-- INICIO DEL FORMULARIO -->
     <div class="contenedor_form">
         <div class="contenedor_img">
             <img src="../images/icon.png" class="avatar" alt="Error al cargar la imagen">
         </div>
         <h2>FORMULARIO DE REGISTRO</h2>
-        <form action="../logic/form_registerLogic.php" method="POST" class="form">
+        <form action="../logic/form_registerLogic.php" method="POST" class="form" name="formulario" onsubmit="return comprobarPSW()">
 
             <!-- INPUT DE NOMBRE Y APELLIDOS -->
             <div class="form_container">
@@ -159,7 +179,7 @@
             <div class="form_container">
                 <div class="form_group">
                     <label for="tel"> Telefono / Celular </label>
-                    <input type="tel" name="tel" class="input_decor" placeholder="Número de telefono">
+                    <input type="tel" name="tel" class="input_decor" placeholder="Número de telefono" pattern="[0-9]{7,10}" title="Error. El numero de telefono debe contener unicamente digitos y deben coincidir con el formato nacional">
                     <span class="form_line"></span>
                 </div>
             </div>
@@ -167,7 +187,7 @@
             <div class="form_container">
                 <div class="form_group">
                     <label for="pasw"> Contraseña </label>
-                    <input type="password" name="pasw" class="input_decor" placeholder="Digite una contraseña">
+                    <input type="password" name="pasw" class="input_decor" placeholder="Digite una contraseña" id="passw" required>
                     <span class="form_line"></span>
                 </div>
             </div>
@@ -175,7 +195,7 @@
             <div class="form_container">
                 <div class="form_group">
                     <label for="re_pasw">Repita la contraseña </label>
-                    <input type="password" name="re_pasw" class="input_decor" placeholder="Repita la contraseña">
+                    <input type="password" name="re_pasw" class="input_decor" placeholder="Repita la contraseña" id="passw_conf" required>
                     <span class="form_line"></span>
                 </div>
             </div>

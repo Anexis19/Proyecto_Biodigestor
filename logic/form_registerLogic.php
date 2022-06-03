@@ -14,7 +14,6 @@
    $tel             =   $_POST['tel'];
    $pasw            =   $_POST['pasw'];
 
-   
     // Verificacion de ID NO repetido
     $consulta_id = "SELECT * FROM users WHERE ID='$numero_id'";
     $verificar_id = mysqli_query($conectar, $consulta_id);
