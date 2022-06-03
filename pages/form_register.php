@@ -71,7 +71,7 @@
                 <button type="" class="btn-inicio-sesion"><a href="../index.html">Menú principal</a></button>
             </div>
             <div class="contenedor_botton_registro">
-                <button type="" class="btn-inicio-sesion"> <a href="inicio_sesion.html">Inicio de sesión</a> </button>
+                <button type="" class="btn-inicio-sesion"> <a href="inicio_sesion.php">Inicio de sesión</a> </button>
             </div>
 
         </div>

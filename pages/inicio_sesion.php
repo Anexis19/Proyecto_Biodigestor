@@ -1,3 +1,8 @@
+<?php 
+  include "../conexion.php";
+  $mysqli = new mysqli($host, $user, $pw, $db);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -47,20 +52,47 @@
 
     <div id="particles-js"></div>
 
-    <form action="#" method="POST" class="contenedor_form">
+    <form action="../logic/inicio_sesionLogic.php" method="POST" class="contenedor_form">
         <div class="login-box">
             <h1>INICIO DE SESIÓN</h1> <!-- El título de Inicio de sesión -->
 
             <div class="form">
                 <div class="item"> <!-- parte de nombre de usuario -->
                     <i class="fa fa-user-circle" aria-hidden="true"></i> <!-- Se utilizará para dibujar el icono delante del nombre de usuario -->
-                    <input type="text"  placeholder="username" name="username" class="input_decor" > <!-- Entrada de nombre de usuario realizada por cuadro de texto -->
+                    <input type="text"  placeholder="Identificacion" name="username" class="input_decor" > <!-- Entrada de nombre de usuario realizada por cuadro de texto -->
                 </div>
 
                 <div class="item"> <!-- parte de la contraseña -->
                    
                     <i class="fa fa-key" aria-hidden="true"></i> <!-- Se utilizará para dibujar el icono delante de la contraseña en el futuro -->
                     <input type="password" placeholder="password" name="password" class="input_decor"> <!-- Entrada de contraseña usando el cuadro de texto de contraseña-->
+
+                    <p  class="label_mensaje">
+                    
+                    <?php
+                        if (isset($_GET["mensaje"])){
+                          $mensaje = $_GET["mensaje"];
+                          if($_GET["mensaje"] != "" ){ 
+                        
+                    ?>
+
+                    Datos incorrectos:
+                    <?php 
+                      if($mensaje == 1){
+                        echo "USUARIO O CONTRASEÑA INCORRECTA. INTENTE DE NUEVO.";
+                      }
+                      if($mensaje == 2){
+                        echo "USUARIO NO REGISTRADO.";
+                      }
+                    ?>
+                      
+                        
+                    </p>
+
+                    <?php 
+                          }
+                        }
+                    ?>
                 </div>
 
             </div>

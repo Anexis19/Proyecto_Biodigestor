@@ -50,4 +50,8 @@ i{
     background-color: #35A6A0;
     color: white;
 }
+.label_mensaje{
+    color: red;
+    font-weight: bold;
+}
 
