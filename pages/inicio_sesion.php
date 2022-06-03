@@ -70,19 +70,25 @@
                     <p  class="label_mensaje">
                     
                     <?php
-                        if (isset($_GET["mensaje"])){
-                          $mensaje = $_GET["mensaje"];
-                          if($_GET["mensaje"] != "" ){ 
+                        if (isset($_GET["message"])){
+                          $message = $_GET["message"];
+                          if($_GET["message"] != "" ){ 
                         
                     ?>
 
                     Datos incorrectos:
                     <?php 
-                      if($mensaje == 1){
+                      if($message == 1){
                         echo "USUARIO O CONTRASEÑA INCORRECTA. INTENTE DE NUEVO.";
                       }
-                      if($mensaje == 2){
+                      if($message == 2){
                         echo "USUARIO NO REGISTRADO.";
+                      }
+                      if($message == 3){
+                        echo "ALERTA DE SEGURIDAD. FAVOR INICIE SESIÓN";
+                      }
+                      if($message == 4){
+                        echo "TIEMPO DE SESION EXCEDIDO. FAVOR INICIE SESIÓN";
                       }
                     ?>
                       

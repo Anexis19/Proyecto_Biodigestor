@@ -1,13 +1,15 @@
 <?php 
 
-    include '../conexion.php';
-    $mysqli = new mysqli($host, $user, $pw, $db);
+   
 
     $username = $_POST['username'];
     $password = $_POST['password'];
 
 
     session_start();
+
+    include '../conexion.php';
+    $mysqli = new mysqli($host, $user, $pw, $db);
 
     $sql = "SELECT * FROM users WHERE ID = '$username'";
     $result1 = $mysqli->query($sql);
@@ -20,7 +22,7 @@
 
         if($passw_bd == $password){
 
-            $_SESSION["autenticado"]= "SIx3";
+            $_SESSION["autentication"]= "SIx3";
             $tipo_usuario = $row1[10];
             $nombre_usuario = $row1[2];
             $sql2 = "SELECT * FROM tipo_usuario WHERE ID_USUARIO='$tipo_usuario'";
@@ -32,17 +34,17 @@
             $_SESSION["id_usuario"]= $row1[1];  
 
             if($tipo_usuario == 2){
-                header('Location: admin_menu.php');
+                header('Location: ../pages/admin_menu.php');
             }
-            else{
-                header("Location: client_menu.php");
+            if($tipo_usuario ==1){
+                header("Location: ../pages/client_menu.php");
             }
         }
         else{
-            header('Location: ../pages/inicio_sesion.php?mensaje=1');
+            header('Location: ../pages/inicio_sesion.php?message=1');
         }
     }
     else{
-        header('Location: ../pages/inicio_sesion.php?mensaje=2');
+        header('Location: ../pages/inicio_sesion.php?message=2');
     }
 ?>

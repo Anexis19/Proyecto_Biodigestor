@@ -1,0 +1,18 @@
+.contenedor_admin{
+    margin-left: 4%;
+    width: 15%;
+    height: 145px;
+    background: brown;
+}
+.contenedor_nombre_adm{
+    text-shadow: 0 0 0px #275f42;
+    margin-left: 20px;
+    width: 50%;
+    height: 120px;
+    line-height: 150px;
+    text-align: center;
+    font-family: "Kanit", sans-serif;
+    font-weight: bold;
+    font-size: 50px;
+    color: #fb8c00;
+}
