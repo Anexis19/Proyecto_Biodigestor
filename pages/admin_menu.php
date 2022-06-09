@@ -1,33 +1,18 @@
 <?php
 
     include "../conexion.php";
-      
-    // Validacion de inicio de session
+
+    // Inicio o reanudacion de una sesion
     session_start();
-    if ($_SESSION["autentication"] != "SIx3")
-        {
-        echo "Prueba seguridad";
+    $autentication = $_SESSION['TIPO_USUARIO'];
+
+    if($autentication = '' || $autentication == null || $autentication == 1 ){
         header('Location: inicio_sesion.php?message=3');
-        }
-    else{
 
     }
 
-    // Establecimiento de tiempo de vida de una session
-    $inactivo = 60;
-    if(isset($_SESSION['tiempo'])){
-        
-        $vida_session = time() - $_SESSION['tiempo'] ;
-        
-        if($vida_session > $inactivo){
-        session_destroy();
-        header("Location: inicio_sesion.php?message=4");
-        }
-    }
-    $_SESSION['tiempo'] = time();
 
-    $nombre_admin   = $_SESSION["nombre_usuario"];
-    $id_admin       = $_SESSION["id_usuario"];
+
 ?>
 
 <!DOCTYPE html>
@@ -51,34 +36,85 @@
 <div id="particles-js"></div>
 <!-- CABECERA DE TRABAJO -->
 <header>
-
+    <h1><?php echo $_SESSION['ID_USUARIO'] ?></h1>
+    <h1><?php echo $_SESSION['NOM_USUARIO'] ?></h1>
+    <h1><?php echo $_SESSION['TIPO_USUARIO'] ?></h1>
     <div class="contenedor_principal">
         <div class="contenedor_logo">
-            <a href="../index.html"><img id="imagen_logo" src="../images/logo.png" alt="Error al cargar la imagen"></a>    
+            <a href="../index.html"><img id="imagen_logo" src="../images/logo.png" alt="Error al cargar la imagen"></a>
         </div>
         <div class="contenedor_nombre_adm">
             <span> BIEVENIDO </span>
             <span>
                 <?php
-                    echo $nombre_admin;
+                    echo $_SESSION['NOM_USUARIO'];
                 ?>
 
             </span>
         </div>
         <div class="contenedor_admin">
-            hola
-            <?php 
 
-           
-
-            echo $nombre_admin;
-            echo $id_admin;
-
+            <span class="info_admin">
+            Nombre de usuario:
+            <?php
+                echo " $nombre_admin";
             ?>
-        </div>
+            ID usuario:
+            <?php
+                echo " $id_admin";
+            ?>
+            </span>
+           <div >
+                <button class="btn-cierre-sesion"><a href="inicio_sesion.php">Cerrar Sesion</a></button>
+           </div>
     </div>
-
 </header>
+<div class="contenedor_tabla">
+<table class="users_table">
+    <tr>
+        <th>NUMERO DE REGISTRO</th>
+        <th>ID</th>
+        <th>NOMBRE</th>
+        <th>FECHA</th>
+        <th>TIPO ID</th>
+        <th>DIRECCION</th>
+        <th>DEPARTAMENTO</th>
+        <th>MUNICIPIO</th>
+        <th>CELULAR</th>
+        <th>TIPO DE USUARIO</th>
+        <th>MODIFICAR</th>
+        <th>ELIMINAR</th>
+    </tr>
+    <?php
+        $sqli = "SELECT * FROM users";
+        $result = mysqli_query($conectar, $sqli);
+
+        while($mostrar = mysqli_fetch_array($result)){
+    ?>
+    <tr>
+
+
+
+        <td><?php echo $mostrar['NUM_REGISTRO']?></td>
+        <td><?php echo $mostrar['ID']?></td>
+        <td><?php echo $mostrar['NAME_LASTNAME']?></td>
+        <td><?php echo $mostrar['DATE']?></td>
+        <td><?php echo $mostrar['TYPE_ID']?></td>
+        <td><?php echo $mostrar['ADDRESS']?></td>
+        <td><?php echo $mostrar['DEPARTAMENTO']?></td>
+        <td><?php echo $mostrar['MUNICIPIO']?></td>
+        <td><?php echo $mostrar['CELLPHONE']?></td>
+        <td><?php echo $mostrar['TIPO_USUARIO']?></td>
+        <td><button type="button" class="btn-editar"></button></td>
+        <td><button type="button" class="btn-delete"></button></td>
+
+
+    </tr>
+    <?php
+        }
+    ?>
+    </table>
+</div>
 
 
 

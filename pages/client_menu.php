@@ -1,30 +1,16 @@
 <?php
 
     include "../conexion.php";
-      
+
     // Validacion de inicio de session
     session_start();
-    if ($_SESSION["autentication"] != "SIx3")
-        {
-        echo "Prueba seguridad";
+    $autentication = $_SESSION['TIPO_USUARIO'];
+
+    if($autentication = '' || $autentication == null || $autentication == 2 ){
         header('Location: inicio_sesion.php?message=3');
-        }
-    else{
 
     }
 
-    // Establecimiento de tiempo de vida de una session
-    $inactivo = 60;
-    if(isset($_SESSION['tiempo'])){
-        
-        $vida_session = time() - $_SESSION['tiempo'] ;
-        
-        if($vida_session > $inactivo){
-        session_destroy();
-        header("Location: inicio_sesion.php?message=4");
-        }
-    }
-    $_SESSION['tiempo'] = time();
 ?>
 
 <!DOCTYPE html>
@@ -44,11 +30,13 @@
 
 </head>
 <body>
+    <h1><?php echo $_SESSION['TIPO_USUARIO']?></h1>
+    <h1><?php echo $_SESSION['NOM_USUARIO']?></h1>
     <div class="titulo">
         <div class="text">
         En desarrollo. Nuestros programadores (1) están tomando café. Pronto volveremos al código
         </div>
    </div>
-   
+
 </body>
 </html>

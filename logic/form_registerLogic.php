@@ -44,16 +44,16 @@
 
 
     // Registro Exitoso / Incorrecto
-    $registrar = "INSERT INTO users VALUES ('$numero_id','$nombre_usuario', '$fecha_nac', '$tipo_doc', '$direccion', '$depart', '$munic', '$tel', '$pasw')";
-    $query = mysqli_query($conectar, $registrar);
-    if($query){
-        echo "<script> alert('Registro existoso'); 
-        location.href = '../index.html';
-        </script>";
+    $registrar = "INSERT INTO users (ID, NAME_LASTNAME, DATE, TYPE_ID, ADDRESS, DEPARTAMENTO, MUNICIPIO, CELLPHONE, PASSWORD, TIPO_USUARIO  ) VALUES ('$numero_id','$nombre_usuario', '$fecha_nac', '$tipo_doc', '$direccion', '$depart', '$munic', '$tel', '$pasw', '1')";
+    $prueba = mysqli_query($conectar, $registrar);
+    if($prueba){
+          echo "<script> alert('Registro existoso'); 
+          location.href = '../index.html';
+          </script>";
     }
     else{
-        echo "<script> alert('Registro incorrecto'); 
-        location.href = '../index.html';
-        </script>";
+          echo "<script> alert('Registro incorrecto'); 
+          location.href = '../index.html';
+          </script>";
     }
 ?>

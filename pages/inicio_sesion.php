@@ -1,6 +1,8 @@
-<?php 
+<?php
   include "../conexion.php";
   $mysqli = new mysqli($host, $user, $pw, $db);
+
+  session_start();
 ?>
 
 <!DOCTYPE html>
@@ -30,7 +32,7 @@
 
         <div class="contenedor_principal">
             <div class="contenedor_logo">
-                <a href="../index.html"><img id="imagen_logo" src="../images/logo.png" alt="Error al cargar la imagen"></a>    
+                <a href="../index.html"><img id="imagen_logo" src="../images/logo.png" alt="Error al cargar la imagen"></a>
             </div>
             <div class="contenedor_frase">
                 <span>Controla y monitoriza tu biodigestor al alcance de unos pocos clicks</span>
@@ -63,51 +65,61 @@
                 </div>
 
                 <div class="item"> <!-- parte de la contraseña -->
-                   
+
                     <i class="fa fa-key" aria-hidden="true"></i> <!-- Se utilizará para dibujar el icono delante de la contraseña en el futuro -->
                     <input type="password" placeholder="password" name="password" class="input_decor"> <!-- Entrada de contraseña usando el cuadro de texto de contraseña-->
 
                     <p  class="label_mensaje">
-                    
+
                     <?php
                         if (isset($_GET["message"])){
                           $message = $_GET["message"];
-                          if($_GET["message"] != "" ){ 
-                        
+                          if($_GET["message"] != "" ){
+
                     ?>
 
                     Datos incorrectos:
-                    <?php 
+                    <?php
                       if($message == 1){
                         echo "USUARIO O CONTRASEÑA INCORRECTA. INTENTE DE NUEVO.";
+                        session_destroy();
+
+
                       }
                       if($message == 2){
                         echo "USUARIO NO REGISTRADO.";
+                        session_destroy();
+
                       }
                       if($message == 3){
                         echo "ALERTA DE SEGURIDAD. FAVOR INICIE SESIÓN";
+                        session_destroy();
+
+
                       }
                       if($message == 4){
                         echo "TIEMPO DE SESION EXCEDIDO. FAVOR INICIE SESIÓN";
+                        session_destroy();
+
                       }
                     ?>
-                      
-                        
+
+
                     </p>
 
-                    <?php 
+                    <?php
                           }
                         }
                     ?>
                 </div>
 
             </div>
-            
+
             <button type="submit" class="btn-login">LOGIN</button> <!-- Botón de inicio de sesión implementado con el botón -->
         </div>
     </form>
 
-  
+
 
 <!-- Insercion de particulas -->
 <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
