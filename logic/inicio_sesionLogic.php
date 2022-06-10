@@ -2,8 +2,8 @@
 
 
 
-    $username = $_POST['username'];
-    $password = $_POST['password'];
+    $username = strtoupper($_POST['username']);
+    $password = strtoupper($_POST['password']);
 
 
     session_start();
@@ -30,47 +30,30 @@
             $_SESSION['NOM_USUARIO']    = $nom_usuario;
             $_SESSION['TIPO_USUARIO']   = $tipo_usuario;
 
+            // VALIDACION SI EL USUARIO ES ADMINISTRADOR
             if($tipo_usuario == 2){
                 header('Location: ../pages/admin_menu.php');
             }
+            // VALIDACION SI EL USUARIO ES CLIENTE
             elseif($tipo_usuario == 1){
                 header('Location: ../pages/client_menu.php');
             }
             else{
+            // VALIDACION SI EL USUARIO NO TIENE UN ROL DEFINIDO
                 header('Location: ../pages/inicio_sesion.php?message=1');
             }
 
 
 
         }
+        // VALIDACION SI SE INGRESA UN ID REGISTRADO PERO SIN CONTRASEÑA
+        else{
+            header("Location: ../pages/inicio_sesion.php?message=1");
+        }
 
-    }else{
+    }
+    else{
         header('Location: ../pages/inicio_sesion.php?message=2');
     }
 
-    //         $_SESSION["autentication"]= "SIx3";
-    //         $tipo_usuario = $row1[10];
-    //         $nombre_usuario = $row1[2];
-    //         $sql2 = "SELECT * FROM tipo_usuario WHERE ID_USUARIO='$tipo_usuario'";
-    //         $result2 = $mysqli->query($sql2);
-    //         $row2 = $result2->fetch_array(MYSQLI_NUM);
-    //         $descipcion_usuario = $row2[1];
-    //         $_SESSION["tipo_usuario"]= $descipcion_usuario;
-    //         $_SESSION["nombre_usuario"]= $nombre_usuario;
-    //         $_SESSION["id_usuario"]= $row1[1];
-
-    //         if($tipo_usuario == 2){
-    //             header('Location: ../pages/admin_menu.php');
-    //         }
-    //         if($tipo_usuario ==1){
-    //             header("Location: ../pages/client_menu.php");
-    //         }
-    //     }
-    //     else{
-    //         header('Location: ../pages/inicio_sesion.php?message=1');
-    //     }
-    // }
-    // else{
-    //     header('Location: ../pages/inicio_sesion.php?message=2');
-    // }
 ?>

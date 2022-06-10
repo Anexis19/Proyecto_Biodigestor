@@ -6,6 +6,11 @@
     session_start();
     $autentication = $_SESSION['TIPO_USUARIO'];
 
+    $nombre_admin   = $_SESSION['NOM_USUARIO'];
+    $id_admin       = $_SESSION['ID_USUARIO'];
+
+
+
     if($autentication = '' || $autentication == null || $autentication == 1 ){
         header('Location: inicio_sesion.php?message=3');
 
@@ -36,36 +41,39 @@
 <div id="particles-js"></div>
 <!-- CABECERA DE TRABAJO -->
 <header>
-    <h1><?php echo $_SESSION['ID_USUARIO'] ?></h1>
-    <h1><?php echo $_SESSION['NOM_USUARIO'] ?></h1>
-    <h1><?php echo $_SESSION['TIPO_USUARIO'] ?></h1>
+
     <div class="contenedor_principal">
         <div class="contenedor_logo">
-            <a href="../index.html"><img id="imagen_logo" src="../images/logo.png" alt="Error al cargar la imagen"></a>
+            <a href="../pages/inicio_sesion.php?message=4"><img id="imagen_logo" src="../images/logo.png" alt="Error al cargar la imagen"></a>
         </div>
         <div class="contenedor_nombre_adm">
-            <span> BIEVENIDO </span>
+            <span> BIENVENIDO </span>
             <span>
                 <?php
-                    echo $_SESSION['NOM_USUARIO'];
+                    echo $nombre_admin;
                 ?>
 
             </span>
         </div>
         <div class="contenedor_admin">
-
-            <span class="info_admin">
             Nombre de usuario:
-            <?php
-                echo " $nombre_admin";
-            ?>
-            ID usuario:
-            <?php
-                echo " $id_admin";
-            ?>
+            <span class="info_admin">
+                <?php
+                    echo " $nombre_admin";
+                ?>
+            </span><br>
+            <span>
+                ID usuario:
             </span>
-           <div >
-                <button class="btn-cierre-sesion"><a href="inicio_sesion.php">Cerrar Sesion</a></button>
+            <span class="info_admin">
+                <?php
+                    echo " $id_admin";
+                ?>
+            </span>
+
+
+           <div class="contenedor_cerrar_sesion" >
+                <button class="btn-cierre-sesion"><a href="../logic/cerrar_sesion.php">Cerrar Sesion</a></button>
            </div>
     </div>
 </header>

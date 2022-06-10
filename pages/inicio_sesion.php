@@ -98,7 +98,7 @@
 
                       }
                       if($message == 4){
-                        echo "TIEMPO DE SESION EXCEDIDO. FAVOR INICIE SESIÓN";
+                        echo "SESIÓN FINALIZADA. INICIE SESIÓN NUEVAMENTE";
                         session_destroy();
 
                       }
