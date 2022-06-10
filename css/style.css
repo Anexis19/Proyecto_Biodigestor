@@ -171,12 +171,12 @@ CAROUSEL DE IMAGENES
   box-sizing: border-box;
 }
 .contenedor_listas{
-  width: 80%;
+  width: 100%;
   margin: 0 auto;
   text-align: center;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   background-color: #9291917e;
-  max-width: 800px;
+  max-width: 2000px;
 }
 .contenedor_listas ul{
   font-size: 0;

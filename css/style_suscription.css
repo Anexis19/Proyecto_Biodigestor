@@ -1,0 +1,67 @@
+/*=======================
+    ESTILOS CATALOGO
+=========================*/
+.contenedor_planes{
+    /* background-color: brown; */
+    margin-top: 3%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.contendor_basic, .contenedor_premium{
+    width: 395px;
+    height: 500px;
+    border-radius: 15px;
+    border-width: 2px;
+    border-style: solid;
+    border-color: #275f42;
+    text-align: center;
+}
+.img_plan{
+    text-align: center;
+    margin-top: 10px;
+}
+.contenedor_letras{
+    margin-top: 10px;
+    font-size: 32px;
+    font-family: 'IM Fell French Canon SC', sans-serif;
+    margin-bottom: 10%;
+}
+.contenedor_precio span{
+    font-size: 34px;
+    font-family: 'IM Fell French Canon SC', sans-serif;
+}
+
+.contenedor_caracteristicas{
+    font-family: 'Kanit', sans-serif;
+    background-color: #9291917e;
+    border-radius: 10px;
+    border-width: 3px;
+    border-style: solid;
+    border-color: #275f42;
+    margin:  auto;
+    margin-top: 5%;
+    padding: 2%;
+    width: 70%;
+    height: 32%;
+}.contenedor_caracteristicas:hover{
+    background:rgba(0, 128, 128, 0.6);
+    color: white;
+}
+.contenedor_caracteristicas li{
+    margin-top: 10px;
+}
+.contenedor_compras{
+    margin-top: 2%;
+}
+.contenedor_compras button{
+    background-color: white;
+    border-radius: 10px;
+    border: 2px solid #008cba;
+}
+
+.contenedor_compras button:hover{
+    background-color: #35a6a0;
+    color: white;
+}
