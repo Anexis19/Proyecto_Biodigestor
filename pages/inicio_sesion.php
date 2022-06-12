@@ -16,13 +16,10 @@
     <link rel="stylesheet" href="../css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,400;1,400;1,500;1,900&family=Lobster&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=IM+Fell+French+Canon+SC&family=Kanit:ital,wght@0,400;1,400;1,500;1,900&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/b50f20f4b1.js" crossorigin="anonymous"></script>
-    <!-- Estilos del carousel -->
-    <link rel="stylesheet" href="../css/glide.core.min.css">
-    <link rel="stylesheet" href="../css/glide.theme.min.css">
-    <title>Automatic Life Gas</title>
+
+    <title>Login</title>
 </head>
 <meta chatset="UTF-8">
 <body>
@@ -32,7 +29,7 @@
 
         <div class="contenedor_principal">
             <div class="contenedor_logo">
-                <a href="../index.html"><img id="imagen_logo" src="../images/logo.png" alt="Error al cargar la imagen"></a>
+                <a href="../index.php"><img id="imagen_logo" src="../images/logo.png" alt="Error al cargar la imagen"></a>
             </div>
             <div class="contenedor_frase">
                 <span>Controla y monitoriza tu biodigestor al alcance de unos pocos clicks</span>
@@ -50,74 +47,93 @@
 
     </header>
 
+     <!-- BARRA DE NAVEGACION -->
+     <div class="contenedor_menu">
+        <div class="contenedor_listas">
+            <ul>
+                <li class="btn-inicio-go_home"><a href="../index.php">Menu Principal</a></li>
+                <li> <a href="suscription.php">Suscripciones</a> <i class="fa fa-angle-down"></i>
+                    <ul>
+                        <li>Premiun</li>
+                        <li>Basico</li>
+                    </ul>
+                </li>
+                <li class="btn-inicio-go_catalogo"><a href="">¿Quienes somos?</a></li>
+
+            </ul>
+        </div>
+    </div>
+
+
     <!-- DISEÑO DE INICIO SESION-->
 
     <div id="particles-js"></div>
+    <div class="contenedor_form">
+        <form action="../logic/inicio_sesionLogic.php" method="POST" >
+            <div class="login-box">
+                <h1>INICIO DE SESIÓN</h1> <!-- El título de Inicio de sesión -->
 
-    <form action="../logic/inicio_sesionLogic.php" method="POST" class="contenedor_form">
-        <div class="login-box">
-            <h1>INICIO DE SESIÓN</h1> <!-- El título de Inicio de sesión -->
+                <div class="form">
+                    <div class="item"> <!-- parte de nombre de usuario -->
+                        <i class="fa fa-user-circle" aria-hidden="true" class="iconos"></i> <!-- Se utilizará para dibujar el icono delante del nombre de usuario -->
+                        <input type="text"  placeholder="Identificacion" name="username" class="input_decor" > <!-- Entrada de nombre de usuario realizada por cuadro de texto -->
+                    </div>
 
-            <div class="form">
-                <div class="item"> <!-- parte de nombre de usuario -->
-                    <i class="fa fa-user-circle" aria-hidden="true"></i> <!-- Se utilizará para dibujar el icono delante del nombre de usuario -->
-                    <input type="text"  placeholder="Identificacion" name="username" class="input_decor" > <!-- Entrada de nombre de usuario realizada por cuadro de texto -->
-                </div>
+                    <div class="item"> <!-- parte de la contraseña -->
 
-                <div class="item"> <!-- parte de la contraseña -->
+                        <i class="fa fa-key" aria-hidden="true"></i> <!-- Se utilizará para dibujar el icono delante de la contraseña en el futuro -->
+                        <input type="password" placeholder="password" name="password"> <!-- Entrada de contraseña usando el cuadro de texto de contraseña-->
 
-                    <i class="fa fa-key" aria-hidden="true"></i> <!-- Se utilizará para dibujar el icono delante de la contraseña en el futuro -->
-                    <input type="password" placeholder="password" name="password" class="input_decor"> <!-- Entrada de contraseña usando el cuadro de texto de contraseña-->
+                        <p  class="label_mensaje">
 
-                    <p  class="label_mensaje">
+                        <?php
+                            if (isset($_GET["message"])){
+                            $message = $_GET["message"];
+                            if($_GET["message"] != "" ){
 
-                    <?php
-                        if (isset($_GET["message"])){
-                          $message = $_GET["message"];
-                          if($_GET["message"] != "" ){
-
-                    ?>
-
-                    Datos incorrectos:
-                    <?php
-                      if($message == 1){
-                        echo "USUARIO O CONTRASEÑA INCORRECTA. INTENTE DE NUEVO.";
-                        session_destroy();
-
-
-                      }
-                      if($message == 2){
-                        echo "USUARIO NO REGISTRADO.";
-                        session_destroy();
-
-                      }
-                      if($message == 3){
-                        echo "ALERTA DE SEGURIDAD. FAVOR INICIE SESIÓN";
-                        session_destroy();
+                        ?>
+                        Datos incorrectos:
+                        <?php
+                        if($message == 1){
+                            echo "USUARIO O CONTRASEÑA INCORRECTA. INTENTE DE NUEVO.";
+                            session_destroy();
 
 
-                      }
-                      if($message == 4){
-                        echo "SESIÓN FINALIZADA. INICIE SESIÓN NUEVAMENTE";
-                        session_destroy();
-
-                      }
-                    ?>
-
-
-                    </p>
-
-                    <?php
-                          }
                         }
-                    ?>
+                        if($message == 2){
+                            echo "USUARIO NO REGISTRADO.";
+                            session_destroy();
+
+                        }
+                        if($message == 3){
+                            echo "ALERTA DE SEGURIDAD. FAVOR INICIE SESIÓN";
+                            session_destroy();
+
+
+                        }
+                        if($message == 4){
+                            echo "SESIÓN FINALIZADA. INICIE SESIÓN NUEVAMENTE";
+                            session_destroy();
+
+                        }
+                        ?>
+
+
+                        </p>
+
+                        <?php
+                            }
+                            }
+                        ?>
+                    </div>
+
                 </div>
 
+                <button type="submit" class="btn-login">LOGIN</button> <!-- Botón de inicio de sesión implementado con el botón -->
             </div>
+        </form>
+    </div>
 
-            <button type="submit" class="btn-login">LOGIN</button> <!-- Botón de inicio de sesión implementado con el botón -->
-        </div>
-    </form>
 
 
 

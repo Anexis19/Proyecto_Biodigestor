@@ -1,3 +1,23 @@
+<?php
+    include "../conexion.php";
+
+    session_start();
+    error_reporting(0);
+    $bandera = false;
+    $autentication  = $_SESSION['TIPO_USUARIO'];
+    $nombre_cliente = strtoupper($_SESSION['NOM_USUARIO']);
+    $id_cliente     = strtoupper($_SESSION['ID_USUARIO']);
+
+    if($autentication == 1 || $autentication == 2){
+        $bandera = true;
+    }
+    else{
+        $bandera = false;
+    }
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,19 +42,71 @@
     <header>
         <div class="contenedor_principal">
             <div class="contenedor_logo">
-                <img id="imagen_logo" src="../images/logo.png" alt="Error al cargar la imagen">
+                <a href="../index.php"><img id="imagen_logo" src="../images/logo.png" alt="Error al cargar la imagen"></a>
             </div>
-            <div class="contenedor_frase">
-                <span>Controla y monitoriza tu biodigestor al alcance de unos pocos clicks </span>
-            </div>
-            <div class="contenedor_botones">
-                <div class="contenedor_botton_inicio">
-                    <button type="" class="btn-inicio-sesion"> <a href="inicio_sesion.php">Inicio de Sesion</a></button>
+
+            <?php
+
+                // LA BANDERA VERIFICA SI SE TIENE UNA SESION ACTIVA
+                if ($bandera == false){
+
+                    // CABECERA SIN LA INFORMACION DEL CLIENTE
+            ?>
+
+                <div class="contenedor_frase">
+                    <span>Controla y monitoriza tu biodigestor al alcance de unos pocos clicks </span>
                 </div>
-                <div class="contenedor_botton_registro">
-                    <button type="" class="btn-inicio-sesion"> <a href="form_register.php">Registrarse</a> </button>
+
+
+                <div class="contenedor_botones">
+                    <div class="contenedor_botton_inicio">
+                        <button type="" class="btn-inicio-sesion"> <a href="inicio_sesion.php">Inicio de Sesion</a></button>
+                    </div>
+                    <div class="contenedor_botton_registro">
+                        <button type="" class="btn-inicio-sesion"> <a href="form_register.php">Registrarse</a> </button>
+                    </div>
                 </div>
-            </div>
+
+            <?php
+                }
+                else{
+
+                    // CABECERA CON LA INFORMACION DEL CLIENTE
+            ?>
+                <div class="contenedor_nombre_clt">
+                    <span> BIENVENIDO </span>
+                    <span>
+                        <?php
+                            echo $nombre_cliente;
+                        ?>
+
+                    </span>
+                </div>
+                <div class="contenedor_clt">
+                    Nombre de usuario:
+                    <span class="info_clt">
+                        <?php
+                            echo " $nombre_cliente";
+                        ?>
+                    </span><br>
+                    <span>
+                        ID usuario:
+                    </span>
+                    <span class="info_admin">
+                        <?php
+                            echo " $id_cliente";
+                        ?>
+                    </span>
+
+
+                    <div class="contenedor_cerrar_sesion" >
+                            <button class="btn-cierre-sesion"><a href="../logic/cerrar_sesion.php">Cerrar Sesion</a></button>
+                    </div>
+                </div>
+
+            <?php
+                }
+            ?>
         </div>
     </header>
 
@@ -43,7 +115,7 @@
 
         <div class="contenedor_listas">
             <ul>
-                <li class="btn-inicio-go_home"><a href="../index.html">Menu Principal</a></li>
+                <li class="btn-inicio-go_home"><a href="../index.php">Menu Principal</a></li>
                 <li>Suscripciones <i class="fa fa-angle-down"></i>
                     <ul>
                         <li>Premiun</li>
@@ -56,6 +128,7 @@
         </div>
     </div>
 
+    <!-- TIPOS DE PLANES -->
     <div class="contenedor_planes">
         <div class="contendor_basic">
             <!-- CONTENEDOR IMAGEN -->

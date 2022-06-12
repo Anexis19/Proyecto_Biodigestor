@@ -44,7 +44,7 @@
 
     <div class="contenedor_principal">
         <div class="contenedor_logo">
-            <a href="../pages/inicio_sesion.php?message=4"><img id="imagen_logo" src="../images/logo.png" alt="Error al cargar la imagen"></a>
+            <a href="../index.php"><img id="imagen_logo" src="../images/logo.png" alt="Error al cargar la imagen"></a>
         </div>
         <div class="contenedor_nombre_adm">
             <span> BIENVENIDO </span>
@@ -77,6 +77,27 @@
            </div>
     </div>
 </header>
+
+<!-- BARRA DE NAVEGACION -->
+<div class="contenedor_menu">
+
+    <div class="contenedor_listas">
+        <ul>
+            <li class="btn-inicio-go_home"><a href="../index.php">Menu Principal</a></li>
+            <li> <a href="suscription.php">Suscripciones</a>  <i class="fa fa-angle-down"></i>
+                <ul>
+                    <li>Premiun</li>
+                    <li>Basico</li>
+                </ul>
+            </li>
+            <li class="btn-inicio-go_catalogo"><a href="">¿Quienes somos?</a></li>
+
+        </ul>
+    </div>
+</div>
+
+
+<!-- CONTENEDOR CON TABLA DE USUARIOS -->
 <div class="contenedor_tabla">
 <table class="users_table">
     <tr>
@@ -96,7 +117,6 @@
     <?php
         $sqli = "SELECT * FROM users";
         $result = mysqli_query($conectar, $sqli);
-
         while($mostrar = mysqli_fetch_array($result)){
     ?>
     <tr>

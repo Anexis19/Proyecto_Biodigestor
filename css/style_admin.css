@@ -37,6 +37,13 @@
     margin-top: 6%;
 }
 
+/* ==================================
+ESTILOS CONTENEDRO TABLA
+===================================== */
+
+.contenedor_tabla{
+    margin-top: 110px;
+}
 
 .users_table {
     margin: auto;

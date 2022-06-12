@@ -20,6 +20,7 @@
     <link rel="stylesheet" href="../css/style_form.css">
     <title>Formulario de registro</title>
     <link rel="icon" href="../images/icon.png">
+
     <!-- CONEXION CON AJAX -->
     <script type="text/javascript">
 
@@ -36,7 +37,7 @@
                 conexion = new XMLHttpRequest();
 
             }
-            
+
             conexion.onreadystatechange = function(){
                 if(conexion.readyState == 4 && conexion.status == 200){
                     document.getElementById("div").innerHTML = conexion.responseText;
@@ -61,7 +62,7 @@
 
     <div class="contenedor_principal">
         <div class="contenedor_logo">
-            <a href="../index.html"><img id="imagen_logo" src="../images/logo.png" alt="Error al cargar la imagen"></a>    
+            <a href="../index.php"><img id="imagen_logo" src="../images/logo.png" alt="Error al cargar la imagen"></a>
         </div>
         <div class="contenedor_frase">
             <span>Controla y monitoriza tu biodigestor al alcance de unos pocos clicks </span>
@@ -78,7 +79,25 @@
     </div>
 
 </header>
-    
+
+<!-- BARRA DE NAVEGACION -->
+<div class="contenedor_menu">
+<div class="contenedor_listas">
+    <ul>
+        <li class="btn-inicio-go_home"><a href="../index.php">Menu Principal</a></li>
+         <a href="suscription.php"><li>Suscripciones <i class="fa fa-angle-down"></i></a>
+            <ul>
+                <li>Premiun</li>
+                <li>Basico</li>
+            </ul>
+        </li>
+        <li class="btn-inicio-go_catalogo"><a href="">¿Quienes somos?</a></li>
+
+    </ul>
+</div>
+</div>
+
+
 <!-- SCRIPT PARA LA VERFICACION DE CONTRASEÑAS -->
 <script>
     function comprobarPSW(){
@@ -90,10 +109,10 @@
             document.getElementById("passw").value="";
             document.getElementById("passw_conf").value="";
             return false;
-           
+
         }
-        
-        
+
+
 
     }
 
@@ -157,7 +176,7 @@
                     <select class="input_decor" name="depart" onclick="mostrarSelect(this.value)">
                         <!-- <option >Departamento</option> -->
 
-                        <?php 
+                        <?php
                             include "../logic/departamentosLogic.php";
                         ?>
 

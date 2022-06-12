@@ -12,7 +12,7 @@
     width: 100%;
     text-align: center;
     margin: 0 auto;
-    margin-top:  20%;
+    margin-top:  110px;
     background: #BAD0EF;
     padding: 20px 50px;
 }
@@ -31,11 +31,11 @@
     background: white;
     color: #251e1e;
     margin-right: 30px;
-   
- 
+
+
 }
 
-i{
+.item i{
     font-size: 25px;
     color: #275F40;
  }
