@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 27-05-2022 a las 14:38:46
+-- Tiempo de generación: 14-06-2022 a las 06:05:04
 -- Versión del servidor: 10.4.22-MariaDB
 -- Versión de PHP: 7.4.27
 
@@ -1213,10 +1213,30 @@ INSERT INTO `municipios` (`ID_Municipio`, `ID_Departamento`, `Municipio`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `tipo_usuario`
+--
+
+CREATE TABLE `tipo_usuario` (
+  `ID_USUARIO` int(20) NOT NULL,
+  `DESCRIPCION` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `tipo_usuario`
+--
+
+INSERT INTO `tipo_usuario` (`ID_USUARIO`, `DESCRIPCION`) VALUES
+(1, 'CLIENTE'),
+(2, 'ADMINISTRADOR');
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `users`
 --
 
 CREATE TABLE `users` (
+  `NUM_REGISTRO` int(11) NOT NULL,
   `ID` int(10) NOT NULL,
   `NAME_LASTNAME` varchar(30) NOT NULL,
   `DATE` date NOT NULL,
@@ -1225,15 +1245,20 @@ CREATE TABLE `users` (
   `DEPARTAMENTO` varchar(30) NOT NULL,
   `MUNICIPIO` varchar(30) NOT NULL,
   `CELLPHONE` varchar(20) NOT NULL,
-  `PASSWORD` varchar(10) NOT NULL
+  `PASSWORD` varchar(10) NOT NULL,
+  `TIPO_USUARIO` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `users`
 --
 
-INSERT INTO `users` (`ID`, `NAME_LASTNAME`, `DATE`, `TYPE_ID`, `ADDRESS`, `DEPARTAMENTO`, `MUNICIPIO`, `CELLPHONE`, `PASSWORD`) VALUES
-(1061818559, 'andres', '2004-12-17', 'CC', 'asd', '19', 'EL MOLINO', '123', 'asd');
+INSERT INTO `users` (`NUM_REGISTRO`, `ID`, `NAME_LASTNAME`, `DATE`, `TYPE_ID`, `ADDRESS`, `DEPARTAMENTO`, `MUNICIPIO`, `CELLPHONE`, `PASSWORD`, `TIPO_USUARIO`) VALUES
+(1, 1061818559, 'andres', '2003-12-12', 'CC', 'direccion1', '11', 'POPAYÁN', '3016616811', '123', 1),
+(2, 11111, 'DIEGO', '2005-06-10', 'CC', 'ASD', 'CAUCA', 'POPAYAN', '11111111', '123', 2),
+(3, 1234567890, 'ASDASD', '2004-12-19', 'CC', 'ASDSAD', '18', 'AIPE', '1234567890', '123', 1),
+(4, 123456789, 'ANDRES HURTADO', '1999-06-19', 'CC', 'CRA 6C 31 AN 09', '11', 'POPAYÁN', '3006536482', '123', 2),
+(5, 123456788, 'DAVID', '2004-12-14', 'PST', 'ASDSAD', '16', 'PUERTO COLOMBIA', '123456788', '123', 1);
 
 --
 -- Índices para tablas volcadas
@@ -1253,6 +1278,18 @@ ALTER TABLE `municipios`
   ADD KEY `fk_municipios_departamentos` (`ID_Departamento`);
 
 --
+-- Indices de la tabla `tipo_usuario`
+--
+ALTER TABLE `tipo_usuario`
+  ADD PRIMARY KEY (`ID_USUARIO`);
+
+--
+-- Indices de la tabla `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`NUM_REGISTRO`);
+
+--
 -- AUTO_INCREMENT de las tablas volcadas
 --
 
@@ -1267,6 +1304,18 @@ ALTER TABLE `departamentos`
 --
 ALTER TABLE `municipios`
   MODIFY `ID_Municipio` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1123;
+
+--
+-- AUTO_INCREMENT de la tabla `tipo_usuario`
+--
+ALTER TABLE `tipo_usuario`
+  MODIFY `ID_USUARIO` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT de la tabla `users`
+--
+ALTER TABLE `users`
+  MODIFY `NUM_REGISTRO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Restricciones para tablas volcadas
