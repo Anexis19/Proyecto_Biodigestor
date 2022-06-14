@@ -1,8 +1,7 @@
 <?php
   include "../conexion.php";
+  include "../logic/validate_sessionLogic.php";
   $mysqli = new mysqli($host, $user, $pw, $db);
-
-  session_start();
 ?>
 
 <!DOCTYPE html>
@@ -36,7 +35,7 @@
             </div>
             <div class="contenedor_botones">
                 <div class="contenedor_botton_inicio">
-                    <button type="" class="btn-inicio-sesion"> <a href="../index.html">Menu Principal</a></button>
+                    <button type="" class="btn-inicio-sesion"> <a href="../index.php">Menu Principal</a></button>
                 </div>
                 <div class="contenedor_botton_registro">
                     <button type="" class="btn-inicio-sesion"> <a href="../pages/form_register.php">Registrarse</a> </button>
@@ -100,21 +99,24 @@
 
 
                         }
-                        if($message == 2){
+                        elseif($message == 2){
                             echo "USUARIO NO REGISTRADO.";
                             session_destroy();
 
                         }
-                        if($message == 3){
+                        elseif($message == 3){
                             echo "ALERTA DE SEGURIDAD. FAVOR INICIE SESIÓN";
                             session_destroy();
 
 
                         }
-                        if($message == 4){
+                        elseif($message == 4){
                             echo "SESIÓN FINALIZADA. INICIE SESIÓN NUEVAMENTE";
                             session_destroy();
 
+                        }
+                        elseif($message == 5){
+                            echo "INICIE SESIÓN PARA REALIZAR UNA COMPRA";
                         }
                         ?>
 

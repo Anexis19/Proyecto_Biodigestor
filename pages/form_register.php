@@ -1,6 +1,7 @@
 <?php
 
     include "../conexion.php";
+    require "../logic/validate_sessionLogic.php";
     $mysqli = new mysqli($host, $user, $pw, $db);
 ?>
 

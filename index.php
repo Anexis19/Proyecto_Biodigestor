@@ -115,6 +115,23 @@
                 </li>
                 <li class="btn-inicio-go_catalogo"><a href="">¿Quienes somos?</a></li>
 
+                <?php
+                    if($autentication == 1){
+
+
+                ?>
+                    <li class="btn-dashboard"><a href="pages/client_menu.php">Dashboard</a></li>
+                <?php
+                    }
+
+                    elseif($autentication == 2){
+                ?>
+                    <li class="btn-dashboard"><a href="pages/admin_menu.php">Dashboard</a></li>
+                <?php
+                    }
+
+                ?>
+
             </ul>
         </div>
     </div>

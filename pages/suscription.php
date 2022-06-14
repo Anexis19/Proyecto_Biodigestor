@@ -123,7 +123,22 @@
                     </ul>
                 </li>
                 <li class="btn-inicio-go_catalogo"><a href="">¿Quienes somos?</a></li>
+                <?php
+                    if($autentication == 1){
 
+
+                ?>
+                    <li class="btn-dashboard"><a href="client_menu.php">Dashboard</a></li>
+                <?php
+                    }
+
+                    elseif($autentication == 2){
+                ?>
+                    <li class="btn-dashboard"><a href="admin_menu.php">Dashboard</a></li>
+                <?php
+                    }
+
+                ?>
             </ul>
         </div>
     </div>
@@ -139,23 +154,23 @@
             <div class="contenedor_letras">
                 BASIC
             </div>
-            <!-- CONTENEDOR PRECIOS -->
+            <!-- CONTENEDOR PRECIOS BASIC -->
             <div class="contenedor_precio">
 
                 <span>$ 1.99 /</span> mes
                 <br>
                     más coste de instalación
             </div>
-            <!-- CONTENEDOR CARACTERISTICAS -->
+            <!-- CONTENEDOR CARACTERISTICAS BASIC -->
             <div class="contenedor_caracteristicas">
                 <ul>
                     <li>3 meses de uso gratis de la aplicación</li>
                     <li>Mantenimiento periodico</li>
                 </ul>
             </div>
-            <!-- CONTENEDOR BOTON COMPRAR -->
+            <!-- CONTENEDOR BOTON COMPRAR BASIC-->
             <div class="contenedor_compras">
-                <button><a href="">COMPRAR</a></button>
+                <button><a href="compras.php">COMPRAR</a></button>
             </div>
         </div>
         <div class="contenedor_premium">
@@ -185,7 +200,7 @@
             </div>
             <!-- CONTENEDOR BOTON COMPRAR -->
             <div class="contenedor_compras">
-                <button><a href="">COMPRAR</a></button>
+                <button><a href="compras.php">COMPRAR</a></button>
             </div>
         </div>
 
