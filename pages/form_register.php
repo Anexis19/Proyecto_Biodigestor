@@ -70,10 +70,10 @@
         </div>
         <div class="contenedor_botones">
             <div class="contenedor_botton_inicio">
-                <button type="" class="btn-inicio-sesion"><a href="../index.html">Menú principal</a></button>
+                <a href="../index.php"><button type="" class="btn-inicio-sesion">Menú principal</button></a>
             </div>
             <div class="contenedor_botton_registro">
-                <button type="" class="btn-inicio-sesion"> <a href="inicio_sesion.php">Inicio de sesión</a> </button>
+                <a href="inicio_sesion.php"><button type="" class="btn-inicio-sesion">Inicio de sesión</button></a>
             </div>
 
         </div>
@@ -85,14 +85,14 @@
 <div class="contenedor_menu">
 <div class="contenedor_listas">
     <ul>
-        <li class="btn-inicio-go_home"><a href="../index.php">Menu Principal</a></li>
-         <a href="suscription.php"><li>Suscripciones <i class="fa fa-angle-down"></i></a>
+        <a href="../index.php"><li class="btn-inicio-go_home">Menu Principal</li></a>
+        <a href="suscription.php"><li>Suscripciones <i class="fa fa-angle-down"></i></a>
             <ul>
                 <li>Premiun</li>
                 <li>Basico</li>
             </ul>
         </li>
-        <li class="btn-inicio-go_catalogo"><a href="">¿Quienes somos?</a></li>
+        <a href=""><li class="btn-inicio-go_catalogo">¿Quienes somos?</li></a>
 
     </ul>
 </div>

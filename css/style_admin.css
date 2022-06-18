@@ -42,7 +42,8 @@ ESTILOS CONTENEDRO TABLA
 ===================================== */
 
 .contenedor_tabla{
-    margin-top: 110px;
+    margin-top: 130px;
+    margin-left: 5%;
 }
 
 .users_table {

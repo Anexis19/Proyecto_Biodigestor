@@ -158,14 +158,11 @@ CAROUSEL DE IMAGENES
     DISEÑO BARRA DE NAVEGACIÓN
     ===========================
 */
-
-
-
 .contenedor_menu
-*,
-*::before,
-*::after
+*
 {
+  color: white;
+  font-weight: bold;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -175,30 +172,31 @@ CAROUSEL DE IMAGENES
   margin: 0 auto;
   text-align: center;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  background-color: #9291917e;
+  background-color: rgba(53, 166, 160, 1);
   max-width: 2000px;
 }
 .contenedor_listas ul{
+
   font-size: 0;
   list-style-type: none;
 }
 .contenedor_listas ul li{
+
   font-family: "Kanit", sans-serif;
   font-size: 1rem;
-  font-weight: 400;
-  color: #333;
   display: inline-block;
   padding: 15px;
   position: relative;
 }
 .contenedor_listas ul li ul{
+  color: white;
   display: none;
 
 }
 .contenedor_listas ul li:hover{
   cursor: pointer;
   color: white;
-  background-color: #35a6a0;
+  background-color: #FB8B02;
 }
 .contenedor_listas ul li:hover ul{
   display: block;
@@ -208,14 +206,16 @@ CAROUSEL DE IMAGENES
   position: absolute;
 }
 .contenedor_listas ul li:hover ul li{
+  /* font-weight: bolder; */
   display: block;
   color: black;
-  background-color: rgba(255, 255, 255, 0.6);
+  background-color: rgba(53, 166, 160, 0.6);
   z-index: 2;
 }
 .contenedor_listas ul li:hover ul li:hover{
-  background: rgba(0, 128, 128, 0.6);
-  color: white;
+  font-weight: bold;
+  background: rgba(251, 139, 2, 0.6);
+  color: black;
 }
 
 /*=================================

@@ -53,10 +53,10 @@
                 </div>
                 <div class="contenedor_botones">
                     <div class="contenedor_botton_inicio">
-                        <button type="" class="btn-inicio-sesion"> <a href="pages/inicio_sesion.php">Inicio de Sesion</a></button>
+                        <a href="pages/inicio_sesion.php"><button type="" class="btn-inicio-sesion">Inicio de Sesion</button></a>
                     </div>
                     <div class="contenedor_botton_registro">
-                        <button type="" class="btn-inicio-sesion"> <a href="pages/form_register.php">Registrarse</a> </button>
+                        <a href="pages/form_register.php"><button type="" class="btn-inicio-sesion">Registrarse</button></a>
                     </div>
                 </div>
             <?php
@@ -90,7 +90,7 @@
 
 
                     <div class="contenedor_cerrar_sesion" >
-                            <button class="btn-cierre-sesion"><a href="logic/cerrar_sesion.php">Cerrar Sesion</a></button>
+                        <a href="logic/cerrar_sesion.php"><button class="btn-cierre-sesion">Cerrar Sesion</button></a>
                     </div>
                 </div>
             <?php
@@ -106,27 +106,27 @@
 
         <div class="contenedor_listas">
             <ul>
-                <li class="btn-inicio-go_home"><a href="index.php">Menu Principal</a></li>
-                <li> <a href="pages/suscription.php">Suscripciones</a>  <i class="fa fa-angle-down"></i>
+                <a href="index.php"><li class="btn-inicio-go_home">Menu Principal</li></a>
+                <a href="pages/suscription.php"><li>Suscripciones</a><i class="fa fa-angle-down"></i>
                     <ul>
                         <li>Premiun</li>
                         <li>Basico</li>
                     </ul>
                 </li>
-                <li class="btn-inicio-go_catalogo"><a href="">¿Quienes somos?</a></li>
+                <a href=""><li class="btn-inicio-go_catalogo">¿Quienes somos?</li></a>
 
                 <?php
                     if($autentication == 1){
 
 
                 ?>
-                    <li class="btn-dashboard"><a href="pages/client_menu.php">Dashboard</a></li>
+                    <a href="pages/client_menu.php"><li class="btn-dashboard">Dashboard</li></a>
                 <?php
                     }
 
                     elseif($autentication == 2){
                 ?>
-                    <li class="btn-dashboard"><a href="pages/admin_menu.php">Dashboard</a></li>
+                    <a href="pages/admin_menu.php"><li class="btn-dashboard">Dashboard</li></a>
                 <?php
                     }
 

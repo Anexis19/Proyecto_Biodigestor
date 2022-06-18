@@ -35,9 +35,9 @@
 
 }
 
-.item i{
+.contenedor_form .login-box .item i{
+    color: #275f42;
     font-size: 25px;
-    color: #275F40;
  }
 .btn-login{
    color: black;
