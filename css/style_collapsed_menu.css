@@ -7,26 +7,28 @@
 }
 body{
     font-family: 'Kanit', sans-serif;
+    width: 100%;
     font-size: 18px;
     padding: 0;
     margin: 0;
     position: absolute;
 }
 
+
 .body-expanded{
     margin-left: var(--width);
 }
 
 #slide-menu{
+
     display: inline-block;
     background-color: var(--bgcolor);
     color: white;
-    position:absolute;
-    height: calc(100% - 160px);
-    left: 0%;
+    position: absolute;
     top: 160px;
+    left: 0%;
     border-radius: 10px;
-    z-index: 2;
+    z-index: 100;
 }
 #slide-menu a{
     color: white;
@@ -128,47 +130,26 @@ body{
     height: 1px;
     border-bottom: solid 1px var(--hovercolor);
 }
-
-
-/* FOOTER */
-
-#slide-menu #footer{
-    overflow: hidden;
-    margin-bottom: 0%;
-    bottom: 0%;
+#slide-menu .footer a{
+    display: block;
 }
-#slide-menu #footer .contenedor_footer{
-    width: var(--width);
-
-}
-
-#slide-menu #footer .contenedor_footer .icon{
-    font-size: 14px;
-    vertical-align: middle;
-    overflow: hidden;
-    display: inline-block;
-}
-
-
-#slide-menu #footer .contenedor_footer .icon{
-    box-sizing: border-box;
-    padding: var(--padding);
-    width: var(--width-collapsed);
-}
-#slide-menu #footer .contenedor_footer .icon img{
+#slide-menu .footer .btn_carga img{
     width: 100%;
 }
-#slide-menu #footer .contenedor_footer .title {
-    padding: var(--padding) 0;
+/*
+    ==============================
+    PRUEBA CONTENEDOR INF
+    ==============================
+*/
+.btn_carga{
+    position: fixed;
+    bottom: 0;
+    border-radius: 50%;
+    background-color: #275f42;
+    width: 50px;
+    height: 50px;
+
 }
-#slide-menu #footer .contenedor_footer.separator{
-    height: 1px;
-    border-bottom: solid 1px var(--hovercolor);
-    margin: 15px 0;
-}
-
-
-
 
 
 
@@ -177,6 +158,7 @@ body{
 .menu-expanded{
     width: var(--width);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    z-index: 100;
 }
 .menu-expanded #header #title{
     display: inline-block;
@@ -195,28 +177,8 @@ body{
 .menu-expanded #profile #name{
     width: 100%;
 }
-.menu-expanded #footer .contenedor_footer {
-    width: var(--width);
-    position: absolute;
-    bottom: 0;
-}
-.menu-expanded #footer .contenedor_footer a{
-    display: inline-block;
-}
-.menu-expanded #footer .contenedor_footer a:hover{
-    background-color: var(--hovercolor);
-}
-
-.menu-expanded #footer .contenedor_footer .icon{
-
-    bottom: 30px;
-    margin-left: 40%;
-}
-
-.menu-expanded #footer .contenedor_footer .title{
-    width: var(--width);
-    text-align: center;
-
+.menu-expanded .btn_carga{
+    display: none;
 }
 
 
@@ -241,19 +203,9 @@ body{
     width: 100px;
 }
 
-
-
-.menu-collapsed #footer .contenedor_footer .icon{
-
-    position: absolute;
-    bottom: 0;
+.menu-collapsed .btn_carga{
+    z-index: 1;
 }
-
-.menu-collapsed #footer .contenedor_footer .title{
-    display: none;
-}
-
-
 
 .prueba{
     margin-top: 110px;

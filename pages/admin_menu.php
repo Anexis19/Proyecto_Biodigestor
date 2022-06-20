@@ -11,7 +11,7 @@
 
 
 
-    if($autentication = '' || $autentication == null || $autentication == 1 ){
+    if($autentication = '' || $autentication == null || $autentication == 'Cliente' ){
         header('Location: inicio_sesion.php?message=3');
 
     }
@@ -80,7 +80,9 @@
 </header>
 
 <!-- INICIO DE SLIDE MENU -->
-<div id="slide-menu" class="menu-collapsed">
+
+<div class = "contenedor_pr_menu">
+    <div id="slide-menu" class="menu-collapsed">
 
         <!-- HEADER -->
         <div id="header">
@@ -128,29 +130,75 @@
                 <div class="item separator">
                 </div>
 
-
-        </div>
-
-        <!-- FOOTER -->
-        <div id="footer">
-
-            <div class="contenedor_footer">
+            <div class="item">
                 <a href="#">
-                    <div class="icon"><img src="../images/pages_up.png" alt=""></div>
-                    <!-- <div class="title"><span>Cloud Services</span></div> -->
+                    <div class="icon"><img src="../images/users_admin.png" alt=""></div>
+                    <div class="title"><span>Gestion de usuarios</span></div>
 
-                    <div class="title" id="home_title">Cloud Services</div>
                 </a>
+            </div>
+                <!-- SEPARADOR -->
+                <div class="item separator">
+                </div>
 
+            <div class="item">
+                <a href="#">
+                    <div class="icon"><img src="../images/edit_user.png" alt=""></div>
+                    <div class="title"><span>Editar usuario</span></div>
 
+                </a>
             </div>
 
+                 <!-- SEPARADOR -->
+                 <div class="item separator">
+                </div>
+
+            <div class="item">
+                <a href="#">
+                    <div class="icon"><img src="../images/delete_user.png" alt=""></div>
+                    <div class="title"><span>Eliminar usuario</span></div>
+
+                </a>
+            </div>
+
+                 <!-- SEPARADOR -->
+                 <div class="item separator">
+                </div>
+
+            <div class="item">
+                <a href="#">
+                    <div class="icon"><img src="../images/add-admin.png" alt=""></div>
+                    <div class="title"><span>Crear administrador</span></div>
+
+                </a>
+            </div>
+
+
         </div>
+
+        <!--
+            =================================
+            BOTON DE CARGA SUPERIOR
+            =================================
+        -->
+        <div class="footer">
+            <a href="#">
+                <div class="btn_carga"><img src="../images/pages_up.png" alt=""></div>
+            </a>
+        </div>
+
+
+
+
 
     </div>
 
+</div>
 
-    <!-- BARRA DE NAVEGACION -->
+
+
+
+<!-- BARRA DE NAVEGACION -->
 <div class="contenedor_menu">
 
     <div class="contenedor_listas">
@@ -216,6 +264,73 @@
     </table>
 </div>
 
+<section class="contenido">
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam omnis eius accusamus fugiat architecto vero perspiciatis aliquid, beatae at itaque quo officiis mollitia, atque expedita rerum necessitatibus consequuntur nam quas?
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam omnis eius accusamus fugiat architecto vero perspiciatis aliquid, beatae at itaque quo officiis mollitia, atque expedita rerum necessitatibus consequuntur nam quas?
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam omnis eius accusamus fugiat architecto vero perspiciatis aliquid, beatae at itaque quo officiis mollitia, atque expedita rerum necessitatibus consequuntur nam quas?
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam omnis eius accusamus fugiat architecto vero perspiciatis aliquid, beatae at itaque quo officiis mollitia, atque expedita rerum necessitatibus consequuntur nam quas?
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam omnis eius accusamus fugiat architecto vero perspiciatis aliquid, beatae at itaque quo officiis mollitia, atque expedita rerum necessitatibus consequuntur nam quas?
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam omnis eius accusamus fugiat architecto vero perspiciatis aliquid, beatae at itaque quo officiis mollitia, atque expedita rerum necessitatibus consequuntur nam quas?
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam omnis eius accusamus fugiat architecto vero perspiciatis aliquid, beatae at itaque quo officiis mollitia, atque expedita rerum necessitatibus consequuntur nam quas?
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam omnis eius accusamus fugiat architecto vero perspiciatis aliquid, beatae at itaque quo officiis mollitia, atque expedita rerum necessitatibus consequuntur nam quas?
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam omnis eius accusamus fugiat architecto vero perspiciatis aliquid, beatae at itaque quo officiis mollitia, atque expedita rerum necessitatibus consequuntur nam quas?
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam omnis eius accusamus fugiat architecto vero perspiciatis aliquid, beatae at itaque quo officiis mollitia, atque expedita rerum necessitatibus consequuntur nam quas?
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam omnis eius accusamus fugiat architecto vero perspiciatis aliquid, beatae at itaque quo officiis mollitia, atque expedita rerum necessitatibus consequuntur nam quas?
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam omnis eius accusamus fugiat architecto vero perspiciatis aliquid, beatae at itaque quo officiis mollitia, atque expedita rerum necessitatibus consequuntur nam quas?
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam omnis eius accusamus fugiat architecto vero perspiciatis aliquid, beatae at itaque quo officiis mollitia, atque expedita rerum necessitatibus consequuntur nam quas?
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam omnis eius accusamus fugiat architecto vero perspiciatis aliquid, beatae at itaque quo officiis mollitia, atque expedita rerum necessitatibus consequuntur nam quas?
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam omnis eius accusamus fugiat architecto vero perspiciatis aliquid, beatae at itaque quo officiis mollitia, atque expedita rerum necessitatibus consequuntur nam quas?
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam omnis eius accusamus fugiat architecto vero perspiciatis aliquid, beatae at itaque quo officiis mollitia, atque expedita rerum necessitatibus consequuntur nam quas?
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam omnis eius accusamus fugiat architecto vero perspiciatis aliquid, beatae at itaque quo officiis mollitia, atque expedita rerum necessitatibus consequuntur nam quas?
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam omnis eius accusamus fugiat architecto vero perspiciatis aliquid, beatae at itaque quo officiis mollitia, atque expedita rerum necessitatibus consequuntur nam quas?
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam omnis eius accusamus fugiat architecto vero perspiciatis aliquid, beatae at itaque quo officiis mollitia, atque expedita rerum necessitatibus consequuntur nam quas?
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam omnis eius accusamus fugiat architecto vero perspiciatis aliquid, beatae at itaque quo officiis mollitia, atque expedita rerum necessitatibus consequuntur nam quas?
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam omnis eius accusamus fugiat architecto vero perspiciatis aliquid, beatae at itaque quo officiis mollitia, atque expedita rerum necessitatibus consequuntur nam quas?
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam omnis eius accusamus fugiat architecto vero perspiciatis aliquid, beatae at itaque quo officiis mollitia, atque expedita rerum necessitatibus consequuntur nam quas?
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam omnis eius accusamus fugiat architecto vero perspiciatis aliquid, beatae at itaque quo officiis mollitia, atque expedita rerum necessitatibus consequuntur nam quas?
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam omnis eius accusamus fugiat architecto vero perspiciatis aliquid, beatae at itaque quo officiis mollitia, atque expedita rerum necessitatibus consequuntur nam quas?
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam omnis eius accusamus fugiat architecto vero perspiciatis aliquid, beatae at itaque quo officiis mollitia, atque expedita rerum necessitatibus consequuntur nam quas?
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam omnis eius accusamus fugiat architecto vero perspiciatis aliquid, beatae at itaque quo officiis mollitia, atque expedita rerum necessitatibus consequuntur nam quas?
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam omnis eius accusamus fugiat architecto vero perspiciatis aliquid, beatae at itaque quo officiis mollitia, atque expedita rerum necessitatibus consequuntur nam quas?
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam omnis eius accusamus fugiat architecto vero perspiciatis aliquid, beatae at itaque quo officiis mollitia, atque expedita rerum necessitatibus consequuntur nam quas?
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam omnis eius accusamus fugiat architecto vero perspiciatis aliquid, beatae at itaque quo officiis mollitia, atque expedita rerum necessitatibus consequuntur nam quas?
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam omnis eius accusamus fugiat architecto vero perspiciatis aliquid, beatae at itaque quo officiis mollitia, atque expedita rerum necessitatibus consequuntur nam quas?
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam omnis eius accusamus fugiat architecto vero perspiciatis aliquid, beatae at itaque quo officiis mollitia, atque expedita rerum necessitatibus consequuntur nam quas?
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam omnis eius accusamus fugiat architecto vero perspiciatis aliquid, beatae at itaque quo officiis mollitia, atque expedita rerum necessitatibus consequuntur nam quas?
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam omnis eius accusamus fugiat architecto vero perspiciatis aliquid, beatae at itaque quo officiis mollitia, atque expedita rerum necessitatibus consequuntur nam quas?
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam omnis eius accusamus fugiat architecto vero perspiciatis aliquid, beatae at itaque quo officiis mollitia, atque expedita rerum necessitatibus consequuntur nam quas?
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam omnis eius accusamus fugiat architecto vero perspiciatis aliquid, beatae at itaque quo officiis mollitia, atque expedita rerum necessitatibus consequuntur nam quas?
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam omnis eius accusamus fugiat architecto vero perspiciatis aliquid, beatae at itaque quo officiis mollitia, atque expedita rerum necessitatibus consequuntur nam quas?
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam omnis eius accusamus fugiat architecto vero perspiciatis aliquid, beatae at itaque quo officiis mollitia, atque expedita rerum necessitatibus consequuntur nam quas?
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam omnis eius accusamus fugiat architecto vero perspiciatis aliquid, beatae at itaque quo officiis mollitia, atque expedita rerum necessitatibus consequuntur nam quas?
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam omnis eius accusamus fugiat architecto vero perspiciatis aliquid, beatae at itaque quo officiis mollitia, atque expedita rerum necessitatibus consequuntur nam quas?
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam omnis eius accusamus fugiat architecto vero perspiciatis aliquid, beatae at itaque quo officiis mollitia, atque expedita rerum necessitatibus consequuntur nam quas?
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam omnis eius accusamus fugiat architecto vero perspiciatis aliquid, beatae at itaque quo officiis mollitia, atque expedita rerum necessitatibus consequuntur nam quas?
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam omnis eius accusamus fugiat architecto vero perspiciatis aliquid, beatae at itaque quo officiis mollitia, atque expedita rerum necessitatibus consequuntur nam quas?
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam omnis eius accusamus fugiat architecto vero perspiciatis aliquid, beatae at itaque quo officiis mollitia, atque expedita rerum necessitatibus consequuntur nam quas?
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam omnis eius accusamus fugiat architecto vero perspiciatis aliquid, beatae at itaque quo officiis mollitia, atque expedita rerum necessitatibus consequuntur nam quas?
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam omnis eius accusamus fugiat architecto vero perspiciatis aliquid, beatae at itaque quo officiis mollitia, atque expedita rerum necessitatibus consequuntur nam quas?
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam omnis eius accusamus fugiat architecto vero perspiciatis aliquid, beatae at itaque quo officiis mollitia, atque expedita rerum necessitatibus consequuntur nam quas?
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam omnis eius accusamus fugiat architecto vero perspiciatis aliquid, beatae at itaque quo officiis mollitia, atque expedita rerum necessitatibus consequuntur nam quas?
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam omnis eius accusamus fugiat architecto vero perspiciatis aliquid, beatae at itaque quo officiis mollitia, atque expedita rerum necessitatibus consequuntur nam quas?
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam omnis eius accusamus fugiat architecto vero perspiciatis aliquid, beatae at itaque quo officiis mollitia, atque expedita rerum necessitatibus consequuntur nam quas?
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam omnis eius accusamus fugiat architecto vero perspiciatis aliquid, beatae at itaque quo officiis mollitia, atque expedita rerum necessitatibus consequuntur nam quas?
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam omnis eius accusamus fugiat architecto vero perspiciatis aliquid, beatae at itaque quo officiis mollitia, atque expedita rerum necessitatibus consequuntur nam quas?
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam omnis eius accusamus fugiat architecto vero perspiciatis aliquid, beatae at itaque quo officiis mollitia, atque expedita rerum necessitatibus consequuntur nam quas?
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam omnis eius accusamus fugiat architecto vero perspiciatis aliquid, beatae at itaque quo officiis mollitia, atque expedita rerum necessitatibus consequuntur nam quas?
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam omnis eius accusamus fugiat architecto vero perspiciatis aliquid, beatae at itaque quo officiis mollitia, atque expedita rerum necessitatibus consequuntur nam quas?
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam omnis eius accusamus fugiat architecto vero perspiciatis aliquid, beatae at itaque quo officiis mollitia, atque expedita rerum necessitatibus consequuntur nam quas?
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam omnis eius accusamus fugiat architecto vero perspiciatis aliquid, beatae at itaque quo officiis mollitia, atque expedita rerum necessitatibus consequuntur nam quas?
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam omnis eius accusamus fugiat architecto vero perspiciatis aliquid, beatae at itaque quo officiis mollitia, atque expedita rerum necessitatibus consequuntur nam quas?
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam omnis eius accusamus fugiat architecto vero perspiciatis aliquid, beatae at itaque quo officiis mollitia, atque expedita rerum necessitatibus consequuntur nam quas?
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam omnis eius accusamus fugiat architecto vero perspiciatis aliquid, beatae at itaque quo officiis mollitia, atque expedita rerum necessitatibus consequuntur nam quas?
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam omnis eius accusamus fugiat architecto vero perspiciatis aliquid, beatae at itaque quo officiis mollitia, atque expedita rerum necessitatibus consequuntur nam quas?
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam omnis eius accusamus fugiat architecto vero perspiciatis aliquid, beatae at itaque quo officiis mollitia, atque expedita rerum necessitatibus consequuntur nam quas?
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam omnis eius accusamus fugiat architecto vero perspiciatis aliquid, beatae at itaque quo officiis mollitia, atque expedita rerum necessitatibus consequuntur nam quas?
+
+
+</section>
+
 
 
 <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
@@ -227,12 +342,15 @@
     const btn = document.querySelector('#menu-btn');
     const menu = document.querySelector('#slide-menu');
 
-    btn.addEventListener('click', e => {
-       menu.classList.toggle("menu-expanded");
-       menu.classList.toggle("menu-collapsed");
 
+    btn.addEventListener('click', e => {
+        menu.classList.toggle("menu-expanded");
+        window.scrollTo(150,150);
+        menu.classList.toggle("menu-collapsed");
     });
 
 </script>
+
+
 </body>
 </html>

@@ -4,13 +4,13 @@
     $bandera = false;
     $autentication = $_SESSION['TIPO_USUARIO'];
 
-    if ($autentication == 1){
+    if ($autentication == 'Cliente'){
         echo    "<script>
                     alert('Ya se ha iniciado sesión previamente.');
                     location.href='../pages/client_menu.php';
                 </script>";
     }
-    elseif($autentication == 2){
+    elseif($autentication == 'Admin'){
         echo    "<script>
                     alert('Ya se ha iniciado sesión previamente.');
                     location.href='../pages/admin_menu.php';

@@ -6,6 +6,7 @@
     $password = strtoupper($_POST['password']);
 
 
+
     session_start();
 
     include '../conexion.php';
@@ -16,7 +17,10 @@
     $row1 = $result1->fetch_array(MYSQLI_NUM);
     $numero_filas = $result1->num_rows;
 
+
+
     if($numero_filas > 0){
+
 
         $passw_bd = $row1[9];
 
@@ -31,11 +35,11 @@
             $_SESSION['TIPO_USUARIO']   = $tipo_usuario;
 
             // VALIDACION SI EL USUARIO ES ADMINISTRADOR
-            if($tipo_usuario == 2){
+            if($tipo_usuario == 'Admin'){
                 header('Location: ../pages/admin_menu.php');
             }
             // VALIDACION SI EL USUARIO ES CLIENTE
-            elseif($tipo_usuario == 1){
+            elseif($tipo_usuario == 'Cliente'){
                 header('Location: ../pages/client_menu.php');
             }
             else{
@@ -46,9 +50,9 @@
 
 
         }
-        // VALIDACION SI SE INGRESA UN ID REGISTRADO PERO SIN CONTRASEÑA
+    //     // VALIDACION SI SE INGRESA UN ID REGISTRADO PERO SIN CONTRASEÑA
         else{
-            header("Location: ../pages/inicio_sesion.php?message=1");
+             header("Location: ../pages/inicio_sesion.php?message=1");
         }
 
     }

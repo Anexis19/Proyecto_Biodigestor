@@ -1,4 +1,4 @@
-<?php
+ <?php
 
     // Registro de usuario en la base de datos. Especificamente en la tabla users
     require '../conexion.php';
@@ -43,17 +43,26 @@
     }
 
 
-    // Registro Exitoso / Incorrecto
-    $registrar = "INSERT INTO users (ID, NAME_LASTNAME, DATE, TYPE_ID, ADDRESS, DEPARTAMENTO, MUNICIPIO, CELLPHONE, PASSWORD, TIPO_USUARIO  ) VALUES ('$numero_id','$nombre_usuario', '$fecha_nac', '$tipo_doc', '$direccion', '$depart', '$munic', '$tel', '$pasw', '1')";
+    // ===========================================
+    //              REGISTRO EXITOSO
+    // ===========================================
+
+    // SENTENCIAS SQL PARA LA CONSULTA DEL NOMBRE DEL DEPARTAMENTO
+    $consulta_depart    = "SELECT * FROM departamentos WHERE ID_Depart = '$depart'";
+    $rslt_depart        = mysqli_query($conectar, $consulta_depart);
+    $row1               = $rslt_depart->fetch_array(MYSQLI_NUM);
+    $nomb_depart        = $row1[1] ;
+
+    $registrar = "INSERT INTO users (ID, NAME_LASTNAME, DATE, TYPE_ID, ADDRESS, DEPARTAMENTO, MUNICIPIO, CELLPHONE, PASSWORD, TIPO_USUARIO  ) VALUES ('$numero_id','$nombre_usuario', '$fecha_nac', '$tipo_doc', '$direccion', '$nomb_depart', '$munic', '$tel', '$pasw', 'Cliente')";
     $prueba = mysqli_query($conectar, $registrar);
     if($prueba){
           echo "<script> alert('Registro existoso');
-          location.href = '../index.html';
+          location.href = '../index.php';
           </script>";
     }
     else{
           echo "<script> alert('Registro incorrecto');
-          location.href = '../index.html';
+          location.href = '../index.php';
           </script>";
     }
 ?>

@@ -8,7 +8,7 @@
     $nombre_cliente     = $_SESSION['NOM_USUARIO'];
     $id_cliente         = $_SESSION['ID_USUARIO'];
 
-    if($autentication = '' || $autentication == null || $autentication == 2 ){
+    if($autentication = '' || $autentication == null || $autentication == 'Admin' ){
         header('Location: inicio_sesion.php?message=3');
 
     }
@@ -77,7 +77,9 @@
     </div>
 </header>
 <!-- INICIO DE SLIDE MENU -->
-<div id="slide-menu" class="menu-collapsed">
+
+<div class = "contenedor_pr_menu">
+    <div id="slide-menu" class="menu-collapsed">
 
         <!-- HEADER -->
         <div id="header">
@@ -128,23 +130,24 @@
 
         </div>
 
-        <!-- FOOTER -->
-        <div id="footer">
-
-            <div class="contenedor_footer">
-                <a href="#">
-                    <div class="icon"><img src="../images/pages_up.png" alt=""></div>
-                    <!-- <div class="title"><span>Cloud Services</span></div> -->
-
-                    <div class="title" id="home_title">Cloud Services</div>
-                </a>
-
-
-            </div>
-
+        <!--
+            =================================
+            BOTON DE CARGA SUPERIOR
+            =================================
+        -->
+        <div class="footer">
+            <a href="#">
+                <div class="btn_carga"><img src="../images/pages_up.png" alt=""></div>
+            </a>
         </div>
 
+
+
+
+
     </div>
+
+</div>
 
 
 
@@ -170,49 +173,6 @@
 
 
 <div class="prueba">
-    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Id, voluptatibus! Consectetur reprehenderit non quos molestias consequatur natus accusantium laudantium, facere ratione, maxime ducimus, corrupti rerum nostrum. Deserunt libero iusto repellendus.
-    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Id, voluptatibus! Consectetur reprehenderit non quos molestias consequatur natus accusantium laudantium, facere ratione, maxime ducimus, corrupti rerum nostrum. Deserunt libero iusto repellendus.
-    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Id, voluptatibus! Consectetur reprehenderit non quos molestias consequatur natus accusantium laudantium, facere ratione, maxime ducimus, corrupti rerum nostrum. Deserunt libero iusto repellendus.
-    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Id, voluptatibus! Consectetur reprehenderit non quos molestias consequatur natus accusantium laudantium, facere ratione, maxime ducimus, corrupti rerum nostrum. Deserunt libero iusto repellendus.
-    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Id, voluptatibus! Consectetur reprehenderit non quos molestias consequatur natus accusantium laudantium, facere ratione, maxime ducimus, corrupti rerum nostrum. Deserunt libero iusto repellendus.
-    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Id, voluptatibus! Consectetur reprehenderit non quos molestias consequatur natus accusantium laudantium, facere ratione, maxime ducimus, corrupti rerum nostrum. Deserunt libero iusto repellendus.
-    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Id, voluptatibus! Consectetur reprehenderit non quos molestias consequatur natus accusantium laudantium, facere ratione, maxime ducimus, corrupti rerum nostrum. Deserunt libero iusto repellendus.
-    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Id, voluptatibus! Consectetur reprehenderit non quos molestias consequatur natus accusantium laudantium, facere ratione, maxime ducimus, corrupti rerum nostrum. Deserunt libero iusto repellendus.
-    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Id, voluptatibus! Consectetur reprehenderit non quos molestias consequatur natus accusantium laudantium, facere ratione, maxime ducimus, corrupti rerum nostrum. Deserunt libero iusto repellendus.
-    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Id, voluptatibus! Consectetur reprehenderit non quos molestias consequatur natus accusantium laudantium, facere ratione, maxime ducimus, corrupti rerum nostrum. Deserunt libero iusto repellendus.
-    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Id, voluptatibus! Consectetur reprehenderit non quos molestias consequatur natus accusantium laudantium, facere ratione, maxime ducimus, corrupti rerum nostrum. Deserunt libero iusto repellendus.
-    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Id, voluptatibus! Consectetur reprehenderit non quos molestias consequatur natus accusantium laudantium, facere ratione, maxime ducimus, corrupti rerum nostrum. Deserunt libero iusto repellendus.
-    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Id, voluptatibus! Consectetur reprehenderit non quos molestias consequatur natus accusantium laudantium, facere ratione, maxime ducimus, corrupti rerum nostrum. Deserunt libero iusto repellendus.
-    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Id, voluptatibus! Consectetur reprehenderit non quos molestias consequatur natus accusantium laudantium, facere ratione, maxime ducimus, corrupti rerum nostrum. Deserunt libero iusto repellendus.
-    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Id, voluptatibus! Consectetur reprehenderit non quos molestias consequatur natus accusantium laudantium, facere ratione, maxime ducimus, corrupti rerum nostrum. Deserunt libero iusto repellendus.
-    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Id, voluptatibus! Consectetur reprehenderit non quos molestias consequatur natus accusantium laudantium, facere ratione, maxime ducimus, corrupti rerum nostrum. Deserunt libero iusto repellendus.
-    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Id, voluptatibus! Consectetur reprehenderit non quos molestias consequatur natus accusantium laudantium, facere ratione, maxime ducimus, corrupti rerum nostrum. Deserunt libero iusto repellendus.
-    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Id, voluptatibus! Consectetur reprehenderit non quos molestias consequatur natus accusantium laudantium, facere ratione, maxime ducimus, corrupti rerum nostrum. Deserunt libero iusto repellendus.
-    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Id, voluptatibus! Consectetur reprehenderit non quos molestias consequatur natus accusantium laudantium, facere ratione, maxime ducimus, corrupti rerum nostrum. Deserunt libero iusto repellendus.
-    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Id, voluptatibus! Consectetur reprehenderit non quos molestias consequatur natus accusantium laudantium, facere ratione, maxime ducimus, corrupti rerum nostrum. Deserunt libero iusto repellendus.
-    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Id, voluptatibus! Consectetur reprehenderit non quos molestias consequatur natus accusantium laudantium, facere ratione, maxime ducimus, corrupti rerum nostrum. Deserunt libero iusto repellendus.
-    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Id, voluptatibus! Consectetur reprehenderit non quos molestias consequatur natus accusantium laudantium, facere ratione, maxime ducimus, corrupti rerum nostrum. Deserunt libero iusto repellendus.
-    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Id, voluptatibus! Consectetur reprehenderit non quos molestias consequatur natus accusantium laudantium, facere ratione, maxime ducimus, corrupti rerum nostrum. Deserunt libero iusto repellendus.
-    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Id, voluptatibus! Consectetur reprehenderit non quos molestias consequatur natus accusantium laudantium, facere ratione, maxime ducimus, corrupti rerum nostrum. Deserunt libero iusto repellendus.
-    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Id, voluptatibus! Consectetur reprehenderit non quos molestias consequatur natus accusantium laudantium, facere ratione, maxime ducimus, corrupti rerum nostrum. Deserunt libero iusto repellendus.
-    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Id, voluptatibus! Consectetur reprehenderit non quos molestias consequatur natus accusantium laudantium, facere ratione, maxime ducimus, corrupti rerum nostrum. Deserunt libero iusto repellendus.
-    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Id, voluptatibus! Consectetur reprehenderit non quos molestias consequatur natus accusantium laudantium, facere ratione, maxime ducimus, corrupti rerum nostrum. Deserunt libero iusto repellendus.
-    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Id, voluptatibus! Consectetur reprehenderit non quos molestias consequatur natus accusantium laudantium, facere ratione, maxime ducimus, corrupti rerum nostrum. Deserunt libero iusto repellendus.
-    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Id, voluptatibus! Consectetur reprehenderit non quos molestias consequatur natus accusantium laudantium, facere ratione, maxime ducimus, corrupti rerum nostrum. Deserunt libero iusto repellendus.
-    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Id, voluptatibus! Consectetur reprehenderit non quos molestias consequatur natus accusantium laudantium, facere ratione, maxime ducimus, corrupti rerum nostrum. Deserunt libero iusto repellendus.
-    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Id, voluptatibus! Consectetur reprehenderit non quos molestias consequatur natus accusantium laudantium, facere ratione, maxime ducimus, corrupti rerum nostrum. Deserunt libero iusto repellendus.
-    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Id, voluptatibus! Consectetur reprehenderit non quos molestias consequatur natus accusantium laudantium, facere ratione, maxime ducimus, corrupti rerum nostrum. Deserunt libero iusto repellendus.
-    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Id, voluptatibus! Consectetur reprehenderit non quos molestias consequatur natus accusantium laudantium, facere ratione, maxime ducimus, corrupti rerum nostrum. Deserunt libero iusto repellendus.
-    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Id, voluptatibus! Consectetur reprehenderit non quos molestias consequatur natus accusantium laudantium, facere ratione, maxime ducimus, corrupti rerum nostrum. Deserunt libero iusto repellendus.
-    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Id, voluptatibus! Consectetur reprehenderit non quos molestias consequatur natus accusantium laudantium, facere ratione, maxime ducimus, corrupti rerum nostrum. Deserunt libero iusto repellendus.
-    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Id, voluptatibus! Consectetur reprehenderit non quos molestias consequatur natus accusantium laudantium, facere ratione, maxime ducimus, corrupti rerum nostrum. Deserunt libero iusto repellendus.
-    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Id, voluptatibus! Consectetur reprehenderit non quos molestias consequatur natus accusantium laudantium, facere ratione, maxime ducimus, corrupti rerum nostrum. Deserunt libero iusto repellendus.
-    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Id, voluptatibus! Consectetur reprehenderit non quos molestias consequatur natus accusantium laudantium, facere ratione, maxime ducimus, corrupti rerum nostrum. Deserunt libero iusto repellendus.
-    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Id, voluptatibus! Consectetur reprehenderit non quos molestias consequatur natus accusantium laudantium, facere ratione, maxime ducimus, corrupti rerum nostrum. Deserunt libero iusto repellendus.
-    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Id, voluptatibus! Consectetur reprehenderit non quos molestias consequatur natus accusantium laudantium, facere ratione, maxime ducimus, corrupti rerum nostrum. Deserunt libero iusto repellendus.
-    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Id, voluptatibus! Consectetur reprehenderit non quos molestias consequatur natus accusantium laudantium, facere ratione, maxime ducimus, corrupti rerum nostrum. Deserunt libero iusto repellendus.
-    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Id, voluptatibus! Consectetur reprehenderit non quos molestias consequatur natus accusantium laudantium, facere ratione, maxime ducimus, corrupti rerum nostrum. Deserunt libero iusto repellendus.
-    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Id, voluptatibus! Consectetur reprehenderit non quos molestias consequatur natus accusantium laudantium, facere ratione, maxime ducimus, corrupti rerum nostrum. Deserunt libero iusto repellendus.
     Lorem ipsum dolor sit amet consectetur, adipisicing elit. Id, voluptatibus! Consectetur reprehenderit non quos molestias consequatur natus accusantium laudantium, facere ratione, maxime ducimus, corrupti rerum nostrum. Deserunt libero iusto repellendus.
     Lorem ipsum dolor sit amet consectetur, adipisicing elit. Id, voluptatibus! Consectetur reprehenderit non quos molestias consequatur natus accusantium laudantium, facere ratione, maxime ducimus, corrupti rerum nostrum. Deserunt libero iusto repellendus.
     Lorem ipsum dolor sit amet consectetur, adipisicing elit. Id, voluptatibus! Consectetur reprehenderit non quos molestias consequatur natus accusantium laudantium, facere ratione, maxime ducimus, corrupti rerum nostrum. Deserunt libero iusto repellendus.

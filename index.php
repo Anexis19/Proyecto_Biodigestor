@@ -8,7 +8,7 @@
     $nombre_cliente = strtoupper($_SESSION['NOM_USUARIO']);
     $id_cliente     = strtoupper($_SESSION['ID_USUARIO']);
 
-    if($autentication == 1 || $autentication == 2){
+    if($autentication == 'Cliente' || $autentication == 'Admin'){
         $bandera = true;
     }
     else{
@@ -30,8 +30,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,400;1,400;1,500;1,900&family=Lobster&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/b50f20f4b1.js" crossorigin="anonymous"></script>
     <!-- Estilos del carousel -->
-    <link rel="stylesheet" href="css/glide.core.min.css">
-    <link rel="stylesheet" href="css/glide.theme.min.css">
     <title>Automatic Life Gas</title>
 </head>
 <body>
@@ -116,7 +114,7 @@
                 <a href=""><li class="btn-inicio-go_catalogo">¿Quienes somos?</li></a>
 
                 <?php
-                    if($autentication == 1){
+                    if($autentication == 'Cliente'){
 
 
                 ?>
@@ -124,7 +122,7 @@
                 <?php
                     }
 
-                    elseif($autentication == 2){
+                    elseif($autentication == 'Admin'){
                 ?>
                     <a href="pages/admin_menu.php"><li class="btn-dashboard">Dashboard</li></a>
                 <?php
@@ -137,49 +135,58 @@
     </div>
 
     <!-- CARRUSEL GLIDE -->
-    <div class="contenedor_carousel">
-        <!-- Inicio carousel imagenes -->
-        <div class="glide">
+    <div class="contenedor_slides">
+        <div class="slider">
+            <div class="slides">
+                <!-- BOTONES  -->
+                <input type="radio" name="radio-btn" id="radio1">
+                <input type="radio" name="radio-btn" id="radio2">
+                <input type="radio" name="radio-btn" id="radio3">
+                <input type="radio" name="radio-btn" id="radio4">
 
-            <div class="glide__track" data-glide-el="track">
-                <ul class="glide__slides">
-                    <li class="glide__slide"><img src="images/img_slide1.jpg" alt="Error al cargar la imagen"></li>
-                    <li class="glide__slide"><img src="images/img_slide2.jpg" alt="Error al cargar la imagen"></li>
-                    <li class="glide__slide"><img src="images/img_slide3.jpg" alt="Error al cargar la imagen"></li>
-                    <li class="glide__slide"><img src="images/img_slide4.jpg" alt="Error al cargar la imagen"></li>
-                    <li class="glide__slide"><img src="images/img_slide5.jpg" alt="Error al cargar la imagen"></li>
-                    <li class="glide__slide"><img src="images/img_slide6.jpg" alt="Error al cargar la imagen"></li>
-                    <li class="glide__slide"><img src="images/img_slide7.jpg" alt="Error al cargar la imagen"></li>
-                    <li class="glide__slide"><img src="images/img_slide8.jpg" alt="Error al cargar la imagen"></li>
-                </ul>
+                <!-- IMAGENES -->
+                <div class="slide first">
+                    <img src="images/img_slide1.jpg" alt="">
+                </div>
+                <div class="slide ">
+                    <img src="images/img_slide2.jpg" alt="">
+                </div>
+                <div class="slide ">
+                    <img src="images/img_slide3.jpg" alt="">
+                </div>
+                <div class="slide ">
+                    <img src="images/img_slide4.jpg" alt="">
+                </div>
+
+                <!-- NAVEGACION AUTO -->
+                <div class="navigation-auto">
+                    <div class="auto-btn1"></div>
+                    <div class="auto-btn2"></div>
+                    <div class="auto-btn3"></div>
+                    <div class="auto-btn4"></div>
+                </div>
             </div>
-            <div class="glide__arrows" data-glide-el="controls">
-                <button class="carousel_anterior" data-glide-dir="<"><i class="fas fa-chevron-circle-left fa-3x"></i></button>
-                <button class="carousel_siguiente" data-glide-dir=">"><i class="fas fa-chevron-circle-right fa-3x"></i></button>
-            </div>
+                <div class="navigation-manual">
+                    <label for="radio1" class="manual-btn"></label>
+                    <label for="radio2" class="manual-btn"></label>
+                    <label for="radio3" class="manual-btn"></label>
+                    <label for="radio4" class="manual-btn"></label>
+                </div>
         </div>
     </div>
 
+    <!-- MOVIMIENTO AUTOMATICO EN EL CARROUSEL -->
+<script>
+    var counter = 1;
+    setInterval(function(){
+       document.getElementById('radio' + counter).checked =true;
+       counter++;
 
-    <!-- CDN GLIDE JS -->
-    <script src="https://cdn.jsdelivr.net/npm/@glidejs/glide"></script>
-    <!-- INICIACION GLIDE -->
-    <script>
-        new Glide('.glide',{
-            type: 'carousel',
-            perView: 4,
-            focusAt: 'center',
-            gap:40,
-            breakpoint:{
-                1200:{
-                    perView:3
-                },
-                800:{
-                    perView:2
-                }
-            }
-        }).mount()
-    </script>
+       if(counter > 4){
+            counter = 1;
+       }
+    }, 3500);
+</script>
 
 <!-- Insercion de particulas -->
 <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>

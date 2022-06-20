@@ -66,6 +66,7 @@
 .contenedor_compras button{
     background-color: white;
     border-radius: 10px;
+    color: black;
     border: 2px solid #008cba;
 }
 
@@ -114,4 +115,6 @@ ESTILOS DE CABECERA SI EL USUARIO ESTA REGISTRADO
 .contenedor_cerrar_sesion{
     margin-top: 6%;
 }
+
+
 

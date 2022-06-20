@@ -8,7 +8,7 @@
     $nombre_cliente = strtoupper($_SESSION['NOM_USUARIO']);
     $id_cliente     = strtoupper($_SESSION['ID_USUARIO']);
 
-    if($autentication == 1 || $autentication == 2){
+    if($autentication == 'Admin' || $autentication == 'Cliente'){
         $bandera = true;
     }
     else{

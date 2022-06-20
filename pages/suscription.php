@@ -8,7 +8,7 @@
     $nombre_cliente = strtoupper($_SESSION['NOM_USUARIO']);
     $id_cliente     = strtoupper($_SESSION['ID_USUARIO']);
 
-    if($autentication == 1 || $autentication == 2){
+    if($autentication == 'Admin' || $autentication == 'Cliente'){
         $bandera = true;
     }
     else{
@@ -124,7 +124,7 @@
                 </li>
                     <a href=""><li class="btn-inicio-go_catalogo">¿Quienes somos?</li></a>
                 <?php
-                    if($autentication == 1){
+                    if($autentication == 'Cliente'){
 
 
                 ?>
@@ -132,7 +132,7 @@
                 <?php
                     }
 
-                    elseif($autentication == 2){
+                    elseif($autentication == 'Admin'){
                 ?>
                     <a href="admin_menu.php"><li class="btn-dashboard">Dashboard</li></a>
                 <?php
@@ -203,6 +203,9 @@
                 <a href="compras.php"><button>COMPRAR</button></a>
             </div>
         </div>
+
+    </div>
+
 
     </div>
     <!-- Insercion de particulas -->

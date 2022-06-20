@@ -97,7 +97,8 @@
                         Datos incorrectos:
                         <?php
                         if($message == 1){
-                            echo "USUARIO O CONTRASEÑA INCORRECTA. INTENTE DE NUEVO.";
+                            echo "CONTRASENA INCORRECTA";
+                            // echo "USUARIO O CONTRASEÑA INCORRECTA. INTENTE DE NUEVO.";
                             session_destroy();
 
 
