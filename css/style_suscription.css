@@ -81,7 +81,7 @@ ESTILOS DE CABECERA SI EL USUARIO ESTA REGISTRADO
     text-align: center;
     margin-left: 1%;
     width: 18%;
-    height: 145px;
+    height: 175px;
     font-family: 'Kanit', sans-serif;
 }
 .contenedor_nombre_clt{
@@ -89,7 +89,7 @@ ESTILOS DE CABECERA SI EL USUARIO ESTA REGISTRADO
     margin-left: 20px;
     width: 50%;
     height: 145px;
-    line-height: 150px;
+    line-height: 180px;
     text-align: center;
     font-family: "Kanit", sans-serif;
     font-weight: bold;

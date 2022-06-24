@@ -8,6 +8,7 @@
 
     $nombre_admin   = $_SESSION['NOM_USUARIO'];
     $id_admin       = $_SESSION['ID_USUARIO'];
+    $tipo_usuario   = $_SESSION['TIPO_USUARIO'];
 
 
 
@@ -70,7 +71,14 @@
                 <?php
                     echo " $id_admin";
                 ?>
+            </span><br>
+                Tipo de usuario:
+            <span>
+                <?php
+                    echo $tipo_usuario;
+                ?>
             </span>
+
 
 
            <div class="contenedor_cerrar_sesion" >
@@ -154,7 +162,7 @@
                 </div>
 
             <div class="item">
-                <a href="#">
+                <a href="delete_user.php">
                     <div class="icon"><img src="../images/delete_user.png" alt=""></div>
                     <div class="title"><span>Eliminar usuario</span></div>
 
@@ -231,8 +239,7 @@
         <th>MUNICIPIO</th>
         <th>CELULAR</th>
         <th>TIPO DE USUARIO</th>
-        <th>MODIFICAR</th>
-        <th>ELIMINAR</th>
+
     </tr>
     <?php
         $sqli = "SELECT * FROM users";
@@ -253,8 +260,6 @@
         <td><?php echo $mostrar['MUNICIPIO']?></td>
         <td><?php echo $mostrar['CELLPHONE']?></td>
         <td><?php echo $mostrar['TIPO_USUARIO']?></td>
-        <td><button type="button" class="btn-editar"></button></td>
-        <td><button type="button" class="btn-delete"></button></td>
 
 
     </tr>

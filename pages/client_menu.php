@@ -7,6 +7,7 @@
     $autentication      = $_SESSION['TIPO_USUARIO'];
     $nombre_cliente     = $_SESSION['NOM_USUARIO'];
     $id_cliente         = $_SESSION['ID_USUARIO'];
+    $tipo_usuario       = $_SESSION['TIPO_USUARIO'];
 
     if($autentication = '' || $autentication == null || $autentication == 'Admin' ){
         header('Location: inicio_sesion.php?message=3');
@@ -66,6 +67,12 @@
             <span class="info_clt">
                 <?php
                     echo " $id_cliente";
+                ?>
+            </span><br>
+                Tipo de usuario:
+            <span>
+                <?php
+                    echo $tipo_usuario;
                 ?>
             </span>
 

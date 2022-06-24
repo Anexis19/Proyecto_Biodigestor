@@ -84,6 +84,12 @@
                         <?php
                             echo " $id_cliente";
                         ?>
+                    </span><br>
+                    Tipo de usuario:
+                    <span>
+                        <?php
+                            echo $autentication;
+                        ?>
                     </span>
 
 
