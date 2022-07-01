@@ -163,9 +163,9 @@
             <!-- CONTENEDOR PRECIOS BASIC -->
             <div class="contenedor_precio">
 
-                <span>$ 1.99 /</span> mes
+                <span>$ 365.000 /</span> Pago Inicial
                 <br>
-                    más coste de instalación
+                    Mensualidades de $35.000
             </div>
             <!-- CONTENEDOR CARACTERISTICAS BASIC -->
             <div class="contenedor_caracteristicas">
@@ -191,9 +191,9 @@
             <!-- CONTENEDOR PRECIOS -->
             <div class="contenedor_precio">
 
-                <span>$ 2.99 /</span> mes
+                <span>$ 356.000 /</span> Pago Inicial
                 <br>
-                    más coste de instalación
+                    Mensualidades de $20.000
             </div>
             <!-- CONTENEDOR CARACTERISTICAS -->
             <div class="contenedor_caracteristicas">

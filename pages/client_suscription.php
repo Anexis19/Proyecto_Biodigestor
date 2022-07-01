@@ -1,36 +1,35 @@
 <?php
 
-    include "../conexion.php";
-    include "../logic/client_securityLogic.php";
+    include '../conexion.php';
+    include '../logic/client_securityLogic.php';
 
     // Validacion de inicio de session
     $nombre_cliente     = $_SESSION['NOM_USUARIO'];
     $id_cliente         = $_SESSION['ID_USUARIO'];
     $tipo_usuario       = $_SESSION['TIPO_USUARIO'];
-
-
+    $tipo_plan          = $_SESSION['TIPO_PLAN'];
 
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="../images/icon.png">
     <link rel="stylesheet" href="../css/style_client.css">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/style_collapsed_menu.css">
+    <link rel="stylesheet" href="../css/style_client_suscription.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,400;1,400;1,500;1,900&family=Lobster&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/b50f20f4b1.js" crossorigin="anonymous"></script>
-    <title>Client</title>
-
+    <title>Suscripciones</title>
 </head>
 <body>
+
 <!-- CONTENEDOR DE PARTICULAS -->
 <div id="particles-js"></div>
 
@@ -42,13 +41,8 @@
             <a href="../index.php"><img id="imagen_logo" src="../images/logo.png" alt="Error al cargar la imagen"></a>
         </div>
         <div class="contenedor_nombre_clt">
-            <span> BIENVENIDO </span>
-            <span>
-                <?php
-                    echo $nombre_cliente;
-                ?>
+            <span> SUSCRIPCIONES </span>
 
-            </span>
         </div>
         <div class="contenedor_clt">
             Nombre de usuario:
@@ -182,21 +176,46 @@
     </div>
 </div>
 
+<div class="contenedor_tabla">
+    <table class="users_table2">
+        <tr>
+            <th>ID</th>
+            <th>TIPO DE ID</th>
+            <th>NOMBRE</th>
+            <th>DIRECCION</th>
+            <th>DEPARTAMENTO</th>
+            <th>MUNICIPIO</th>
+            <th>CELULAR</th>
+            <th>TIPO DE PLAN</th>
+            <th>CANCELAR SUSCRIPCION</th>
 
-<div class="prueba">
-    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Id, voluptatibus! Consectetur reprehenderit non quos molestias consequatur natus accusantium laudantium, facere ratione, maxime ducimus, corrupti rerum nostrum. Deserunt libero iusto repellendus.
-    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Id, voluptatibus! Consectetur reprehenderit non quos molestias consequatur natus accusantium laudantium, facere ratione, maxime ducimus, corrupti rerum nostrum. Deserunt libero iusto repellendus.
-    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Id, voluptatibus! Consectetur reprehenderit non quos molestias consequatur natus accusantium laudantium, facere ratione, maxime ducimus, corrupti rerum nostrum. Deserunt libero iusto repellendus.
-    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Id, voluptatibus! Consectetur reprehenderit non quos molestias consequatur natus accusantium laudantium, facere ratione, maxime ducimus, corrupti rerum nostrum. Deserunt libero iusto repellendus.
-    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Id, voluptatibus! Consectetur reprehenderit non quos molestias consequatur natus accusantium laudantium, facere ratione, maxime ducimus, corrupti rerum nostrum. Deserunt libero iusto repellendus.
-    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Id, voluptatibus! Consectetur reprehenderit non quos molestias consequatur natus accusantium laudantium, facere ratione, maxime ducimus, corrupti rerum nostrum. Deserunt libero iusto repellendus.
-    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Id, voluptatibus! Consectetur reprehenderit non quos molestias consequatur natus accusantium laudantium, facere ratione, maxime ducimus, corrupti rerum nostrum. Deserunt libero iusto repellendus.
-    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Id, voluptatibus! Consectetur reprehenderit non quos molestias consequatur natus accusantium laudantium, facere ratione, maxime ducimus, corrupti rerum nostrum. Deserunt libero iusto repellendus.
-    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Id, voluptatibus! Consectetur reprehenderit non quos molestias consequatur natus accusantium laudantium, facere ratione, maxime ducimus, corrupti rerum nostrum. Deserunt libero iusto repellendus.
-    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Id, voluptatibus! Consectetur reprehenderit non quos molestias consequatur natus accusantium laudantium, facere ratione, maxime ducimus, corrupti rerum nostrum. Deserunt libero iusto repellendus.
-    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Id, voluptatibus! Consectetur reprehenderit non quos molestias consequatur natus accusantium laudantium, facere ratione, maxime ducimus, corrupti rerum nostrum. Deserunt libero iusto repellendus.
-    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Id, voluptatibus! Consectetur reprehenderit non quos molestias consequatur natus accusantium laudantium, facere ratione, maxime ducimus, corrupti rerum nostrum. Deserunt libero iusto repellendus.
-    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Id, voluptatibus! Consectetur reprehenderit non quos molestias consequatur natus accusantium laudantium, facere ratione, maxime ducimus, corrupti rerum nostrum. Deserunt libero iusto repellendus.
+        </tr>
+        <?php
+            $sqli = "SELECT * FROM users WHERE ID = '$id_cliente'";
+            $result = mysqli_query($conectar, $sqli);
+            while($mostrar = mysqli_fetch_array($result)){
+        ?>
+
+        <tr>
+            <td><?php echo $mostrar['ID']?></td>
+            <td><?php echo $mostrar['TYPE_ID']?></td>
+            <td><?php echo $mostrar['NAME_LASTNAME']?></td>
+            <td><?php echo $mostrar['ADDRESS']?></td>
+            <td><?php echo $mostrar['DEPARTAMENTO']?></td>
+            <td><?php echo $mostrar['MUNICIPIO']?></td>
+            <td><?php echo $mostrar['CELLPHONE']?></td>
+            <td><?php echo $mostrar['TIPO_PLAN']?></td>
+            <td><a href="../logic/client_delete_suscriptionLogic.php?ID=<?php echo $id_cliente?>&PLAN=<?php echo $tipo_plan ?>" class='btn-delete'><img src='../images/delete.png'></a></td>
+        </tr>
+
+        <?php
+            }
+        ?>
+    </table>
+</div>
+
+
+
 
 
 <!-- AGREGAR PARTICULAS -->
@@ -213,10 +232,7 @@
        menu.classList.toggle("menu-collapsed");
 
     });
-
-
-
-
 </script>
+
 </body>
 </html>
