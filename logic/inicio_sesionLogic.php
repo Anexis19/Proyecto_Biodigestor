@@ -1,4 +1,15 @@
 <?php
+    session_start();
+    $bandera = false;
+    $autentication  = $_SESSION['TIPO_USUARIO'];
+    $tipo_cliente   = $_SESSION['TIPO_USUARIO'];
+
+    if ($autentication == 'Admin' || $autentication == 'Cliente' ){
+        $bandera = true;
+    }
+    else{
+        header('Location: ../pages/inicio_sesion.php?message=3');
+    }
 
 
 
@@ -27,12 +38,14 @@
         if($passw_bd == $password){
 
 
-            $id_usuario = $row1[1];
-            $nom_usuario = $row1[2];
-            $tipo_usuario = $row1[10];
+            $id_usuario     = $row1[1];
+            $nom_usuario    = $row1[2];
+            $tipo_usuario   = $row1[10];
+            $tipo_plan      = $row1[11];
             $_SESSION['ID_USUARIO']     = $id_usuario;
             $_SESSION['NOM_USUARIO']    = $nom_usuario;
             $_SESSION['TIPO_USUARIO']   = $tipo_usuario;
+            $_SESSION['TIPO_PLAN']      = $tipo_plan;
 
             // VALIDACION SI EL USUARIO ES ADMINISTRADOR
             if($tipo_usuario == 'Admin'){

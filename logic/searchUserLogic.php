@@ -1,6 +1,19 @@
 
 <?php
 
+    session_start();
+    $bandera = false;
+    $autentication  = $_SESSION['TIPO_USUARIO'];
+    $tipo_cliente   = $_SESSION['TIPO_USUARIO'];
+
+    if ($autentication == 'Admin' || $autentication == 'Cliente' ){
+        $bandera = true;
+    }
+    else{
+        header('Location: ../pages/inicio_sesion.php?message=3');
+    }
+
+
     $mysqli = new mysqli("localhost", "root", "","db_biodigester");
     $salida     = "";
     $query      = "SELECT * FROM users ORDER BY NUM_REGISTRO";

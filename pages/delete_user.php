@@ -241,7 +241,6 @@
 <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 <script src="../js/app.js"></script>
 <script src="../js/search.js"></script>
-<script src="../js/confirmation.js"></script>
 
 <!-- SCRIPT MENU LATERAL-->
 <script>

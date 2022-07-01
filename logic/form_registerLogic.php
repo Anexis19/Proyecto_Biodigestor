@@ -14,6 +14,10 @@
    $tel             =   strtoupper($_POST['tel']);
    $pasw            =   strtoupper($_POST['pasw']);
 
+    if($numero_id==''){
+            header('Location: ../pages/inicio_sesion.php');
+    }
+
     // Verificacion de ID NO repetido
     $consulta_id = "SELECT * FROM users WHERE ID='$numero_id'";
     $verificar_id = mysqli_query($conectar, $consulta_id);
@@ -56,13 +60,16 @@
     $registrar = "INSERT INTO users (ID, NAME_LASTNAME, DATE, TYPE_ID, ADDRESS, DEPARTAMENTO, MUNICIPIO, CELLPHONE, PASSWORD, TIPO_USUARIO  ) VALUES ('$numero_id','$nombre_usuario', '$fecha_nac', '$tipo_doc', '$direccion', '$nomb_depart', '$munic', '$tel', '$pasw', 'Cliente')";
     $prueba = mysqli_query($conectar, $registrar);
     if($prueba){
-          echo "<script> alert('Registro existoso');
-          location.href = '../index.php';
-          </script>";
+        echo "<script> alert('Registro existoso');
+        location.href = '../index.php';
+        </script>";
     }
     else{
-          echo "<script> alert('Registro incorrecto');
-          location.href = '../index.php';
-          </script>";
+        echo "<script> alert('Registro incorrecto');
+        location.href = '../index.php';
+        </script>";
     }
+
+
+
 ?>

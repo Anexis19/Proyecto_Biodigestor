@@ -1,4 +1,7 @@
 <?php
+
+
+
     session_start();
     error_reporting(0);
     $bandera = false;
@@ -16,5 +19,4 @@
                     location.href='../pages/admin_menu.php';
                 </script>";
     }
-
 ?>

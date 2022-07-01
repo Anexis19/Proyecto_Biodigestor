@@ -1,4 +1,12 @@
 <?php
+      session_start();
+      $bandera = false;
+      $autentication  = $_SESSION['TIPO_USUARIO'];
+      $tipo_cliente   = $_SESSION['TIPO_USUARIO'];
+
+
+
+
     $host = "localhost";
     $user = "root";
     $pw   = "";

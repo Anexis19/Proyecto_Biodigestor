@@ -176,7 +176,7 @@
             </div>
             <!-- CONTENEDOR BOTON COMPRAR BASIC-->
             <div class="contenedor_compras">
-                <a href="compras.php"><button>COMPRAR</button></a>
+                <a href="compras.php?suscp=Basic"><button>COMPRAR</button></a>
             </div>
         </div>
         <div class="contenedor_premium">
@@ -206,7 +206,7 @@
             </div>
             <!-- CONTENEDOR BOTON COMPRAR -->
             <div class="contenedor_compras">
-                <a href="compras.php"><button>COMPRAR</button></a>
+                <a href="compras.php?suscp=Prem"><button>COMPRAR</button></a>
             </div>
         </div>
 

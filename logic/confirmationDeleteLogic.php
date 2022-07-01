@@ -9,7 +9,7 @@
         echo "<script>
                 alert('Eliminacion Exitosa')
         </script>";
-        header("Location: ../pages/admin_menu.php");
+        header("Location: ../pages/delete_user.php");
     }
     else{
         echo "<script>
