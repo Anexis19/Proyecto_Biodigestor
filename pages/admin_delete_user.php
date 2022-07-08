@@ -1,23 +1,12 @@
 <?php
 
     include "../conexion.php";
+    include "../logic/admin_securityLogic.php";
 
     // Inicio o reanudacion de una sesion
-    session_start();
-    $autentication = $_SESSION['TIPO_USUARIO'];
-
     $nombre_admin   = $_SESSION['NOM_USUARIO'];
     $id_admin       = $_SESSION['ID_USUARIO'];
     $tipo_usuario   = $_SESSION['TIPO_USUARIO'];
-
-
-
-    if($autentication = '' || $autentication == null || $autentication == 'Cliente' ){
-        header('Location: inicio_sesion.php?message=3');
-
-    }
-
-
 
 ?>
 
@@ -145,7 +134,7 @@
                 </div>
 
             <div class="item">
-                <a href="#">
+                <a href="admin_edition_client.php">
                     <div class="icon"><img src="../images/edit_user.png" alt=""></div>
                     <div class="title"><span>Editar usuario</span></div>
 

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 14-06-2022 a las 06:05:04
+-- Tiempo de generación: 01-07-2022 a las 15:45:41
 -- Versión del servidor: 10.4.22-MariaDB
 -- Versión de PHP: 7.4.27
 
@@ -1246,19 +1246,22 @@ CREATE TABLE `users` (
   `MUNICIPIO` varchar(30) NOT NULL,
   `CELLPHONE` varchar(20) NOT NULL,
   `PASSWORD` varchar(10) NOT NULL,
-  `TIPO_USUARIO` int(10) NOT NULL
+  `TIPO_USUARIO` varchar(10) NOT NULL,
+  `TIPO_PLAN` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `users`
 --
 
-INSERT INTO `users` (`NUM_REGISTRO`, `ID`, `NAME_LASTNAME`, `DATE`, `TYPE_ID`, `ADDRESS`, `DEPARTAMENTO`, `MUNICIPIO`, `CELLPHONE`, `PASSWORD`, `TIPO_USUARIO`) VALUES
-(1, 1061818559, 'andres', '2003-12-12', 'CC', 'direccion1', '11', 'POPAYÁN', '3016616811', '123', 1),
-(2, 11111, 'DIEGO', '2005-06-10', 'CC', 'ASD', 'CAUCA', 'POPAYAN', '11111111', '123', 2),
-(3, 1234567890, 'ASDASD', '2004-12-19', 'CC', 'ASDSAD', '18', 'AIPE', '1234567890', '123', 1),
-(4, 123456789, 'ANDRES HURTADO', '1999-06-19', 'CC', 'CRA 6C 31 AN 09', '11', 'POPAYÁN', '3006536482', '123', 2),
-(5, 123456788, 'DAVID', '2004-12-14', 'PST', 'ASDSAD', '16', 'PUERTO COLOMBIA', '123456788', '123', 1);
+INSERT INTO `users` (`NUM_REGISTRO`, `ID`, `NAME_LASTNAME`, `DATE`, `TYPE_ID`, `ADDRESS`, `DEPARTAMENTO`, `MUNICIPIO`, `CELLPHONE`, `PASSWORD`, `TIPO_USUARIO`, `TIPO_PLAN`) VALUES
+(2, 11111, 'DIEGO', '2005-06-10', 'CC', 'ASD', 'CAUCA', 'POPAYAN', '11111111', '123', 'Admin', ''),
+(46, 123124324, 'ASDASDAS', '2004-12-21', 'PST', 'ASDASD', 'GUAVIARE', 'CALAMAR', '23412312', '123', 'Cliente', 'BASIC'),
+(47, 2147483647, 'ASDADASD', '2004-12-22', 'CC', 'DFSDFSD', 'GUAVIARE', 'EL RETORNO', '23452341', '123', 'Cliente', 'BASIC'),
+(48, 123345652, 'ADADASDASD', '2004-12-14', 'CC', 'ASDASD', 'CESAR', 'EL PASO', '121235234', '123', 'Cliente', 'BASIC'),
+(49, 21342234, 'ASDFSFAAS', '2004-12-21', 'PST', '2DSZFADAS', 'CHOCO', 'BOJAYÁ', '12345424', '123', 'Cliente', 'PREMIUM'),
+(50, 123534123, 'SDFTWERWE', '2004-12-21', 'CC', 'ASDDFASD', 'CAUCA', 'SILVIA', '12341231', '123', 'Cliente', 'PREMIUM'),
+(54, 34532325, 'ANDRES HURTADO', '2004-12-21', 'CC', 'ADQWE', 'CAUCA', 'POPAYÁN', '3016616811', '123', 'Cliente', 'BASIC');
 
 --
 -- Índices para tablas volcadas
@@ -1315,7 +1318,7 @@ ALTER TABLE `tipo_usuario`
 -- AUTO_INCREMENT de la tabla `users`
 --
 ALTER TABLE `users`
-  MODIFY `NUM_REGISTRO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `NUM_REGISTRO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
 
 --
 -- Restricciones para tablas volcadas
