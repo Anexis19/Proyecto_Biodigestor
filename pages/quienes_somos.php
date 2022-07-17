@@ -1,5 +1,5 @@
 <?php
-    include "conexion.php";
+    include "../conexion.php";
 
     session_start();
     error_reporting(0);
@@ -22,15 +22,16 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="images/icon.png">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="../images/icon.png">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/style_quienes_somos.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,400;1,400;1,500;1,900&family=Lobster&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/b50f20f4b1.js" crossorigin="anonymous"></script>
     <!-- Estilos del carousel -->
-    <title>Automatic Life Gas</title>
+    <title>Quienes Somos</title>
 </head>
 <body>
     <div id="particles-js"></div>
@@ -39,7 +40,7 @@
     <header>
         <div class="contenedor_principal">
             <div class="contenedor_logo">
-                <a href="index.php"><img id="imagen_logo" src="images/logo.png" alt="Error al cargar la imagen"></a>
+                <a href="../index.php"><img id="imagen_logo" src="../images/logo.png" alt="Error al cargar la imagen"></a>
             </div>
 
             <?php
@@ -51,10 +52,10 @@
                 </div>
                 <div class="contenedor_botones">
                     <div class="contenedor_botton_inicio">
-                        <a href="pages/inicio_sesion.php"><button type="" class="btn-inicio-sesion">Inicio de Sesion</button></a>
+                        <a href="inicio_sesion.php"><button type="" class="btn-inicio-sesion">Inicio de Sesion</button></a>
                     </div>
                     <div class="contenedor_botton_registro">
-                        <a href="pages/form_register.php"><button type="" class="btn-inicio-sesion">Registrarse</button></a>
+                        <a href="form_register.php"><button type="" class="btn-inicio-sesion">Registrarse</button></a>
                     </div>
                 </div>
             <?php
@@ -94,7 +95,7 @@
 
 
                     <div class="contenedor_cerrar_sesion" >
-                        <a href="logic/cerrar_sesion.php"><button class="btn-cierre-sesion">Cerrar Sesion</button></a>
+                        <a href="../logic/cerrar_sesion.php"><button class="btn-cierre-sesion">Cerrar Sesion</button></a>
                     </div>
                 </div>
             <?php
@@ -110,27 +111,27 @@
 
         <div class="contenedor_listas">
             <ul>
-                <a href="index.php"><li class="btn-inicio-go_home">Menu Principal</li></a>
-                <a href="pages/suscription.php"><li>Suscripciones</a><i class="fa fa-angle-down"></i>
+                <a href="../index.php"><li class="btn-inicio-go_home">Menu Principal</li></a>
+                <a href="suscription.php"><li>Suscripciones</a><i class="fa fa-angle-down"></i>
                     <ul>
                         <li>Premiun</li>
                         <li>Basico</li>
                     </ul>
                 </li>
-                <a href="pages/quienes_somos.php"><li class="btn-inicio-go_catalogo">¿Quienes somos?</li></a>
+                <a href=""><li class="btn-inicio-go_catalogo">¿Quienes somos?</li></a>
 
                 <?php
                     if($autentication == 'Cliente'){
 
 
                 ?>
-                    <a href="pages/client_menu.php"><li class="btn-dashboard">Menu del Usuario</li></a>
+                    <a href="client_menu.php"><li class="btn-dashboard">Menu del Usuario</li></a>
                 <?php
                     }
 
                     elseif($autentication == 'Admin'){
                 ?>
-                    <a href="pages/admin_menu.php"><li class="btn-dashboard">Menu del Usuario</li></a>
+                    <a href="admin_menu.php"><li class="btn-dashboard">Menu del Usuario</li></a>
                 <?php
                     }
 
@@ -139,63 +140,59 @@
             </ul>
         </div>
     </div>
-
-    <!-- CARRUSEL GLIDE -->
-    <div class="contenedor_slides">
-        <div class="slider">
-            <div class="slides">
-                <!-- BOTONES  -->
-                <input type="radio" name="radio-btn" id="radio1">
-                <input type="radio" name="radio-btn" id="radio2">
-                <input type="radio" name="radio-btn" id="radio3">
-                <input type="radio" name="radio-btn" id="radio4">
-
-                <!-- IMAGENES -->
-                <div class="slide first">
-                    <img src="images/img_slide1.jpg" alt="">
-                </div>
-                <div class="slide ">
-                    <img src="images/img_slide2.jpg" alt="">
-                </div>
-                <div class="slide ">
-                    <img src="images/img_slide3.jpg" alt="">
-                </div>
-                <div class="slide ">
-                    <img src="images/img_slide4.jpg" alt="">
-                </div>
-
-                <!-- NAVEGACION AUTO -->
-                <div class="navigation-auto">
-                    <div class="auto-btn1"></div>
-                    <div class="auto-btn2"></div>
-                    <div class="auto-btn3"></div>
-                    <div class="auto-btn4"></div>
-                </div>
+    <div class="contenedor_integrantes">
+        <div class="integrantes_group">
+            <div class="contenedor_foto">
+                    <img src="../images/elkin.png" alt="Error al cargar la imagen">
             </div>
-                <div class="navigation-manual">
-                    <label for="radio1" class="manual-btn"></label>
-                    <label for="radio2" class="manual-btn"></label>
-                    <label for="radio3" class="manual-btn"></label>
-                    <label for="radio4" class="manual-btn"></label>
-                </div>
+            <div class="contenedor_descripcion">
+                    Descripcion del miembro del equipo
+            </div>
         </div>
+        <div class="integrantes_group2">
+            <div class="contenedor_foto2">
+                    <img src="../images/andres.png" alt="Error al cargar la imagen">
+            </div>
+            <div class="contenedor_descripcion2">
+                    Descripcion del miembro del equipo
+            </div>
+        </div>
+        <div class="integrantes_group">
+            <div class="contenedor_foto">
+                    <img src="../images/diago.png" alt="Error al cargar la imagen">
+            </div>
+            <div class="contenedor_descripcion">
+                    Descripcion del miembro del equipo
+            </div>
+        </div>
+        <div class="integrantes_group2">
+            <div class="contenedor_foto2">
+                    <img src="../images/hurtado.png" alt="Error al cargar la imagen">
+            </div>
+            <div class="contenedor_descripcion2">
+                    Descripcion del miembro del equipo
+            </div>
+        </div>
+        <div class="integrantes_group">
+            <div class="contenedor_foto">
+                    <img src="../images/edier.png" alt="Error al cargar la imagen">
+            </div>
+            <div class="contenedor_descripcion">
+                    Descripcion del miembro del equipo
+            </div>
+        </div>
+        <div class="integrantes_group2">
+            <div class="contenedor_foto2">
+                    <img src="../images/richard.png" alt="Error al cargar la imagen">
+            </div>
+            <div class="contenedor_descripcion2">
+                    Descripcion del miembro del equipo
+            </div>
+        </div>
+
     </div>
 
-    <!-- MOVIMIENTO AUTOMATICO EN EL CARROUSEL -->
-<script>
-    var counter = 1;
-    setInterval(function(){
-       document.getElementById('radio' + counter).checked =true;
-       counter++;
-
-       if(counter > 4){
-            counter = 1;
-       }
-    }, 3500);
-</script>
-
-<!-- Insercion de particulas -->
 <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-<script src="js/app.js"></script>
+<script src="../js/app.js"></script>
 </body>
 </html>

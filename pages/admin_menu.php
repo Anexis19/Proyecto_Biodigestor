@@ -167,9 +167,9 @@
                 </div>
 
             <div class="item">
-                <a href="#">
+                <a href="admin_create_user.php">
                     <div class="icon"><img src="../images/add-admin.png" alt=""></div>
-                    <div class="title"><span>Crear administrador</span></div>
+                    <div class="title"><span>Creación de usuarios</span></div>
 
                 </a>
             </div>
@@ -211,7 +211,7 @@
                     <li>Basico</li>
                 </ul>
             </li>
-            <a href=""><li class="btn-inicio-go_catalogo">¿Quienes somos?</li></a>
+            <a href="quienes_somos.php"><li class="btn-inicio-go_catalogo">¿Quienes somos?</li></a>
 
         </ul>
     </div>

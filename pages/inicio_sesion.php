@@ -60,7 +60,7 @@
                         <li>Basico</li>
                     </ul>
                 </li>
-                <a href=""><li class="btn-inicio-go_catalogo">¿Quienes somos?</li></a>
+                <a href="quienes_somos.php"><li class="btn-inicio-go_catalogo">¿Quienes somos?</li></a>
 
             </ul>
         </div>

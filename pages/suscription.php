@@ -128,19 +128,19 @@
                         <li>Basico</li>
                     </ul>
                 </li>
-                    <a href=""><li class="btn-inicio-go_catalogo">¿Quienes somos?</li></a>
+                    <a href="quienes_somos.php"><li class="btn-inicio-go_catalogo">¿Quienes somos?</li></a>
                 <?php
                     if($autentication == 'Cliente'){
 
 
                 ?>
-                    <a href="client_menu.php"><li class="btn-dashboard">Dashboard</li></a>
+                    <a href="client_menu.php"><li class="btn-dashboard">Menu del Usuario</li></a>
                 <?php
                     }
 
                     elseif($autentication == 'Admin'){
                 ?>
-                    <a href="admin_menu.php"><li class="btn-dashboard">Dashboard</li></a>
+                    <a href="admin_menu.php"><li class="btn-dashboard">Menu del Usuario</li></a>
                 <?php
                     }
 

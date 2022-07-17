@@ -1,7 +1,10 @@
 h2{
     text-align: center;
+    color: #FB8C00;
 }
-
+h5{
+    color: #276040;
+}
 
 .input_decor{
     text-decoration: none;

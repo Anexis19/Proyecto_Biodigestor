@@ -176,7 +176,7 @@
                     <li>Basico</li>
                 </ul>
             </li>
-            <a href=""><li class="btn-inicio-go_catalogo">¿Quienes somos?</li></a>
+            <a href="quienes_somos.php"><li class="btn-inicio-go_catalogo">¿Quienes somos?</li></a>
 
         </ul>
     </div>
@@ -198,7 +198,7 @@
     Lorem ipsum dolor sit amet consectetur, adipisicing elit. Id, voluptatibus! Consectetur reprehenderit non quos molestias consequatur natus accusantium laudantium, facere ratione, maxime ducimus, corrupti rerum nostrum. Deserunt libero iusto repellendus.
     Lorem ipsum dolor sit amet consectetur, adipisicing elit. Id, voluptatibus! Consectetur reprehenderit non quos molestias consequatur natus accusantium laudantium, facere ratione, maxime ducimus, corrupti rerum nostrum. Deserunt libero iusto repellendus.
 
-
+</div>
 <!-- AGREGAR PARTICULAS -->
 <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 <script src="../js/app.js"></script>
