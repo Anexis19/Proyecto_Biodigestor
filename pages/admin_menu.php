@@ -187,13 +187,7 @@
                 <div class="btn_carga"><img src="../images/pages_up.png" alt=""></div>
             </a>
         </div>
-
-
-
-
-
     </div>
-
 </div>
 
 
@@ -207,8 +201,8 @@
             <a href="../index.php"><li class="btn-inicio-go_home">Menu Principal</li></a>
             <a href="suscription.php"><li>Suscripciones<i class="fa fa-angle-down"></i></a>
                 <ul>
-                    <li>Premiun</li>
-                    <li>Basico</li>
+                    <a href="compras.php?suscp=Prem"><li> Premiun</li></a>
+                    <a href="compras.php?suscp=Basic"><li> Basico</li></a>
                 </ul>
             </li>
             <a href="quienes_somos.php"><li class="btn-inicio-go_catalogo">¿Quienes somos?</li></a>

@@ -1,12 +1,12 @@
 <?php
     include '../conexion.php';
     session_start();
-    $id_eliminar        = $_GET['ID'];
+    $id_db_eliminar        = $_GET['ID_BIODIGESTOR'];
     $tipo_plan          = $_GET['PLAN'];
     $id_plan            = '';
 
 
-    $actualizar_plan    = "UPDATE users SET TIPO_PLAN = '' WHERE ID = $id_eliminar";
+    $actualizar_plan    = "DELETE FROM biodigestor WHERE ID_BIODIGESTOR = $id_db_eliminar";
     $prueba             = mysqli_query($conectar,$actualizar_plan);
     if($prueba){
 

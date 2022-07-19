@@ -6,7 +6,9 @@
     $bandera = false;
     $autentication  = $_SESSION['TIPO_USUARIO'];
     $nombre_cliente = strtoupper($_SESSION['NOM_USUARIO']);
+    $nombre_admin = strtoupper($_SESSION['NOM_USUARIO']);
     $id_cliente     = strtoupper($_SESSION['ID_USUARIO']);
+    $id_admin     = strtoupper($_SESSION['ID_USUARIO']);
     $tipo_cliente   = $_SESSION['TIPO_USUARIO'];
     $tipo_plan      = $_SESSION['TIPO_PLAN'];
 
@@ -30,6 +32,7 @@
     <link rel="stylesheet"  href="../css/style.css">
     <link rel="stylesheet" href="../css/style_suscription.css">
     <link rel="stylesheet" href="../css/style_compras.css">
+    <link rel="stylesheet" href="../css/style_collapsed_menu.css">
     <link rel="icon" href="../images/icon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -101,6 +104,211 @@
         </div>
     </header>
 
+
+    <!-- MENU DESPLEGABLE SI SE ENCUENTRA CON INICIO DE SESION UN CLIENTE O UN ADMIN -->
+    <?php
+        if($autentication == 'Cliente'){
+    ?>
+        <!-- INICIO DE SLIDE MENU PARA CLIENTES -->
+        <div class = "contenedor_pr_menu">
+            <div id="slide-menu" class="menu-collapsed">
+
+                <!-- HEADER -->
+                <div id="header">
+
+                    <div id="menu-btn">
+                        <div class="btn-logo"></div>
+                        <div class="btn-logo"></div>
+                        <div class="btn-logo"></div>
+                    </div>
+                    <div id="title"><span>PERFIL</span></div>
+
+                </div>
+
+                <!-- PROFILE -->
+                <div id="profile">
+                    <div id="photo"><img src="../images/profile2.png" alt=""></div>
+                    <div id="name"><span>Nombre: <?php echo $nombre_cliente ?></span></div>
+                    <div id="name"><span>Id: <?php echo $id_cliente ?></span></div>
+                </div>
+
+                <!-- ITEMS -->
+                <div id="menu-items">
+
+                    <div class="item">
+                        <a href="client_menu.php">
+                            <div class="icon"><img src="../images/home.png" alt=""></div>
+                            <div class="title"><span>Menu Principal</span></div>
+
+                        </a>
+                    </div>
+
+                        <!-- SEPARADOR -->
+                        <div class="item separator">
+                        </div>
+
+                    <div class="item">
+                        <a href="#">
+                            <div class="icon"><img src="../images/stadistics.png" alt=""></div>
+                            <div class="title"><span>Estadisticas</span></div>
+
+                        </a>
+                    </div>
+                        <!-- SEPARADOR -->
+                        <div class="item separator">
+                        </div>
+
+                    <div class="item">
+                        <a href="client_alertas.php">
+                            <div class="icon"><img src="../images/alert.png" alt=""></div>
+                            <div class="title"><span>Alertas</span></div>
+
+                        </a>
+                    </div>
+
+                        <!-- SEPARADOR -->
+                        <div class="item separator">
+                        </div>
+
+                    <div class="item">
+                        <a href="client_suscription.php">
+                            <div class="icon"><img src="../images/subscription.png" alt=""></div>
+                            <div class="title"><span>Suscripciones</span></div>
+
+                        </a>
+                    </div>
+
+
+                </div>
+
+                <!--
+                    =================================
+                    BOTON DE CARGA SUPERIOR
+                    =================================
+                -->
+                <div class="footer">
+                    <a href="#">
+                        <div class="btn_carga"><img src="../images/pages_up.png" alt=""></div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    <?php
+        }if($autentication == 'Admin'){
+    ?>
+        <!-- INICIO DE SLIDE MENU PARA ADMINS-->
+        <div class = "contenedor_pr_menu">
+            <div id="slide-menu" class="menu-collapsed">
+
+                <!-- HEADER -->
+                <div id="header">
+
+                    <div id="menu-btn">
+                        <div class="btn-logo"></div>
+                        <div class="btn-logo"></div>
+                        <div class="btn-logo"></div>
+                    </div>
+                    <div id="title"><span>PERFIL</span></div>
+
+                </div>
+
+                <!-- PROFILE -->
+                <div id="profile">
+                    <div id="photo"><img src="../images/profile2.png" alt=""></div>
+                    <div id="name"><span>Nombre: <?php echo $nombre_admin ?></span></div>
+                    <div id="name"><span>Id: <?php echo $id_admin ?></span></div>
+                </div>
+
+                <!-- ITEMS -->
+                <div id="menu-items">
+
+                    <div class="item">
+                        <a href="admin_menu.php">
+                            <div class="icon"><img src="../images/home.png" alt=""></div>
+                            <div class="title"><span>Menu Principal</span></div>
+
+                        </a>
+                    </div>
+
+                        <!-- SEPARADOR -->
+                        <div class="item separator">
+                        </div>
+
+                    <div class="item">
+                        <a href="#">
+                            <div class="icon"><img src="../images/stadistics.png" alt=""></div>
+                            <div class="title"><span>Estadisticas</span></div>
+
+                        </a>
+                    </div>
+
+                        <!-- SEPARADOR -->
+                        <div class="item separator">
+                        </div>
+
+                    <div class="item">
+                        <a href="#">
+                            <div class="icon"><img src="../images/users_admin.png" alt=""></div>
+                            <div class="title"><span>Gestion de usuarios</span></div>
+
+                        </a>
+                    </div>
+                        <!-- SEPARADOR -->
+                        <div class="item separator">
+                        </div>
+
+                    <div class="item">
+                        <a href="admin_edition_client.php">
+                            <div class="icon"><img src="../images/edit_user.png" alt=""></div>
+                            <div class="title"><span>Editar usuario</span></div>
+
+                        </a>
+                    </div>
+
+                        <!-- SEPARADOR -->
+                        <div class="item separator">
+                        </div>
+
+                    <div class="item">
+                        <a href="admin_delete_user.php">
+                            <div class="icon"><img src="../images/delete_user.png" alt=""></div>
+                            <div class="title"><span>Eliminar usuario</span></div>
+
+                        </a>
+                    </div>
+
+                        <!-- SEPARADOR -->
+                        <div class="item separator">
+                        </div>
+
+                    <div class="item">
+                        <a href="admin_create_user.php">
+                            <div class="icon"><img src="../images/add-admin.png" alt=""></div>
+                            <div class="title"><span>Creación de usuarios</span></div>
+
+                        </a>
+                    </div>
+
+
+                </div>
+
+                <!--
+                    =================================
+                    BOTON DE CARGA SUPERIOR
+                    =================================
+                -->
+                <div class="footer">
+                    <a href="#">
+                        <div class="btn_carga"><img src="../images/pages_up.png" alt=""></div>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    <?php
+        }
+    ?>
+
     <!-- BARRA DE NAVEGACION -->
     <div class="contenedor_menu">
 
@@ -109,8 +317,8 @@
                 <a href="../index.php"><li class="btn-inicio-go_home">Menu Principal</li></a>
                 <a href="suscription.php"><li>Suscripciones <i class="fa fa-angle-down"></i></a>
                     <ul>
-                        <li>Premiun</li>
-                        <li>Basico</li>
+                        <a href="compras.php?suscp=Prem"><li> Premiun</li></a>
+                        <a href="compras.php?suscp=Basic"><li> Basico</li></a>
                     </ul>
                 </li>
                     <a href="quienes_somos.php"><li class="btn-inicio-go_catalogo">¿Quienes somos?</li></a>
@@ -243,10 +451,36 @@
                 <div class="titulo_dts_precio">
                     $ 365.000
                 </div>
+
+                <!-- FORMULARIO PARA EL ENVIO DE UBICACION -->
+                <div class="contenedor_form">
+
+                    <form action="../logic/comprasLogic.php" method="POST">
+                        <div class="contenedor_dts_form">
+                            <label for="ubi_bd">Ubicacion del Biodigestor</label>
+                        </div>
+                        <div class="contenedor_dts_input">
+                            <input type="text" name="ubi_db" class="ubi_db" size="25" placeholder="Direccion de despliegue" required >
+                        </div>
+                        <div class="contenedor_dts_form">
+                            <label for="tel_bd">Celular/Telefono de contacto</label>
+                        </div>
+                        <div class="contenedor_dts_input">
+                            <input type="text" name="tel_db" class="tel_db" size="25" placeholder="Celular/Telefono de contacto" required pattern="[0-9]{7,10}" title="Error. El numero de telefono debe contener unicamente digitos y deben coincidir con el formato nacional">
+                        </div>
+                            <!-- ENVIO DEL TIPO DE PLAN -->
+                            <input type="hidden" name="plan" value="BASIC">
+
+                        <div class="contenedor_realizar_compra">
+                            <a href="../logic/comprasLogic.php"><button class="btn_realizar_compra">COMPRAR</button></a>
+                        </div>
+
+                    </form>
+
+
+                </div>
             </div>
-            <div class="contenedor_realizar_compra">
-                <a href="../logic/comprasLogic.php?plan=BASIC"><button class="btn_realizar_compra">COMPRAR</button></a>
-            </div>
+
 
         </div>
     </div>
@@ -356,10 +590,37 @@
                 <div class="titulo_dts_precio">
                     $ 356.000
                 </div>
+
+                <!-- FORMULARIO PARA EL ENVIO DE UBICACION -->
+                <div class="contenedor_form">
+
+                    <form action="../logic/comprasLogic.php" method="POST">
+                        <div class="contenedor_dts_form">
+                            <label for="ubi_bd">Ubicacion del Biodigestor</label>
+                        </div>
+                        <div class="contenedor_dts_input">
+                            <input type="text" name="ubi_db" class="ubi_db" size="25" placeholder="Direccion de despliegue" required >
+                        </div>
+                        <div class="contenedor_dts_form">
+                            <label for="tel_bd">Celular/Telefono de contacto</label>
+                        </div>
+                        <div class="contenedor_dts_input">
+                            <input type="text" name="tel_db" class="tel_db" size="25" placeholder="Celular/Telefono de contacto" required pattern="[0-9]{7,10}" title="Error. El numero de telefono debe contener unicamente digitos y deben coincidir con el formato nacional">
+                        </div>
+                            <!-- ENVIO DEL TIPO DE PLAN -->
+                            <input type="hidden" name="plan" value="PREMIUM">
+
+                        <div class="contenedor_realizar_compra">
+                            <a href="../logic/comprasLogic.php"><button class="btn_realizar_compra" type="submit">COMPRAR</button></a>
+                        </div>
+
+
+                    </form>
+
+
+                </div>
             </div>
-            <div class="contenedor_realizar_compra">
-                <a href="../logic/comprasLogic.php?plan=PREMIUM"><button class="btn_realizar_compra">COMPRAR</button></a>
-            </div>
+
 
         </div>
     </div>
@@ -372,5 +633,18 @@
      <!-- Insercion de particulas -->
      <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
     <script src="../js/app.js"></script>
+    <!-- SCRIPT MENU LATERAL-->
+    <script>
+        const btn = document.querySelector('#menu-btn');
+        const menu = document.querySelector('#slide-menu');
+
+
+        btn.addEventListener('click', e => {
+            menu.classList.toggle("menu-expanded");
+            window.scrollTo(150,150);
+            menu.classList.toggle("menu-collapsed");
+        });
+
+    </script>
 </body>
 </html>

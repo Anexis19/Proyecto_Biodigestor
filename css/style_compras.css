@@ -1,7 +1,7 @@
 /* CONTENEDOR RELATVIE */
 .contenedor_orden_compra{
     width: 650px;
-    height: 600px;
+    height: 620px;
     border-radius: 15px;
     border-width: 2px;
     border-style: solid;
@@ -68,6 +68,25 @@
     color: #275f42;
 }
 
+/* ========================
+    DATOS DEL FORMULARIO
+===========================*/
+.contenedor_dts_form{
+    float: left;
+    width: 45%;
+    padding-left: 60px;
+    padding-right: 10px;
+    margin-bottom: 10px
+}
+.contenedor_dts_input{
+    margin-left: 20px;
+    margin-bottom: 10px;
+}
+
+.ubi_db, .tel_db{
+    text-align: center;
+    font-family: 'Kanit', sans-serif;
+}
 /* CENTRAR UN CONTENEDOR ABSOLUTE EN UN CONTENEDOR RELATIVE */
 .contenedor_realizar_compra{
     text-align: center;

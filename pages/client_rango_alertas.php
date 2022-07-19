@@ -1,36 +1,35 @@
 <?php
 
-    include "../conexion.php";
-    include "../logic/client_securityLogic.php";
+    include '../conexion.php';
+    include '../logic/client_securityLogic.php';
 
     // Validacion de inicio de session
     $nombre_cliente     = $_SESSION['NOM_USUARIO'];
     $id_cliente         = $_SESSION['ID_USUARIO'];
     $tipo_usuario       = $_SESSION['TIPO_USUARIO'];
-
-
+    $tipo_plan          = $_SESSION['TIPO_PLAN'];
 
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="../images/icon.png">
     <link rel="stylesheet" href="../css/style_client.css">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/style_collapsed_menu.css">
+    <link rel="stylesheet" href="../css/style_client_suscription.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,400;1,400;1,500;1,900&family=Lobster&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/b50f20f4b1.js" crossorigin="anonymous"></script>
-    <title>Client</title>
-
+    <title>Suscripciones</title>
 </head>
 <body>
+
 <!-- CONTENEDOR DE PARTICULAS -->
 <div id="particles-js"></div>
 
@@ -42,13 +41,8 @@
             <a href="../index.php"><img id="imagen_logo" src="../images/logo.png" alt="Error al cargar la imagen"></a>
         </div>
         <div class="contenedor_nombre_clt">
-            <span> BIENVENIDO </span>
-            <span>
-                <?php
-                    echo $nombre_cliente;
-                ?>
+            <span> ALERTAS </span>
 
-            </span>
         </div>
         <div class="contenedor_clt">
             Nombre de usuario:
@@ -79,7 +73,6 @@
         </div>
     </div>
 </header>
-
 <!-- INICIO DE SLIDE MENU -->
 <div class = "contenedor_pr_menu">
     <div id="slide-menu" class="menu-collapsed">
@@ -119,19 +112,20 @@
                 </div>
 
             <div class="item">
-                <a href="#">
+                <a href="client_estadisticas.php">
                     <div class="icon"><img src="../images/stadistics.png" alt=""></div>
                     <div class="title"><span>Estadisticas</span></div>
 
                 </a>
             </div>
-                <!-- SEPARADOR -->
+
+             <!-- SEPARADOR -->
                 <div class="item separator">
                 </div>
 
             <div class="item">
                 <a href="client_alertas.php">
-                    <div class="icon"><img src="../images/alert.png" alt=""></div>
+                    <div class="icon"><img src="../images/alerts.png" alt=""></div>
                     <div class="title"><span>Alertas</span></div>
 
                 </a>
@@ -145,6 +139,18 @@
                 <a href="client_suscription.php">
                     <div class="icon"><img src="../images/subscription.png" alt=""></div>
                     <div class="title"><span>Suscripciones</span></div>
+
+                </a>
+            </div>
+
+            <!-- SEPARADOR -->
+                <div class="item separator">
+                </div>
+
+            <div class="item">
+                <a href="client_rango_alertas.php">
+                    <div class="icon"><img src="../images/subscription.png" alt=""></div>
+                    <div class="title"><span>Rango de Alertas</span></div>
 
                 </a>
             </div>
@@ -163,7 +169,10 @@
             </a>
         </div>
     </div>
+
 </div>
+
+
 
 <!-- BARRA DE NAVEGACION -->
 <div class="contenedor_menu">
@@ -176,29 +185,15 @@
                     <a href="compras.php?suscp=Basic"><li> Basico</li></a>
                 </ul>
             </li>
-            <a href="quienes_somos.php"><li class="btn-inicio-go_catalogo">¿Quienes somos?</li></a>
+            <a href=""><li class="btn-inicio-go_catalogo">¿Quienes somos?</li></a>
 
         </ul>
     </div>
 </div>
 
+<!-- RANGO ALERTAS DE SENSORES -->
+<?php  include "rango_alertas.php";  ?>
 
-<div class="prueba">
-    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Id, voluptatibus! Consectetur reprehenderit non quos molestias consequatur natus accusantium laudantium, facere ratione, maxime ducimus, corrupti rerum nostrum. Deserunt libero iusto repellendus.
-    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Id, voluptatibus! Consectetur reprehenderit non quos molestias consequatur natus accusantium laudantium, facere ratione, maxime ducimus, corrupti rerum nostrum. Deserunt libero iusto repellendus.
-    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Id, voluptatibus! Consectetur reprehenderit non quos molestias consequatur natus accusantium laudantium, facere ratione, maxime ducimus, corrupti rerum nostrum. Deserunt libero iusto repellendus.
-    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Id, voluptatibus! Consectetur reprehenderit non quos molestias consequatur natus accusantium laudantium, facere ratione, maxime ducimus, corrupti rerum nostrum. Deserunt libero iusto repellendus.
-    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Id, voluptatibus! Consectetur reprehenderit non quos molestias consequatur natus accusantium laudantium, facere ratione, maxime ducimus, corrupti rerum nostrum. Deserunt libero iusto repellendus.
-    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Id, voluptatibus! Consectetur reprehenderit non quos molestias consequatur natus accusantium laudantium, facere ratione, maxime ducimus, corrupti rerum nostrum. Deserunt libero iusto repellendus.
-    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Id, voluptatibus! Consectetur reprehenderit non quos molestias consequatur natus accusantium laudantium, facere ratione, maxime ducimus, corrupti rerum nostrum. Deserunt libero iusto repellendus.
-    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Id, voluptatibus! Consectetur reprehenderit non quos molestias consequatur natus accusantium laudantium, facere ratione, maxime ducimus, corrupti rerum nostrum. Deserunt libero iusto repellendus.
-    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Id, voluptatibus! Consectetur reprehenderit non quos molestias consequatur natus accusantium laudantium, facere ratione, maxime ducimus, corrupti rerum nostrum. Deserunt libero iusto repellendus.
-    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Id, voluptatibus! Consectetur reprehenderit non quos molestias consequatur natus accusantium laudantium, facere ratione, maxime ducimus, corrupti rerum nostrum. Deserunt libero iusto repellendus.
-    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Id, voluptatibus! Consectetur reprehenderit non quos molestias consequatur natus accusantium laudantium, facere ratione, maxime ducimus, corrupti rerum nostrum. Deserunt libero iusto repellendus.
-    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Id, voluptatibus! Consectetur reprehenderit non quos molestias consequatur natus accusantium laudantium, facere ratione, maxime ducimus, corrupti rerum nostrum. Deserunt libero iusto repellendus.
-    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Id, voluptatibus! Consectetur reprehenderit non quos molestias consequatur natus accusantium laudantium, facere ratione, maxime ducimus, corrupti rerum nostrum. Deserunt libero iusto repellendus.
-
-</div>
 <!-- AGREGAR PARTICULAS -->
 <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 <script src="../js/app.js"></script>
@@ -213,10 +208,7 @@
        menu.classList.toggle("menu-collapsed");
 
     });
-
-
-
-
 </script>
+
 </body>
 </html>

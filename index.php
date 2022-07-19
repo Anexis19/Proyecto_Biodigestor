@@ -6,7 +6,9 @@
     $bandera = false;
     $autentication  = $_SESSION['TIPO_USUARIO'];
     $nombre_cliente = strtoupper($_SESSION['NOM_USUARIO']);
+    $nombre_admin   = strtoupper($_SESSION['NOM_USUARIO']);
     $id_cliente     = strtoupper($_SESSION['ID_USUARIO']);
+    $id_admin       = strtoupper($_SESSION['ID_USUARIO']);
 
     if($autentication == 'Cliente' || $autentication == 'Admin'){
         $bandera = true;
@@ -24,6 +26,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="images/icon.png">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style_collapsed_menu.css">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -105,6 +109,210 @@
         </div>
     </header>
 
+
+    <!-- MENU DESPLEGABLE SI SE ENCUENTRA CON INICIO DE SESION UN CLIENTE O UN ADMIN -->
+    <?php
+        if($autentication == 'Cliente'){
+    ?>
+        <!-- INICIO DE SLIDE MENU PARA CLIENTES -->
+        <div class = "contenedor_pr_menu">
+            <div id="slide-menu" class="menu-collapsed">
+
+                <!-- HEADER -->
+                <div id="header">
+
+                    <div id="menu-btn">
+                        <div class="btn-logo"></div>
+                        <div class="btn-logo"></div>
+                        <div class="btn-logo"></div>
+                    </div>
+                    <div id="title"><span>PERFIL</span></div>
+
+                </div>
+
+                <!-- PROFILE -->
+                <div id="profile">
+                    <div id="photo"><img src="images/profile2.png" alt=""></div>
+                    <div id="name"><span>Nombre: <?php echo $nombre_cliente ?></span></div>
+                    <div id="name"><span>Id: <?php echo $id_cliente ?></span></div>
+                </div>
+
+                <!-- ITEMS -->
+                <div id="menu-items">
+
+                    <div class="item">
+                        <a href="pages/client_menu.php">
+                            <div class="icon"><img src="images/home.png" alt=""></div>
+                            <div class="title"><span>Menu Principal</span></div>
+
+                        </a>
+                    </div>
+
+                        <!-- SEPARADOR -->
+                        <div class="item separator">
+                        </div>
+
+                    <div class="item">
+                        <a href="#">
+                            <div class="icon"><img src="images/stadistics.png" alt=""></div>
+                            <div class="title"><span>Estadisticas</span></div>
+
+                        </a>
+                    </div>
+                        <!-- SEPARADOR -->
+                        <div class="item separator">
+                        </div>
+
+                    <div class="item">
+                        <a href="pages/client_alertas.php">
+                            <div class="icon"><img src="images/alert.png" alt=""></div>
+                            <div class="title"><span>Alertas</span></div>
+
+                        </a>
+                    </div>
+
+                        <!-- SEPARADOR -->
+                        <div class="item separator">
+                        </div>
+
+                    <div class="item">
+                        <a href="pages/client_suscription.php">
+                            <div class="icon"><img src="images/subscription.png" alt=""></div>
+                            <div class="title"><span>Suscripciones</span></div>
+
+                        </a>
+                    </div>
+
+
+                </div>
+
+                <!--
+                    =================================
+                    BOTON DE CARGA SUPERIOR
+                    =================================
+                -->
+                <div class="footer">
+                    <a href="#">
+                        <div class="btn_carga"><img src="images/pages_up.png" alt=""></div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    <?php
+        }if($autentication == 'Admin'){
+    ?>
+        <!-- INICIO DE SLIDE MENU PARA ADMINS-->
+        <div class = "contenedor_pr_menu">
+            <div id="slide-menu" class="menu-collapsed">
+
+                <!-- HEADER -->
+                <div id="header">
+
+                    <div id="menu-btn">
+                        <div class="btn-logo"></div>
+                        <div class="btn-logo"></div>
+                        <div class="btn-logo"></div>
+                    </div>
+                    <div id="title"><span>PERFIL</span></div>
+
+                </div>
+
+                <!-- PROFILE -->
+                <div id="profile">
+                    <div id="photo"><img src="images/profile2.png" alt=""></div>
+                    <div id="name"><span>Nombre: <?php echo $nombre_admin ?></span></div>
+                    <div id="name"><span>Id: <?php echo $id_admin ?></span></div>
+                </div>
+
+                <!-- ITEMS -->
+                <div id="menu-items">
+
+                    <div class="item">
+                        <a href="pages/admin_menu.php">
+                            <div class="icon"><img src="images/home.png" alt=""></div>
+                            <div class="title"><span>Menu Principal</span></div>
+
+                        </a>
+                    </div>
+
+                        <!-- SEPARADOR -->
+                        <div class="item separator">
+                        </div>
+
+                    <div class="item">
+                        <a href="#">
+                            <div class="icon"><img src="images/stadistics.png" alt=""></div>
+                            <div class="title"><span>Estadisticas</span></div>
+
+                        </a>
+                    </div>
+
+                        <!-- SEPARADOR -->
+                        <div class="item separator">
+                        </div>
+
+                    <div class="item">
+                        <a href="#">
+                            <div class="icon"><img src="images/users_admin.png" alt=""></div>
+                            <div class="title"><span>Gestion de usuarios</span></div>
+
+                        </a>
+                    </div>
+                        <!-- SEPARADOR -->
+                        <div class="item separator">
+                        </div>
+
+                    <div class="item">
+                        <a href="pages/admin_edition_client.php">
+                            <div class="icon"><img src="images/edit_user.png" alt=""></div>
+                            <div class="title"><span>Editar usuario</span></div>
+
+                        </a>
+                    </div>
+
+                        <!-- SEPARADOR -->
+                        <div class="item separator">
+                        </div>
+
+                    <div class="item">
+                        <a href="pages/admin_delete_user.php">
+                            <div class="icon"><img src="images/delete_user.png" alt=""></div>
+                            <div class="title"><span>Eliminar usuario</span></div>
+
+                        </a>
+                    </div>
+
+                        <!-- SEPARADOR -->
+                        <div class="item separator">
+                        </div>
+
+                    <div class="item">
+                        <a href="pages/admin_create_user.php">
+                            <div class="icon"><img src="images/add-admin.png" alt=""></div>
+                            <div class="title"><span>Creación de usuarios</span></div>
+
+                        </a>
+                    </div>
+
+
+                </div>
+
+                <!--
+                    =================================
+                    BOTON DE CARGA SUPERIOR
+                    =================================
+                -->
+                <div class="footer">
+                    <a href="#">
+                        <div class="btn_carga"><img src="images/pages_up.png" alt=""></div>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    <?php
+        }
+    ?>
     <!-- BARRA DE NAVEGACION -->
     <div class="contenedor_menu">
 
@@ -113,8 +321,8 @@
                 <a href="index.php"><li class="btn-inicio-go_home">Menu Principal</li></a>
                 <a href="pages/suscription.php"><li>Suscripciones</a><i class="fa fa-angle-down"></i>
                     <ul>
-                        <li>Premiun</li>
-                        <li>Basico</li>
+                        <a href="pages/compras.php?suscp=Prem"><li> Premiun</li></a>
+                        <a href="pages/compras.php?suscp=Basic"><li> Basico</li></a>
                     </ul>
                 </li>
                 <a href="pages/quienes_somos.php"><li class="btn-inicio-go_catalogo">¿Quienes somos?</li></a>
@@ -197,5 +405,20 @@
 <!-- Insercion de particulas -->
 <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 <script src="js/app.js"></script>
+
+<!-- SCRIPT MENU LATERAL-->
+<script>
+    const btn = document.querySelector('#menu-btn');
+    const menu = document.querySelector('#slide-menu');
+
+
+    btn.addEventListener('click', e => {
+        menu.classList.toggle("menu-expanded");
+        window.scrollTo(150,150);
+        menu.classList.toggle("menu-collapsed");
+    });
+
+</script>
+
 </body>
 </html>

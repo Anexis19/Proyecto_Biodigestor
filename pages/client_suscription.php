@@ -119,6 +119,17 @@
 
                 </a>
             </div>
+                <!-- SEPARADOR -->
+                <div class="item separator">
+                </div>
+
+            <div class="item">
+                <a href="client_alertas.php">
+                    <div class="icon"><img src="../images/alert.png" alt=""></div>
+                    <div class="title"><span>Alarmas</span></div>
+
+                </a>
+            </div>
 
                 <!-- SEPARADOR -->
                 <div class="item separator">
@@ -166,8 +177,8 @@
             <a href="../index.php"><li class="btn-inicio-go_home">Menu Principal</li></a>
             <a href="suscription.php"><li>Suscripciones<i class="fa fa-angle-down"></i></a>
                 <ul>
-                    <li>Premiun</li>
-                    <li>Basico</li>
+                    <a href="compras.php?suscp=Prem"><li> Premiun</li></a>
+                    <a href="compras.php?suscp=Basic"><li> Basico</li></a>
                 </ul>
             </li>
             <a href="quienes_somos.php"><li class="btn-inicio-go_catalogo">¿Quienes somos?</li></a>
@@ -179,40 +190,56 @@
 
 <div class="contenedor_tabla">
     <table class="users_table2">
+
+        <?php
+            $sqli2 = "SELECT * FROM biodigestor WHERE ID_USUARIO = $id_cliente";
+            $result2 = mysqli_query($conectar, $sqli2);
+            if(mysqli_num_rows($result2)>0){
+        ?>
+
+
+
         <tr>
+            <th>ID BIODIGESTOR</th>
             <th>ID</th>
             <th>TIPO DE ID</th>
             <th>NOMBRE</th>
-            <th>DIRECCION</th>
-            <th>DEPARTAMENTO</th>
-            <th>MUNICIPIO</th>
             <th>CELULAR</th>
             <th>TIPO DE PLAN</th>
             <th>CANCELAR SUSCRIPCION</th>
 
         </tr>
         <?php
-            $sqli = "SELECT * FROM users WHERE ID = '$id_cliente'";
+            $sqli = "SELECT biodigestor.ID_BIODIGESTOR, users.ID, users.TYPE_ID, users.NAME_LASTNAME, users.CELLPHONE, biodigestor.TIPO_PLAN FROM users INNER JOIN biodigestor ON users.ID = biodigestor.ID_USUARIO WHERE users.ID = $id_cliente;";
             $result = mysqli_query($conectar, $sqli);
             while($mostrar = mysqli_fetch_array($result)){
         ?>
 
         <tr>
+            <td><?php echo $mostrar['ID_BIODIGESTOR']?></td>
             <td><?php echo $mostrar['ID']?></td>
             <td><?php echo $mostrar['TYPE_ID']?></td>
             <td><?php echo $mostrar['NAME_LASTNAME']?></td>
-            <td><?php echo $mostrar['ADDRESS']?></td>
-            <td><?php echo $mostrar['DEPARTAMENTO']?></td>
-            <td><?php echo $mostrar['MUNICIPIO']?></td>
             <td><?php echo $mostrar['CELLPHONE']?></td>
             <td><?php echo $mostrar['TIPO_PLAN']?></td>
-            <td><a href="../logic/client_delete_suscriptionLogic.php?ID=<?php echo $id_cliente?>&PLAN=<?php echo $tipo_plan ?>" class='btn-delete'><img src='../images/delete.png'></a></td>
+            <td><a href="../logic/client_delete_suscriptionLogic.php?ID_BIODIGESTOR=<?php echo $mostrar['ID_BIODIGESTOR']?>&PLAN=<?php echo $tipo_plan ?>" class='btn-delete'><img src='../images/delete.png'></a></td>
         </tr>
 
         <?php
             }
         ?>
     </table>
+
+    <?php
+        }
+        else{
+
+
+    ?>
+        <h2>NO SE ENCONTRARON SUSCRIPCIONES REGISTRADAS</h2>
+    <?php
+        }
+    ?>
 </div>
 
 
