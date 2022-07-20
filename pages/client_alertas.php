@@ -111,7 +111,7 @@
                 </div>
 
             <div class="item">
-                <a href="client_estadisticas.php">
+                <a href="">
                     <div class="icon"><img src="../images/stadistics.png" alt="Error al cargar imagen"></div>
                     <div class="title"><span>Estadisticas</span></div>
 
@@ -186,19 +186,18 @@
 <div class="contenedor_alertas">
     <table class="users_table2">
 
+        <!-- CONSULTA SQL QUE DETERMINA LA EXISTENCIA DE ALERTAS -->
         <?php
-            $sql2 = "SELECT * FROM datos_maximos WHERE ID_USUARIO  = $id_cliente";
-            $result2 = mysqli_query($conectar, $sql2);
-            if(mysqli_num_rows($result2)> 0 ){
+            $sql1 = "SELECT * FROM datos_medidos INNER JOIN biodigestor
+            ON datos_medidos.ID_BIODIGESTOR = biodigestor.ID_BIODIGESTOR  WHERE biodigestor.ID_USUARIO  = $id_cliente";
+            $result1 = mysqli_query($conectar, $sql1);
+            if(mysqli_num_rows($result1)>0){
 
-            }
 
         ?>
-
-
         <tr>
             <th>ID ALARMA</th>
-            <th>ID</th>
+            <th>ID_BIODIGESTOR</th>
             <th>TEMPERATURA</th>
             <th>HUMEDAD</th>
             <th>FECHA DE LECTURA</th>
@@ -206,19 +205,117 @@
             <th>NIVEL DE GAS</th>
             <th>PRESION DE GAS</th>
             <th>ESTADO DE RELE</th>
+            <th>ALARMA DE TEMPERATURA</th>
+            <th>ALARMA DE HUMEDAD</th>
         </tr>
+        <?php
+            $sql2 = "SELECT * FROM datos_medidos INNER JOIN biodigestor
+            ON datos_medidos.ID_BIODIGESTOR = biodigestor.ID_BIODIGESTOR INNER JOIN datos_maximos
+            ON datos_maximos.ID_BIODIGESTOR = biodigestor.ID_BIODIGESTOR
+            WHERE biodigestor.ID_USUARIO  = $id_cliente";
+            $result2 = mysqli_query($conectar, $sql2);
+            while($mostrar = mysqli_fetch_array($result2)){
+
+
+
+        ?>
         <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td><?php echo $mostrar['ID_ALARMA'] ?></td>
+            <td><?php echo $mostrar['ID_BIODIGESTOR']?></td>
+            <td><?php echo $mostrar['TEMPERATURA']?></td>
+            <td><?php echo $mostrar['HUMEDAD']?></td>
+            <td><?php echo $mostrar['FECHA_LECTURA']?></td>
+            <td><?php echo $mostrar['HORA_LECTURA']?></td>
+            <td><?php echo $mostrar['NIVEL_GAS']?></td>
+            <td><?php echo $mostrar['PRESION_GAS']?></td>
+
+            <?php
+                $id_alarma      = $mostrar['ID_ALARMA'];
+                $estado_rele    = $mostrar['ESTADO_RELE'];
+                $estado_temp    = $mostrar['TEMPERATURA'];
+                $estado_hum     = $mostrar['HUMEDAD'];
+                $humedad_max    = $mostrar['HUMEDAD_MAX'];
+                $humedad_min    = $mostrar['HUMEDAD_MIN'];
+                $temp_max       = $mostrar['TEMP_MAX'];
+                $temp_min       = $mostrar['TEMP_MIN'];
+
+                // CONDICIONAL PARA DETERMINAR EL ESTADO DEL RELE
+                if($estado_rele == 1){
+            ?>
+            <!-- ACTUALMENTE EL RELE ESTA ACTIVO (1). ES DECIR QUE AL PRESIONAR EL BOTON, SE DEBE APAGAR -->
+            <td><a href="../logic/estado_releLogic.php?estado_rele=0&id_alm=<?php echo $id_alarma ?>"><img src="../images/power_on.png" alt="Error al cargar la imagen"></a></td>
+
+            <?php
+                }else{
+            ?>
+            <!-- ACTUALMENTE EL RELE ESTA APAGADO (0). ES DECIR QUE AL PRESIONAR EL BOTON, SE DEBE ENCENDER -->
+            <td><a href="../logic/estado_releLogic.php?estado_rele=1&id_alm=<?php echo $id_alarma?>"><img src="../images/power_off.png" alt="Error al cargar la imagen"></a></td>
+
+            <?php
+                }
+
+            ?>
+
+
+                <!-- CONDICIONAL PARA DETERMINAR LA ALARMA DE TEMPERATURA -->
+                <?php
+                    if($estado_temp > $temp_max){
+                ?>
+                        <!-- EL NIVEL DE TEMPERATURA ES SUPERA EL NIVEL ESTABLECIDO -->
+                        <td><img src="../images/temperature_alert.png" alt="Error al cargar la imagen"></td>
+                <?php
+                    }if ($estado_temp < $temp_min){
+                ?>
+                        <!-- EL NIVEL DE TEMPERATURA ES INFERIOR AL NIVEL ESTABLECIDO -->
+                        <td><img src="../images/temperature_alert2.png" alt="Error al cargar la imagen"></td>
+                <?php
+                    }if ($estado_temp < $temp_max AND $estado_temp > $temp_min){
+                ?>
+                        <!-- EL NIVEL DE TEMPERATURA ES INFERIOR AL NIVEL ESTABLECIDO -->
+                        <td><img src="../images/accept.png" alt="Error al cargar la imagen"></td>
+                <?php
+                    }
+                ?>
+                <!-- CONDICIONAL PARA DETERMINAR LA ALARMA DE HUMEDAD -->
+                <?php
+                    if($estado_hum > $humedad_max){
+                ?>
+                        <!-- EL NIVEL DE TEMPERATURA ES SUPERA EL NIVEL ESTABLECIDO -->
+                        <td><img src="../images/humedad_alert2.png" alt="Error al cargar la imagen"></td>
+                <?php
+                    }if ($estado_hum < $humedad_min){
+                ?>
+                        <!-- EL NIVEL DE TEMPERATURA ES INFERIOR AL NIVEL ESTABLECIDO -->
+                        <td><img src="../images/humedad_alert.png" alt="Error al cargar la imagen"></td>
+                <?php
+                    }if ($estado_hum < $humedad_max AND $estado_hum > $humedad_min){
+                ?>
+                        <!-- EL NIVEL DE TEMPERATURA ES INFERIOR AL NIVEL ESTABLECIDO -->
+                        <td><img src="../images/accept.png" alt="Error al cargar la imagen"></td>
+                <?php
+                    }
+                ?>
+
+
+
+
         </tr>
+        <!-- CIERRE DE CICLO WHILE QUE RECORRE LA TABLA DE ALERTAS -->
+        <?php
+
+            }
+        ?>
+
     </table>
+    <?php
+        }else{
+
+
+    ?>
+        <h2>NO SE ENCONTRARON ALERTAS REGISTRADAS</h2>
+    <?php
+        }
+    ?>
 </div>
 
 

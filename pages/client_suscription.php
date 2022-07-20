@@ -203,14 +203,17 @@
             <th>ID BIODIGESTOR</th>
             <th>ID</th>
             <th>TIPO DE ID</th>
-            <th>NOMBRE</th>
-            <th>CELULAR</th>
+            <th>PROPIETARIO</th>
+            <th>TELEFONO PROPIETARIO</th>
+            <th>TELEFONO DE CONTACTO</th>
+            <th>UBICACION DE DESPLIEGUE</th>
             <th>TIPO DE PLAN</th>
+            <th>ESTADO</th>
             <th>CANCELAR SUSCRIPCION</th>
 
         </tr>
         <?php
-            $sqli = "SELECT biodigestor.ID_BIODIGESTOR, users.ID, users.TYPE_ID, users.NAME_LASTNAME, users.CELLPHONE, biodigestor.TIPO_PLAN FROM users INNER JOIN biodigestor ON users.ID = biodigestor.ID_USUARIO WHERE users.ID = $id_cliente;";
+            $sqli = "SELECT biodigestor.ID_BIODIGESTOR, users.ID, users.TYPE_ID, users.NAME_LASTNAME, users.CELLPHONE, biodigestor.TEL_CONTACTO, biodigestor.UBICACION, biodigestor.TIPO_PLAN, biodigestor.ESTADO FROM users INNER JOIN biodigestor ON users.ID = biodigestor.ID_USUARIO WHERE users.ID = $id_cliente;";
             $result = mysqli_query($conectar, $sqli);
             while($mostrar = mysqli_fetch_array($result)){
         ?>
@@ -221,7 +224,10 @@
             <td><?php echo $mostrar['TYPE_ID']?></td>
             <td><?php echo $mostrar['NAME_LASTNAME']?></td>
             <td><?php echo $mostrar['CELLPHONE']?></td>
+            <td><?php echo $mostrar['TEL_CONTACTO']?></td>
+            <td><?php echo $mostrar['UBICACION']?></td>
             <td><?php echo $mostrar['TIPO_PLAN']?></td>
+            <td><?php echo $mostrar['ESTADO']?></td>
             <td><a href="../logic/client_delete_suscriptionLogic.php?ID_BIODIGESTOR=<?php echo $mostrar['ID_BIODIGESTOR']?>&PLAN=<?php echo $tipo_plan ?>" class='btn-delete'><img src='../images/delete.png'></a></td>
         </tr>
 
