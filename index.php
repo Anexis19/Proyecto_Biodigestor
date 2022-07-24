@@ -182,6 +182,17 @@
 
                         </a>
                     </div>
+                    <!-- SEPARADOR -->
+                        <div class="item separator">
+                        </div>
+
+                    <div class="item">
+                        <a href="pages/client_rango_alertas.php">
+                            <div class="icon"><img src="images/meter.png" alt=""></div>
+                            <div class="title"><span>Rangos de medición</span></div>
+
+                        </a>
+                    </div>
 
 
                 </div>

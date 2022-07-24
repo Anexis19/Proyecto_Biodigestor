@@ -20,13 +20,13 @@
     <link rel="stylesheet" href="../css/style_client.css">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/style_collapsed_menu.css">
-    <link rel="stylesheet" href="../css/style_client_suscription.css">
+    <link rel="stylesheet" href="../css/sytle_client_rango_alertas.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,400;1,400;1,500;1,900&family=Lobster&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/b50f20f4b1.js" crossorigin="anonymous"></script>
-    <title>Suscripciones</title>
+    <title>Rango de alertas</title>
 </head>
 <body>
 
@@ -41,7 +41,7 @@
             <a href="../index.php"><img id="imagen_logo" src="../images/logo.png" alt="Error al cargar la imagen"></a>
         </div>
         <div class="contenedor_nombre_clt">
-            <span> ALERTAS </span>
+            <span> RANGO DE MEDICIÓN </span>
 
         </div>
         <div class="contenedor_clt">
@@ -125,7 +125,7 @@
 
             <div class="item">
                 <a href="client_alertas.php">
-                    <div class="icon"><img src="../images/alerts.png" alt=""></div>
+                    <div class="icon"><img src="../images/alert.png" alt=""></div>
                     <div class="title"><span>Alertas</span></div>
 
                 </a>
@@ -149,8 +149,8 @@
 
             <div class="item">
                 <a href="client_rango_alertas.php">
-                    <div class="icon"><img src="../images/subscription.png" alt=""></div>
-                    <div class="title"><span>Rango de Alertas</span></div>
+                    <div class="icon"><img src="../images/meter.png" alt=""></div>
+                    <div class="title"><span>Rangos de medición</span></div>
 
                 </a>
             </div>
@@ -185,14 +185,84 @@
                     <a href="compras.php?suscp=Basic"><li> Basico</li></a>
                 </ul>
             </li>
-            <a href=""><li class="btn-inicio-go_catalogo">¿Quienes somos?</li></a>
+            <a href="quienes_somos.php"><li class="btn-inicio-go_catalogo">¿Quienes somos?</li></a>
+            <a href="client_menu.php"><li class="btn-inicio-go_catalogo">Menu del Usuario</li></a>
 
         </ul>
     </div>
 </div>
 
-<!-- RANGO ALERTAS DE SENSORES -->
-<?php  include "rango_alertas.php";  ?>
+<div class="contenedor_rango">
+    <div class="contenedor_formR">
+        <form action="../logic/client_rango_alertasLogic.php" method="POST">
+            <div>
+                Seleccione el biodigestor para asignar el rango de datos
+                <select name="select_biodigestor" >
+
+                    <?php
+                        $sql = "SELECT * FROM biodigestor WHERE ID_USUARIO = $id_cliente";
+                        $result = mysqli_query($conectar, $sql);
+                        while($mostrar = mysqli_fetch_array($result)){
+
+
+                    ?>
+                    <option value="<?php echo $mostrar['ID_BIODIGESTOR']?>"><?php echo $mostrar['ID_BIODIGESTOR']?></option>
+                    <?php
+
+
+
+                    ?>
+
+                </select>
+            </div>
+
+            <?php
+                $id_biodigestor2 = $mostrar['ID_BIODIGESTOR'];
+
+                $sql_rango = "SELECT * FROM datos_maximos INNER JOIN biodigestor
+                ON datos_maximos.ID_BIODIGESTOR = biodigestor.ID_BIODIGESTOR
+                WHERE biodigestor.ID_USUARIO = '$id_cliente' AND biodigestor.ID_BIODIGESTOR = '$id_biodigestor2' ";
+                $result_rango = mysqli_query($conectar, $sql_rango);
+                while($mostrar2 = mysqli_fetch_assoc($result_rango)){
+
+
+            ?>
+
+            <div class="contenedor_opciones">
+                <h3>Rango de Temperatura</h3>
+                <div class="contenedor_temp">
+                    <label for="temp_max">Temperatura Maxima</label>
+                    <input type="number" name="temp_max" min="50" max="99" required placeholder="<?php echo $mostrar2['TEMP_MAX']?>">
+                    <label for="temp_min">Temperatura Minima</label>
+                    <input type="number" name="temp_min" min="0" max="15" required placeholder="<?php echo $mostrar2['TEMP_MIN']?>">
+                </div>
+            </div>
+            <div class="contenedor_opciones">
+                <h3>Rango de Humedad</h3>
+                <div class="contenedor_hum">
+                    <label for="hum_max">Temperatura Maxima</label>
+                    <input type="number" name="hum_max" min="50" max="99" required placeholder="<?php echo $mostrar2['HUMEDAD_MAX']?>">
+                    <label for="hum_min">Temperatura Minima</label>
+                    <input type="number" name="hum_min" min="0" max="15" required placeholder="<?php echo $mostrar2['HUMEDAD_MIN']?>">
+                </div>
+            </div>
+            <?php
+                    }
+                }
+            ?>
+
+            <button class="btn_guardar" type="submit">GUARDAR</button>
+
+
+
+
+        </form>
+    </div>
+
+
+</div>
+
+
 
 <!-- AGREGAR PARTICULAS -->
 <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>

@@ -181,6 +181,17 @@
 
                         </a>
                     </div>
+                        <!-- SEPARADOR -->
+                        <div class="item separator">
+                        </div>
+
+                    <div class="item">
+                        <a href="client_rango_alertas.php">
+                            <div class="icon"><img src="../images/meter.png" alt=""></div>
+                            <div class="title"><span>Rangos de medición</span></div>
+
+                        </a>
+                    </div>
 
 
                 </div>
@@ -357,7 +368,7 @@
                     <img src="../images/elkin.png" alt="Error al cargar la imagen">
             </div>
             <div class="contenedor_descripcion">
-                    Descripcion del miembro del equipo
+                    Elkin David Aguilar, edad 22 años, vive en la ciudad de Popayán, actualmente estudiante de ingeniería electrónica y telecomunicaciones de la universidad del cauca de octavo semestre. Ama escuchar música, practicar deportes, videojuegos y disfrutar de la naturaleza. Aplica los conocimientos adquiridos en busca de generar soluciones a problemas de la vida.
             </div>
         </div>
         <div class="integrantes_group2">
@@ -365,7 +376,7 @@
                     <img src="../images/andres.png" alt="Error al cargar la imagen">
             </div>
             <div class="contenedor_descripcion2">
-                    Descripcion del miembro del equipo
+            Oscar Andres Muñoz Jimenez, Estudiante de Ingenieria Electronica y Telecomunicaciones, Tecnologo en Telecomunicaciones, Aspiraciones: crear una empresa de seguridad, que implemente diferentes tecnologías de comunicacion.
             </div>
         </div>
         <div class="integrantes_group">
@@ -373,7 +384,7 @@
                     <img src="../images/diago.png" alt="Error al cargar la imagen">
             </div>
             <div class="contenedor_descripcion">
-                    Descripcion del miembro del equipo
+                    Andres Felipe Diago, estudiante de octavo semestre de Ingenieria Electronica y Telecomunicaciones de la Universidad del Cauca
             </div>
         </div>
         <div class="integrantes_group2">
@@ -381,7 +392,7 @@
                     <img src="../images/hurtado.png" alt="Error al cargar la imagen">
             </div>
             <div class="contenedor_descripcion2">
-                    Descripcion del miembro del equipo
+                    Andres Felipe Hurtado Zuñiga, estudiante de septimo semestre de Ingenieria Electronica y Telecomunicaciones de la Universidad del Cauca. Amante del deporte y desarrollo web.
             </div>
         </div>
         <div class="integrantes_group">
@@ -389,7 +400,7 @@
                     <img src="../images/edier.png" alt="Error al cargar la imagen">
             </div>
             <div class="contenedor_descripcion">
-                    Descripcion del miembro del equipo
+                    Edier Dario Bravo, estudiante de octavo semestre de Ingenieria Electronica y Telecomunicaciones de la Universidad del Cauca
             </div>
         </div>
         <div class="integrantes_group2">
@@ -397,7 +408,7 @@
                     <img src="../images/richard.png" alt="Error al cargar la imagen">
             </div>
             <div class="contenedor_descripcion2">
-                    Descripcion del miembro del equipo
+                    Richard Sanchez Caicedo, estudiante de octavo semestre de Ingenieria Electronica y Telecomunicaciones
             </div>
         </div>
 

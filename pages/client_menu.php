@@ -148,6 +148,17 @@
 
                 </a>
             </div>
+                <!-- SEPARADOR -->
+                <div class="item separator">
+                </div>
+
+            <div class="item">
+                <a href="client_rango_alertas.php">
+                    <div class="icon"><img src="../images/meter.png" alt=""></div>
+                    <div class="title"><span>Rangos de medición</span></div>
+
+                </a>
+            </div>
 
 
         </div>
@@ -181,24 +192,33 @@
         </ul>
     </div>
 </div>
-
-
-<div class="prueba">
-    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Id, voluptatibus! Consectetur reprehenderit non quos molestias consequatur natus accusantium laudantium, facere ratione, maxime ducimus, corrupti rerum nostrum. Deserunt libero iusto repellendus.
-    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Id, voluptatibus! Consectetur reprehenderit non quos molestias consequatur natus accusantium laudantium, facere ratione, maxime ducimus, corrupti rerum nostrum. Deserunt libero iusto repellendus.
-    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Id, voluptatibus! Consectetur reprehenderit non quos molestias consequatur natus accusantium laudantium, facere ratione, maxime ducimus, corrupti rerum nostrum. Deserunt libero iusto repellendus.
-    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Id, voluptatibus! Consectetur reprehenderit non quos molestias consequatur natus accusantium laudantium, facere ratione, maxime ducimus, corrupti rerum nostrum. Deserunt libero iusto repellendus.
-    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Id, voluptatibus! Consectetur reprehenderit non quos molestias consequatur natus accusantium laudantium, facere ratione, maxime ducimus, corrupti rerum nostrum. Deserunt libero iusto repellendus.
-    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Id, voluptatibus! Consectetur reprehenderit non quos molestias consequatur natus accusantium laudantium, facere ratione, maxime ducimus, corrupti rerum nostrum. Deserunt libero iusto repellendus.
-    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Id, voluptatibus! Consectetur reprehenderit non quos molestias consequatur natus accusantium laudantium, facere ratione, maxime ducimus, corrupti rerum nostrum. Deserunt libero iusto repellendus.
-    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Id, voluptatibus! Consectetur reprehenderit non quos molestias consequatur natus accusantium laudantium, facere ratione, maxime ducimus, corrupti rerum nostrum. Deserunt libero iusto repellendus.
-    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Id, voluptatibus! Consectetur reprehenderit non quos molestias consequatur natus accusantium laudantium, facere ratione, maxime ducimus, corrupti rerum nostrum. Deserunt libero iusto repellendus.
-    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Id, voluptatibus! Consectetur reprehenderit non quos molestias consequatur natus accusantium laudantium, facere ratione, maxime ducimus, corrupti rerum nostrum. Deserunt libero iusto repellendus.
-    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Id, voluptatibus! Consectetur reprehenderit non quos molestias consequatur natus accusantium laudantium, facere ratione, maxime ducimus, corrupti rerum nostrum. Deserunt libero iusto repellendus.
-    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Id, voluptatibus! Consectetur reprehenderit non quos molestias consequatur natus accusantium laudantium, facere ratione, maxime ducimus, corrupti rerum nostrum. Deserunt libero iusto repellendus.
-    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Id, voluptatibus! Consectetur reprehenderit non quos molestias consequatur natus accusantium laudantium, facere ratione, maxime ducimus, corrupti rerum nostrum. Deserunt libero iusto repellendus.
-
+<div class="contenedor_titulo">
+    <h1> <span class="span1">¡Hola! Bienvenido</span>, el equipo de <span class="span2">Automatic Life Gas</span>  se emociona mucho de tenerte <span class="span1" >abordo</span> </h1>
 </div>
+<div class="contenedor_img">
+    <div class="contenedor1">
+        <img src="../images/pregunta.png" alt="">
+        <div class="descripcion">
+        Seguro te preguntaras quienes somos. <span class="span1">Automatic Life Gas</span>  es una
+        plataforma que te ayudará en el <span class="span2">monitoreo</span>  y gestión de tu biodigestor
+        </div>
+
+    </div>
+    <div class="contenedor1">
+        <img src="../images/comprar.png" alt="">
+        <div class="descripcion">
+        Aqui podras realizar la compra de tus biodigestores. <span class="span2">¡Puedes tener hasta 5 de ellos!</span>  mirar estadisticas, alarmas y <span class="span1">muchas cosas más</span>
+        </div>
+    </div>
+    <div class="contenedor1">
+        <img src="../images/monitorear.png" alt="">
+        <div class="descripcion">
+        <span class="span2">¿Y sabes qué es lo más emocionante?</span> ¡Todo lo podras realizar al alcance de unos pocos clicks! Contamos con un gran equipo que estará presente para darte la mano. <span class="span1">¡Vamos a ello!</span>
+        </div>
+    </div>
+</div>
+
+
 <!-- AGREGAR PARTICULAS -->
 <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 <script src="../js/app.js"></script>
