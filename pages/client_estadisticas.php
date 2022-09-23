@@ -21,12 +21,18 @@
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/style_collapsed_menu.css">
     <link rel="stylesheet" href="../css/style_client_suscription.css">
+    <link rel="stylesheet" href="../css/style_client_estadisticas.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,400;1,400;1,500;1,900&family=Lobster&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/b50f20f4b1.js" crossorigin="anonymous"></script>
-    <title>Suscripciones</title>
+    <script src="../js/jquery.min.js"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+    <title>Estadisticas</title>
 </head>
 <body>
 
@@ -166,11 +172,6 @@
 
 </div>
 
-
-
-
-
-
 <!-- BARRA DE NAVEGACION -->
 <div class="contenedor_menu">
     <div class="contenedor_listas">
@@ -188,52 +189,32 @@
     </div>
 </div>
 
-<div class="contenedor_tabla">
-    <table class="users_table2">
-        <tr>
-            <th>#</th>
-            <th>ID TARJETA</th>
-            <th>TEMPERATURA</th>
-            <th>HUMEDAD</th>
-            <th>FECHA</th>
-            <th>HORA</th>
-            <th>GAS</th>
-            <th>PRESION</th>
-            <th>ESTADO MOTOR</th>
+<!-- SELECT QUE REALIZA LA CONSULTA MEDIANTE AJAX PARA IMPRIMIR LAS DIFERENTES ESTADÍSTICAS -->
 
-        </tr>
-        <?php
-            #$sqli = "SELECT * FROM datos_medidos WHERE ID = '$id_cliente'";
-            $sqli1 = "SELECT DISTINCT ID_TARJ FROM datos_medidos";
-            $result1 = mysqli_query($conectar, $sqli1);
-            while($mostrar1 = mysqli_fetch_array($result1)){
-            $tar = $mostrar1[0];
+<div class="contenedor_form">
+    <form action="client_grafico.php" method="POST">
+        <div class="contenedor_select_dts">
+            Seleccione el biodigestor para consultar las estadisticas
+            <select name="select_biodigestor" >
 
-            $sqli = "SELECT * from datos_medidos where ID_TARJ=$tar order by id DESC LIMIT 3";
-            $result = mysqli_query($conectar, $sqli);
-            while($mostrar = mysqli_fetch_array($result)){
-        ?>
+                <?php
+                    $sql = "SELECT * FROM biodigestor WHERE ID_USUARIO = $id_cliente";
+                    $result = mysqli_query($conectar, $sql);
+                    while($mostrar = mysqli_fetch_array($result)){
 
-        <tr>
-            <td><?php echo $mostrar['id']?></td>
-            <td><?php echo $mostrar['ID_TARJ']?></td>
-            <td><?php echo $mostrar['temperatura']?></td>
-            <td><?php echo $mostrar['humedad']?></td>
-            <td><?php echo $mostrar['fecha']?></td>
-            <td><?php echo $mostrar['hora']?></td>
-            <td><?php echo $mostrar['gas']?></td>
-            <td><?php echo $mostrar['presion']?></td>
-             <td><?php if( $mostrar['rele'] == "1"){
-                 ?> <img src='../images/on.png'> <?php
-             }else {?><img src='../images/off.png'> <?php }?></td>
 
-        </tr>
+                ?>
+                <option value="<?php echo $mostrar['ID_BIODIGESTOR']?>"><?php echo $mostrar['ID_BIODIGESTOR']?></option>
 
-        <?php
-            }
-            }
-        ?>
-    </table>
+                <?php
+                    }
+                ?>
+
+            </select><br>
+            <button class="btn_guardar" type="submit">CARGAR</button>
+        </div>
+
+    </form>
 </div>
 
 
@@ -242,6 +223,7 @@
 
 <!-- AGREGAR PARTICULAS -->
 <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+
 <script src="../js/app.js"></script>
 
 <!-- SCRIPT MENU LATERAL-->

@@ -1,34 +1,38 @@
 <?php
 
-    include "../conexion.php";
-    include "../logic/client_securityLogic.php";
+    include '../conexion.php';
+    include '../logic/client_securityLogic.php';
 
     // Validacion de inicio de session
     $nombre_cliente     = $_SESSION['NOM_USUARIO'];
     $id_cliente         = $_SESSION['ID_USUARIO'];
     $tipo_usuario       = $_SESSION['TIPO_USUARIO'];
-
-
+    $tipo_plan          = $_SESSION['TIPO_PLAN'];
+    $id_biodigestor     = strtoupper($_POST['select_biodigestor']);
 
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="../images/icon.png">
-    <link rel="stylesheet" href="../css/style_client.css">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/style_collapsed_menu.css">
+    <link rel="stylesheet" href="../css/style_client_suscription.css">
+    <link rel="stylesheet" href="../css/style_client_grafico.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,400;1,400;1,500;1,900&family=Lobster&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/b50f20f4b1.js" crossorigin="anonymous"></script>
-    <title>Client</title>
-
+    <script src="../js/jquery.min.js"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+    <title>Grafico de Estadisticas</title>
 </head>
 <body>
 <!-- CONTENEDOR DE PARTICULAS -->
@@ -107,7 +111,7 @@
         <div id="menu-items">
 
             <div class="item">
-                <a href="#">
+                <a href="../index.php">
                     <div class="icon"><img src="../images/home.png" alt=""></div>
                     <div class="title"><span>Menu Principal</span></div>
 
@@ -188,39 +192,109 @@
                 </ul>
             </li>
             <a href="quienes_somos.php"><li class="btn-inicio-go_catalogo">¿Quienes somos?</li></a>
+            <a href="client_menu.php"><li class="btn-inicio-go_catalogo">Menu del Usuario</li></a>
 
         </ul>
     </div>
 </div>
-<div class="contenedor_titulo">
-    <h1> <span class="span1">¡Hola! Bienvenido</span>, el equipo de <span class="span2">Automatic Life Gas</span>  se emociona mucho de tenerte <span class="span1" >abordo</span> </h1>
-</div>
-<div class="contenedor_img">
-    <div class="contenedor1">
-        <img src="../images/pregunta.png" alt="">
-        <div class="descripcion">
-        Seguro te preguntaras quienes somos. <span class="span1">Automatic Life Gas</span>  es una
-        plataforma que te ayudará en el <span class="span2">monitoreo</span>  y gestión de tu biodigestor
-        </div>
 
-    </div>
-    <div class="contenedor1">
-        <img src="../images/comprar.png" alt="">
-        <div class="descripcion">
-        Aqui podras realizar la compra de tus biodigestores. <span class="span2">¡Puedes tener hasta 5 de ellos!</span>  mirar estadisticas, alarmas y <span class="span1">muchas cosas más</span>
-        </div>
-    </div>
-    <div class="contenedor1">
-        <img src="../images/monitorear.png" alt="">
-        <div class="descripcion">
-        <span class="span2">¿Y sabes qué es lo más emocionante?</span> ¡Todo lo podras realizar al alcance de unos pocos clicks! Contamos con un gran equipo que estará presente para darte la mano. <span class="span1">¡Vamos a ello!</span>
-        </div>
-    </div>
+
+<div class="contenedor_grafico">
+    <div id="container"></div>
 </div>
+
+<script>
+    Highcharts.chart('container', {
+    chart: {
+        type: 'column'
+    },
+    title: {
+        text: 'Ultimos 5 datos medidos'
+    },
+    subtitle: {
+        text: 'Biodigestor: <?php echo $id_biodigestor?>'
+    },
+    xAxis: {
+        categories: [
+            <?php
+                $sql = "SELECT * FROM datos_medidos WHERE ID_BIODIGESTOR = $id_biodigestor LIMIT 5";
+                $result = mysqli_query($conectar, $sql);
+                while($mostrar = mysqli_fetch_array($result)){
+
+            ?>
+                '<?php echo $mostrar['FECHA_LECTURA']?> <?php echo $mostrar['HORA_LECTURA'] ?>',
+            <?php
+                }
+            ?>
+        ],
+        crosshair: true
+    },
+    yAxis: {
+        min: 0,
+        title: {
+            text: 'Volumen'
+        }
+    },
+    tooltip: {
+        headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+        pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+            '<td style="padding:0"><b>{point.y:.1f} mm</b></td></tr>',
+        footerFormat: '</table>',
+        shared: true,
+        useHTML: true
+    },
+    plotOptions: {
+        column: {
+            pointPadding: 0.3,
+            borderWidth: 0
+        }
+    },
+    series: [{
+        name: 'Temperatura' ,
+        data: [
+
+            <?php
+                $sql2 = "SELECT * FROM datos_medidos WHERE ID_BIODIGESTOR = $id_biodigestor LIMIT 5";
+                $result2 = mysqli_query($conectar, $sql2);
+                while($mostrar2 = mysqli_fetch_array($result2)){
+
+            ?>
+                <?php echo $mostrar2['TEMPERATURA'] ?>,
+            <?php
+                }
+
+            ?>
+
+        ]
+
+    }, {
+        name: 'Humedad',
+        data: [
+            <?php
+                $sql3 = "SELECT * FROM datos_medidos WHERE ID_BIODIGESTOR = $id_biodigestor LIMIT 5";
+                $result3 = mysqli_query($conectar, $sql3);
+                while($mostrar3 = mysqli_fetch_array($result3)){
+
+            ?>
+                <?php echo $mostrar3['HUMEDAD'] ?>,
+            <?php
+                }
+
+            ?>
+
+        ]
+
+    }]
+});
+</script>
+
+
+
 
 
 <!-- AGREGAR PARTICULAS -->
 <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+
 <script src="../js/app.js"></script>
 
 <!-- SCRIPT MENU LATERAL-->
@@ -233,10 +307,6 @@
        menu.classList.toggle("menu-collapsed");
 
     });
-
-
-
-
 </script>
 </body>
 </html>

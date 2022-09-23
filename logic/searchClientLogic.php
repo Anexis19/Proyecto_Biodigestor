@@ -15,7 +15,7 @@
 
     $mysqli = new mysqli("localhost", "root", "","db_biodigester");
     $salida     = "";
-    $query      = "SELECT * FROM users WHERE TIPO_USUARIO = 'Cliente' ORDER BY NUM_REGISTRO";
+    $query      = "SELECT * FROM users EXCEPT SELECT * FROM users WHERE TIPO_USUARIO = 'Admin'  ORDER BY NUM_REGISTRO";
 
     if (isset($_POST['consulta'])){
 

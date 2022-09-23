@@ -34,3 +34,16 @@ h3{
     background-color: #35A6A0;
     color: white;
 }
+.contenedor_select_dts{
+    margin-bottom: 40px;
+}
+.contenedor_tabla{
+    font-size: 13px;
+}
+.tabla_dts th {
+    background-color: #35A6A0;
+}
+.tabla_dts td, th{
+    border: 1px solid;
+    border-radius: 5px;
+}

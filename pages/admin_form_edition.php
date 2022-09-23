@@ -259,6 +259,7 @@
                     <p>DEPARTAMENTO:</p>
                     <p>MUNICIPIO:</p>
                     <p>CELULAR:</p>
+                    <p>TIPO DE USUARIO:</p>
                 </div>
                 <div class="contenedor_datos_col2">
                     <p> <?php echo $mostrar['ID']           ?></p>
@@ -269,6 +270,7 @@
                     <p> <?php echo $mostrar['DEPARTAMENTO'] ?></p>
                     <p> <?php echo $mostrar['MUNICIPIO']    ?></p>
                     <p> <?php echo $mostrar['CELLPHONE']    ?></p>
+                    <p> <?php echo $mostrar['TIPO_USUARIO'] ?></p>
                 </div>
             </div>
 

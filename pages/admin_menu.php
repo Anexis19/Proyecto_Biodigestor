@@ -108,7 +108,7 @@
         <div id="menu-items">
 
             <div class="item">
-                <a href="#">
+                <a href="../index.php">
                     <div class="icon"><img src="../images/home.png" alt=""></div>
                     <div class="title"><span>Menu Principal</span></div>
 
@@ -120,7 +120,7 @@
                 </div>
 
             <div class="item">
-                <a href="#">
+                <a href="admin_estadisticas.php">
                     <div class="icon"><img src="../images/stadistics.png" alt=""></div>
                     <div class="title"><span>Estadisticas</span></div>
 

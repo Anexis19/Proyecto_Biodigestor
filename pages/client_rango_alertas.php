@@ -195,7 +195,7 @@
 <div class="contenedor_rango">
     <div class="contenedor_formR">
         <form action="../logic/client_rango_alertasLogic.php" method="POST">
-            <div>
+            <div class="contenedor_select_dts">
                 Seleccione el biodigestor para asignar el rango de datos
                 <select name="select_biodigestor" >
 
@@ -207,49 +207,61 @@
 
                     ?>
                     <option value="<?php echo $mostrar['ID_BIODIGESTOR']?>"><?php echo $mostrar['ID_BIODIGESTOR']?></option>
+
                     <?php
-
-
-
+                        }
                     ?>
 
                 </select>
             </div>
-
+            DATOS ACTUALES
             <?php
-                $id_biodigestor2 = $mostrar['ID_BIODIGESTOR'];
-
-                $sql_rango = "SELECT * FROM datos_maximos INNER JOIN biodigestor
-                ON datos_maximos.ID_BIODIGESTOR = biodigestor.ID_BIODIGESTOR
-                WHERE biodigestor.ID_USUARIO = '$id_cliente' AND biodigestor.ID_BIODIGESTOR = '$id_biodigestor2' ";
-                $result_rango = mysqli_query($conectar, $sql_rango);
-                while($mostrar2 = mysqli_fetch_assoc($result_rango)){
-
-
+                $sql2 = "SELECT * FROM datos_maximos INNER JOIN biodigestor
+                ON datos_maximos.ID_BIODIGESTOR = biodigestor.ID_BIODIGESTOR WHERE biodigestor.ID_USUARIO = $id_cliente
+                ORDER BY datos_maximos.ID_BIODIGESTOR ASC";
+                $result2 = mysqli_query($conectar,$sql2);
+                while($mostrar2 = mysqli_fetch_array($result2)){
             ?>
-
+            <div class="contenedor_tabla">
+                <table class="tabla_dts">
+                    <tr>
+                        <th>ID</th>
+                        <th>TEMPERATURA MAXIMA</th>
+                        <th>TEMPERATURA MINIMA</th>
+                        <th>HUMEDAD MAXIMA</th>
+                        <th>HUMEDAD MINIMA</th>
+                    </tr>
+                    <tr>
+                        <td><?php echo $mostrar2['ID_BIODIGESTOR'] ?></td>
+                        <td><?php echo $mostrar2['TEMP_MAX'] ?></td>
+                        <td><?php echo $mostrar2['TEMP_MIN'] ?></td>
+                        <td><?php echo $mostrar2['HUMEDAD_MAX'] ?></td>
+                        <td><?php echo $mostrar2['HUMEDAD_MIN'] ?></td>
+                    </tr>
+                </table>
+            </div>
+            <?php
+                }
+            ?>
             <div class="contenedor_opciones">
                 <h3>Rango de Temperatura</h3>
                 <div class="contenedor_temp">
                     <label for="temp_max">Temperatura Maxima</label>
-                    <input type="number" name="temp_max" min="50" max="99" required placeholder="<?php echo $mostrar2['TEMP_MAX']?>">
+                    <input type="number" name="temp_max" min="50" max="99" required placeholder="">
                     <label for="temp_min">Temperatura Minima</label>
-                    <input type="number" name="temp_min" min="0" max="15" required placeholder="<?php echo $mostrar2['TEMP_MIN']?>">
+                    <input type="number" name="temp_min" min="0" max="15" required placeholder="">
                 </div>
             </div>
             <div class="contenedor_opciones">
                 <h3>Rango de Humedad</h3>
                 <div class="contenedor_hum">
                     <label for="hum_max">Temperatura Maxima</label>
-                    <input type="number" name="hum_max" min="50" max="99" required placeholder="<?php echo $mostrar2['HUMEDAD_MAX']?>">
+                    <input type="number" name="hum_max" min="50" max="99" required placeholder="">
                     <label for="hum_min">Temperatura Minima</label>
-                    <input type="number" name="hum_min" min="0" max="15" required placeholder="<?php echo $mostrar2['HUMEDAD_MIN']?>">
+                    <input type="number" name="hum_min" min="0" max="15" required placeholder="">
                 </div>
             </div>
-            <?php
-                    }
-                }
-            ?>
+
 
             <button class="btn_guardar" type="submit">GUARDAR</button>
 
